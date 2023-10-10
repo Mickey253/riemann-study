@@ -18,6 +18,7 @@
 
 {% block scripts %}
 {{ super() }}
+<script src="{{url_for('static', filename='js/euclideanVis.js')}}"></script>
 <script>
     var ready = (callback) => {
         if (document.readyState != "loading") callback();
@@ -26,6 +27,9 @@
 
     ready(() => { 
         var data = {{data | tojson}};
+        let vis = new EuclideanVis("#mainVis", data.nodes, data.links);
+        vis.process();
+        vis.draw();
 
     });
 

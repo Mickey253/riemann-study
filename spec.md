@@ -33,7 +33,7 @@ The survey pages must track
 - answers to questions
 - time spent on page
 - number of times each interaction is used (panning, dblclick, etc.)
-- 
+- keep a log of interactions
 
 ## Euclidean requirements
 
