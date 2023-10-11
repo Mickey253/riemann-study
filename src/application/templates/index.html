@@ -8,6 +8,10 @@
         </div>
         <div class="col-9" id="visualization-container">
             This is the visualization container. 
+            <form action="{{ url_for('user_index_form', id=id) }}">
+                <input type="text" id="input-id" name="id" label="Enter ID" placeholder="ID">
+                <button type="submit">Submit</button>
+            </form>
             <svg id="mainVis"></svg>
         </div>
         </div>
