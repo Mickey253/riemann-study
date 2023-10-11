@@ -1,6 +1,7 @@
 from flask import jsonify, render_template, request, redirect, url_for
 from application import app
 from werkzeug.utils import secure_filename
+import json
 
 euc_users = ["E1", "E2", "E3"]
 sph_users = ["S1", "S2", "S3"]
@@ -9,7 +10,9 @@ hyp_users = ["H1", "H2", "H3"]
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='template', data=None)
+    with open("src/application/data/test-graph-0.json", 'r') as fdata:
+        gdata = json.load(fdata)
+    return render_template('index.html', title='template', data=gdata)
 
 
 @app.route('/about')
