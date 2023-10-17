@@ -4,11 +4,13 @@
 <div class="container-fluid" id="main-body">
        <div class="row" id="main">
         <div class="col-3" id="sidebar">
-            User ID: {{id}}
-            <a href></a>
+            User ID: {{id}} <br>
+            Question ID: {{q_id}}
+            <div id="question"></div>
+            <form id="question-options">
+            </form>
         </div>
         <div class="col-9" id="visualization-container">
-            This is the visualization container. 
             <svg id="mainVis"></svg>
         </div>
         </div>
@@ -19,7 +21,9 @@
 
 {% block scripts %}
 {{ super() }}
+<script src="{{url_for('static', filename='js/euclideanVis.js')}}"></script>
 <script>
+    
     var ready = (callback) => {
         if (document.readyState != "loading") callback();
         else document.addEventListener("DOMContentLoaded", callback);
@@ -27,6 +31,34 @@
 
     ready(() => { 
         var data = {{data | tojson}};
+        var questionID = "{{q_id}}";
+        let vis = new EuclideanVis("#mainVis", data.nodes, data.links);
+        vis.process();
+        vis.draw();
+        question = document.getElementById("question")
+        answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]
+        if (questionID) {
+            question.textContent = "Sample Question"
+            questionChoices = document.getElementById("question-options")
+            for (var i = 0; i < answers.length; i++) {
+                var parentChoices = document.createElement("div")
+                parentChoices.className = "option-container"
+                var answerNode = document.createElement("input")
+                var answerText = document.createElement("label")
+                answerNode.setAttribute("type", "radio")
+                answerNode.setAttribute('id', answers[i])
+                answerNode.setAttribute('name', "answers")
+                answerText.setAttribute('for', answers[i])
+                answerText.textContent = answers[i]
+                parentChoices.appendChild(answerNode);
+                parentChoices.appendChild(answerText);
+                questionChoices.appendChild(parentChoices);
+            }
+            var submitButton = document.createElement("input")
+            submitButton.setAttribute("type", "submit")
+            submitButton.setAttribute("id", "submit-button")
+            questionChoices.appendChild(submitButton);
+        }
 
     });
 

@@ -8,6 +8,7 @@
         </div>
         <div class="col-9" id="visualization-container">
             This is the visualization container. 
+            IDs are E1, E2, E3 for euclidean and S1, ... and H1, ... for spherical and hyperbolic respectively.
             <form action="{{ url_for('user_index_form', id=id) }}">
                 <input type="text" id="input-id" name="id" label="Enter ID" placeholder="ID">
                 <button type="submit">Submit</button>
@@ -22,7 +23,7 @@
 
 {% block scripts %}
 {{ super() }}
-<script src="{{url_for('static', filename='js/euclideanVis.js')}}"></script>
+<!-- <script src="{{url_for('static', filename='js/euclideanVis.js')}}"></script>
 <script>
     var ready = (callback) => {
         if (document.readyState != "loading") callback();
@@ -37,5 +38,5 @@
 
     });
 
-</script>
+</script> -->
 {% endblock %}

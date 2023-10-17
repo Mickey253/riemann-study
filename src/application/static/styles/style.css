@@ -30,3 +30,59 @@
     width:100%;
 }
 
+#question {
+    margin-top: 2%;
+    font-weight: 500;
+}
+
+.option-container {
+    display: inline;
+}
+
+.option-container > * {
+    margin: 0.2em;
+}
+
+#question-options {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+#submit-button {
+  background-color: #000000;
+  width: 20%;
+  margin: 5%;
+  border: 0;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .75rem 1rem;
+  text-align: center;
+  text-decoration: none #5b5d5f solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.466), 0 1px 2px 0 rgba(255, 255, 255, 0.651);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: all 0.1s ease;
+}
+
+#submit-button:hover {
+  background-color: rgb(27, 27, 27);
+}
+
+#submit-button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+#submit-button:focus-visible {
+  box-shadow: none;
+}

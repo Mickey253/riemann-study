@@ -10,9 +10,7 @@ hyp_users = ["H1", "H2", "H3"]
 @app.route('/')
 @app.route('/index')
 def index():
-    with open("src/application/data/test-graph-0.json", 'r') as fdata:
-        gdata = json.load(fdata)
-    return render_template('index.html', title='template', data=gdata)
+    return render_template('index.html', title='template', data=None)
 
 
 @app.route('/about')
@@ -23,21 +21,23 @@ def about():
 def euc_view():
     id = request.args.get('id')
     if id in euc_users:
-        return render_template("visualization.html", title='Euclidean', data=None, id=id)
+        with open("src/application/data/test-graph-0.json", 'r') as fdata:
+            gdata = json.load(fdata)
+        return render_template("visualization.html", title='Euclidean', data=gdata, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
 @app.route('/spherical/homepage') 
 def sph_view():
     id = request.args.get('id')
     if id in sph_users:
-        return render_template("visualization.html", title='Spherical', data=None, id=id)
+        return render_template("visualization.html", title='Spherical', data=None, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
 @app.route('/hyperbolic/homepage') 
 def hyp_view():
     id = request.args.get('id')
     if id in hyp_users:
-        return render_template("visualization.html", title='Hyperbolic', data=None, id=id)
+        return render_template("visualization.html", title='Hyperbolic', data=None, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
 @app.route('/index/<id>')
