@@ -52,8 +52,10 @@ class EuclideanVis {
                     .attr("x2", d => d.target.x)
                     .attr("y2", d => d.target.y), 
                 update => update, 
-                exit => exit
-        );
+                exit => exit)
+            .attr("id", d => {
+                return "link_" + d.source.id + "_" + d.target.id;
+            });
 
         this.layer1.selectAll(".nodes")
             .data(this.nodes, d => d.id)
@@ -67,7 +69,53 @@ class EuclideanVis {
                     .attr("r", this.#nodeRadiusLarge),
                 update => update, 
                 exit => exit 
-        );
+            )
+            .attr("id", d => {
+                return "node_" + d.id;
+            });
+    }
+
+    interact(){
+        let zoom = d3.zoom()
+	        .on('zoom', (e) => {
+                this.svg
+		            .attr('transform', e.transform);
+            });
+        this.svg
+            .call(zoom);
+        
+        this.layer1.selectAll(".nodes")
+            .on("click", (e, d) => {
+                console.log(d.id);
+            })
+            .on("mouseenter", (e, d) => {
+                for (let i = 0; i < this.links.length; i++) {
+                    d3.select("#node_" + d.id)
+                        .attr("fill", this.#colors[2]);
+                    
+                        if (this.links[i].source.id == d.id) {
+                        d3.select("#node_" + this.links[i].target.id)
+                            .attr("fill", this.#colors[1]);
+                        
+                        d3.select("#link_" + this.links[i].source.id + "_" + this.links[i].target.id)
+                            .attr("stroke-width", 4);
+                    }
+                    if (this.links[i].target.id == d.id) {
+                        d3.select("#node_" + this.links[i].source.id)
+                            .attr("fill", this.#colors[1]);
+                        
+                        d3.select("#link_" + this.links[i].source.id + "_" + this.links[i].target.id)
+                            .attr("stroke-width", 4);
+                    }
+                }
+            })
+            .on("mouseleave", (e, d) => {
+                this.layer1.selectAll(".nodes")
+                    .attr("fill", this.#colors[0]);
+                
+                this.layer1.selectAll(".links")
+                    .attr("stroke-width", 2);
+            });
     }
 
 }

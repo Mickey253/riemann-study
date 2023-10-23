@@ -35,6 +35,7 @@
         let vis = new EuclideanVis("#mainVis", data.nodes, data.links);
         vis.process();
         vis.draw();
+        vis.interact();
         question = document.getElementById("question")
         answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]
         if (questionID) {
