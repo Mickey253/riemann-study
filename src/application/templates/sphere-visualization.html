@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .graticules {
+      stroke: grey;
+      stroke-width: .2;
+      fill: none;
+    }
+</style>
+
+<div class="container-fluid" id="main-body">
+       <div class="row" id="main">
+        <div class="col-3" id="sidebar">
+            User ID: {{id}} <br>
+            Question ID: {{q_id}}
+            <div id="question"></div>
+            <form id="question-options">
+            </form>
+        </div>
+        <div class="col-9" id="visualization-container">
+            <svg id="mainVis"></svg>
+        </div>
+        </div>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{url_for('static', filename='js/sphericalVis.js')}}"></script>
+<script>
+    
+    var ready = (callback) => {
+        if (document.readyState != "loading") callback();
+        else document.addEventListener("DOMContentLoaded", callback);
+      }
+
+    ready(() => { 
+        var data = {{data | tojson}};
+        var questionID = "{{q_id}}";
+        let vis = new SphericalVis("#mainVis", data.nodes, data.links);
+        vis.addProjection();
+        vis.draw();
+        
+
+    });
+
+</script>
+{% endblock %}
