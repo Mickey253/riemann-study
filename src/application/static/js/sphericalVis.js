@@ -93,8 +93,8 @@ class SphericalVis {
             return obj;
           } );
        
-        this.points = points;
-        this.lines = edges;
+        this.nodePos = points;
+        this.linkRoutes = edges;
 
     }
 
@@ -104,31 +104,30 @@ class SphericalVis {
         this.svg.append('g')
             .selectAll('.graticules')
             .data([this.graticule()])
-            .enter()
-            .append('path')
-            .attr("class", "graticules")
-            .attr('d', this.geopath);
+            .join(
+                enter => enter.append("path")
+                        .attr("class", "graticules")
+                        .attr("d", this.geopath)
+            );
       
         this.svg.append('g')
-            .attr('class', 'links')
-            .selectAll('path')
-            .data(this.lines)
-            .enter()
-            .append('path')
-            .attr('d', this.geopath);
+            .selectAll(".links")
+            .data(this.linkRoutes)
+            .join(
+                enter => enter.append("path")
+                    .attr("class", "links")
+                    .attr("d", this.geopath)
+            );
       
         this.svg.append('g')
             .attr('class', 'sites')
             .selectAll('path')
-            .data(this.points.features)
+            .data(this.nodePos.features)
             .join(
-              enter => enter.append('path')
-              .attr('d', this.geopath)
-              .attr('fill', "lightblue")
-              .attr('stroke', "black"),
-      
-              update => update.transition(t)
-                .attr('d',this.geopath)
+                enter => enter.append('path')
+                    .attr('d', this.geopath)
+                    .attr('fill', "lightblue")
+                    .attr('stroke', "black")
             );        
     }
 

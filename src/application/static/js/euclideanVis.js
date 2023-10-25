@@ -7,16 +7,8 @@ class EuclideanVis {
 
     constructor(svgID, nodes, links) {
         this.svg = d3.select(svgID);
-        this.nodes = nodes;
-        this.links = links;
-
-        //Easier to work with links when source and target props are actual objects and not str ids. 
-        let idMap = new Map();
-        this.nodes.forEach(d => idMap.set(d.id, d));
-        this.links.forEach(e => {
-            e.source = idMap.get(e.source);
-            e.target = idMap.get(e.target);
-        });
+        
+        [this.nodes, this.links, this.idMap] = initGraph(nodes,links);
 
         this.layer1 = this.svg.append("g");
         this.width = this.svg.node().getBoundingClientRect().width;
