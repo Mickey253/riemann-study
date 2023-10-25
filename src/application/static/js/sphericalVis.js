@@ -1,13 +1,10 @@
 function rad2deg(r){
     return r * 180/Math.PI;
 }
-function rad2deg_arr(arr){
-    return [rad2deg( arr[0] ), rad2deg( arr[1] )]
-}
 function deg2rad(d){
     return d * Math.PI/180;
 }
-  
+
 class SphericalVis {
     #nodeRadiusLarge = 3;
     #nodeRadiusSmall = 1;
@@ -21,15 +18,7 @@ class SphericalVis {
         this.width = this.svg.node().getBoundingClientRect().width;
         this.height = this.svg.node().getBoundingClientRect().height;        
 
-        this.nodes = nodes;
-        this.links = links;
-        let idMap = new Map();
-        this.nodes.forEach(d => idMap.set(d.id, d));
-        this.links.forEach(e => {
-            e.source = idMap.get(e.source);
-            e.target = idMap.get(e.target);
-        });
-
+        [this.nodes, this.links, this.idMap] = initGraph(nodes,links);
 
         //Sphere variables
         this.geopath = null;
@@ -94,13 +83,20 @@ class SphericalVis {
           })
         }
         
-        console.log(points);
-        
-        edges = this.links.map( (e,i) => {
-            return {type: "LineString", coordinates: [ rad2deg_arr( G.nodes[index_map[val.source]].pos ), rad2deg_arr( G.nodes[index_map[val.target]].pos ) ] }
-          } )
-                
-      }
+        let edges = this.links.map( (e,i) => {
+            let src = points.features[this.idMap.get(e.source.id)];
+            let tgt = points.features[this.idMap.get(e.target.id)];
+            let obj = {
+                "type": "LineString", 
+                "coordinates": [src.geometry.coordinates, tgt.geometry.coordinates]
+            }
+            return obj;
+          } );
+       
+        this.points = points;
+        this.lines = edges;
+
+    }
 
 
     draw(){
@@ -112,73 +108,28 @@ class SphericalVis {
             .append('path')
             .attr("class", "graticules")
             .attr('d', this.geopath);
-        
       
+        this.svg.append('g')
+            .attr('class', 'links')
+            .selectAll('path')
+            .data(this.lines)
+            .enter()
+            .append('path')
+            .attr('d', this.geopath);
       
-        // let mylinks = svg.append('g')
-        //     .attr('class', 'links')
-        //     .selectAll('path')
-        //     .data(edges)
-        //     .enter()
-        //     .append('path')
-        //     .attr('d', path);
+        this.svg.append('g')
+            .attr('class', 'sites')
+            .selectAll('path')
+            .data(this.points.features)
+            .join(
+              enter => enter.append('path')
+              .attr('d', this.geopath)
+              .attr('fill', "lightblue")
+              .attr('stroke', "black"),
       
-      
-        // svg.append('g')
-        //     .attr('class', 'sites')
-        //     .selectAll('path')
-        //     .data(points.features)
-        //     .join(
-        //       enter => enter.append('path')
-        //       .attr('d', path)
-        //       .attr('fill', d => {
-        //         console.log(d)
-        //         return d.geometry.class ? state.clr_map[d.geometry.class] : null
-        //       }),
-      
-        //       update => update.transition(t)
-        //         .attr('d',path)
-        //     );        
-    }
-    
-
-    test(){
-        var projection = d3.geoOrthographic(),
-        path = d3.geoPath().projection(projection)
-        //.pointRadius(d => 1)
-        console.log(path)
-          //.attr('transform', 0);
-    state.projection = projection
-    state.path = path
-    state.projection.rotate([0, 0,90])
-  
-  
-    // zoom AND rotate
-     svg.call(d3.zoom().on('zoom', zoomed));
-  
-     // code snippet from http://stackoverflow.com/questions/36614251
-     state.lambda = d3.scaleLinear()
-       .domain([-width, width])
-       .range([-180, 180])
-  
-     state.phi = d3.scaleLinear()
-       .domain([-height, height])
-       .range([90, -90]);
-  
-    state.clr_map = ["#179d17","#68dca4","#f21011","#7eefda","#0302f3","#b87676","#ea86e8","#f8b22d","#e9e889","#b53e3e", "#a316fb", "#e6855b", "#e9ea1f"]
-  
-    let s_height = document.querySelector('#div1').offsetHeight /2
-    let s_width = document.querySelector('#div1').offsetWidth /2
-  
-    svg.append('path')
-        .attr('id', 'sphere')
-        .datum({ type: "Sphere" })
-        .attr('d', path);
-  
-    state.svg = svg
-  
-    state.lines = d3.geoGraticule().step([10, 10]);
-    state.t = d3.transition().duration(750)        
+              update => update.transition(t)
+                .attr('d',this.geopath)
+            );        
     }
 
 }
