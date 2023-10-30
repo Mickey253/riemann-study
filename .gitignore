@@ -1,9 +1,12 @@
 TODO
 gen_graphs.py
 
+.conda/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.pyc
 *.py[cod]
 *$py.class
 

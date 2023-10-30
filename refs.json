@@ -1,0 +1,40 @@
+[{
+    "
+    @inproceedings{sala2018representation,
+    author    = {Frederic Sala and
+                Christopher De Sa and
+                Albert Gu and
+                Christopher R{\'{e}}},
+    @editor    = {Jennifer G. Dy and
+                Andreas Krause},
+    title     = {Representation Tradeoffs for Hyperbolic Embeddings},
+    booktitle = {Proceedings of the 35th International Conference on Machine Learning},
+    IGNORE = {
+                {ICML} 2018, Stockholmsm{\"{a}}ssan, Stockholm, Sweden, July
+                10-15, 2018},
+    series    = {Proceedings of Machine Learning Research},
+    volume    = {80},
+    pages     = {4457--4466},
+    publisher = {{PMLR}},
+    year      = {2018},
+    @url       = {http://proceedings.mlr.press/v80/sala18a.html},
+    timestamp = {Wed, 03 Apr 2019 18:17:30 +0200},
+    biburl    = {https://dblp.org/rec/conf/icml/SalaSGR18.bib},
+    bibsource = {dblp computer science bibliography, https://dblp.org}
+  "
+},
+{
+  "
+    @article{krioukov2010hyperbolic,
+  title={Hyperbolic geometry of complex networks},
+  author={Krioukov, Dmitri and Papadopoulos, Fragkiskos and Kitsak, Maksim and Vahdat, Amin and Bogun{\'a}, Mari{\'a}n},
+  journal={Physical Review E},
+  volume={82},
+  number={3},
+  pages={036106},
+  year={2010},
+  publisher={APS}
+  "
+}
+}
+]

@@ -30,7 +30,9 @@ def euc_view():
 def sph_view():
     id = request.args.get('id')
     if id in sph_users:
-        return render_template("visualization.html", title='Spherical', data=None, id=id, q_id="N/A")
+        with open("src/application/data/sphere-test.json", 'r') as fdata:
+            gdata = json.load(fdata)
+        return render_template("sphere-visualization.html", title='Spherical', data=gdata, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
 @app.route('/hyperbolic/homepage') 
