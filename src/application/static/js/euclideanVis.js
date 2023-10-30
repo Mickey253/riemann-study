@@ -78,7 +78,7 @@ class EuclideanVis {
     interact(){
         let zoom = d3.zoom()
 	        .on('zoom', (e) => {
-                this.svg
+                this.layer1
 		            .attr('transform', e.transform);
             });
         this.svg
