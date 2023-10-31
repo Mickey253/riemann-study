@@ -6,8 +6,8 @@
         <div class="col-3" id="sidebar">
             User ID: {{id}} <br>
             Question ID: {{q_id}}
-            <div id="question"></div>
-            <form id="question-options">
+            <div id="question-euc"></div>
+            <form id="question-options-euc">
             </form>
         </div>
         <div class="col-9" id="visualization-container">
@@ -35,11 +35,12 @@
         let vis = new EuclideanVis("#mainVis", data.nodes, data.links);
         vis.process();
         vis.draw();
-        question = document.getElementById("question")
+        vis.interact();
+        question = document.getElementById("question-euc")
         answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]
         if (questionID) {
             question.textContent = "Sample Question"
-            questionChoices = document.getElementById("question-options")
+            questionChoices = document.getElementById("question-options-euc")
             for (var i = 0; i < answers.length; i++) {
                 var parentChoices = document.createElement("div")
                 parentChoices.className = "option-container"

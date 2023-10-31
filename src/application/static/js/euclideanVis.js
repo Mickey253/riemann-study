@@ -6,6 +6,7 @@ class EuclideanVis {
     #margin = {top: 15, bottom: 15, left:15, right:15};
 
     constructor(svgID, nodes, links) {
+        this.svgID = svgID.substring(1);
         this.svg = d3.select(svgID);
         
         [this.nodes, this.links, this.idMap] = initGraph(nodes,links);
@@ -44,8 +45,10 @@ class EuclideanVis {
                     .attr("x2", d => d.target.x)
                     .attr("y2", d => d.target.y), 
                 update => update, 
-                exit => exit
-        );
+                exit => exit)
+            .attr("id", d => {
+                return "link_" + d.source.id + "_" + d.target.id;
+            });
 
         this.layer1.selectAll(".nodes")
             .data(this.nodes, d => d.id)
@@ -59,7 +62,65 @@ class EuclideanVis {
                     .attr("r", this.#nodeRadiusLarge),
                 update => update, 
                 exit => exit 
-        );
+            )
+            .attr("id", d => {
+                return "node_" + d.id;
+            });
+    }
+
+    interact(){
+        let zoom = d3.zoom()
+	        .on('zoom', (e) => {
+                this.layer1
+		            .attr('transform', e.transform);
+            });
+        this.svg
+            .call(zoom);
+          
+        d3.select("svg").on("dblclick.zoom", null);
+        this.svg.on("dblclick", (e) => {
+            console.log(e.x);
+            // console.log(e.y);
+            
+            
+            // Calculate the center of the point.
+            var svgWidth = 930.75;
+            var svgHeight = 793.80;
+            var centerX = svgWidth - e.x;
+            var centerY = svgHeight - e.y;
+            // Translate the SVG group to the center of the point.
+            this.layer1.attr("transform", "translate(" + centerX/2 + ", " + centerY/2 + ")");
+        })  
+
+        this.layer1.selectAll(".nodes")
+            .on("mouseenter", (e, d) => {
+                for (let i = 0; i < this.links.length; i++) {
+                    d3.select("#node_" + d.id)
+                        .attr("fill", this.#colors[2]);
+                    
+                        if (this.links[i].source.id == d.id) {
+                        d3.select("#node_" + this.links[i].target.id)
+                            .attr("fill", this.#colors[1]);
+                        
+                        d3.select("#link_" + this.links[i].source.id + "_" + this.links[i].target.id)
+                            .attr("stroke-width", 4);
+                    }
+                    if (this.links[i].target.id == d.id) {
+                        d3.select("#node_" + this.links[i].source.id)
+                            .attr("fill", this.#colors[1]);
+                        
+                        d3.select("#link_" + this.links[i].source.id + "_" + this.links[i].target.id)
+                            .attr("stroke-width", 4);
+                    }
+                }
+            })
+            .on("mouseleave", (e, d) => {
+                this.layer1.selectAll(".nodes")
+                    .attr("fill", this.#colors[0]);
+                
+                this.layer1.selectAll(".links")
+                    .attr("stroke-width", 2);
+            });
     }
 
 }
