@@ -128,7 +128,32 @@ class SphericalVis {
                     .attr('d', this.geopath)
                     .attr('fill', "lightblue")
                     .attr('stroke', "black")
-            );        
+            );
+            // .attr("id", d => {
+            //     return "sph_node_" + d;
+            // });        
+    }
+
+    interact() {
+        // this.svg.selectAll("path")
+        //     .on("mouseenter", (e, d) => {
+        //         console.log(d);
+        //         d3.select("#sph_node_" + d.d)
+        //             .attr("fill", this.#colors[2]);
+                    
+        //             // if (this.links[i].source.id == d.id) {
+        //             //     d3.select("#graticule_" + this.links[i].target.id)
+        //             //         .attr("fill", this.#colors[1]);
+        //             // }
+        //             // if (this.links[i].target.id == d.id) {
+        //             //     d3.select("#node_" + this.links[i].source.id)
+        //             //         .attr("fill", this.#colors[1]);
+        //             // }
+        //     })
+        //     .on("mouseleave", (e, d) => {
+        //         this.layer1.selectAll(".sites")
+        //             .attr("fill", this.#colors[0]);
+        //     });
     }
 
 }

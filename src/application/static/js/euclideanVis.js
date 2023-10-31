@@ -6,6 +6,7 @@ class EuclideanVis {
     #margin = {top: 15, bottom: 15, left:15, right:15};
 
     constructor(svgID, nodes, links) {
+        this.svgID = svgID.substring(1);
         this.svg = d3.select(svgID);
         
         [this.nodes, this.links, this.idMap] = initGraph(nodes,links);
@@ -75,11 +76,23 @@ class EuclideanVis {
             });
         this.svg
             .call(zoom);
-        
+          
+        d3.select("svg").on("dblclick.zoom", null);
+        this.svg.on("dblclick", (e) => {
+            console.log(e.x);
+            // console.log(e.y);
+            
+            
+            // Calculate the center of the point.
+            var svgWidth = 930.75;
+            var svgHeight = 793.80;
+            var centerX = svgWidth - e.x;
+            var centerY = svgHeight - e.y;
+            // Translate the SVG group to the center of the point.
+            this.layer1.attr("transform", "translate(" + centerX/2 + ", " + centerY/2 + ")");
+        })  
+
         this.layer1.selectAll(".nodes")
-            .on("click", (e, d) => {
-                console.log(d.id);
-            })
             .on("mouseenter", (e, d) => {
                 for (let i = 0; i < this.links.length; i++) {
                     d3.select("#node_" + d.id)
