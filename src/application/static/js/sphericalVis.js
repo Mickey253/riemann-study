@@ -120,7 +120,7 @@ class SphericalVis {
             );
       
         this.svg.append('g')
-            .selectAll('path')
+            .selectAll('.sites')
             .data(this.nodePos.features)
             .join(
                 enter => enter.append('path')
@@ -141,7 +141,8 @@ class SphericalVis {
                 // d3.select("#sph_node_" + d.d)
                 //     .attr("fill", this.#colors[2]);
 
-                d3.select(this)
+                d3.select(this) //Functions defined with the "function" syntax have their own scope so "this" inside of them refers to the object that called the function; 
+                                //In this case, the svg path of a node. Whereas anonomous functions defined by () => {} retain their scope so "this" would refer to the parent class.
                     .attr("fill", "orange")
                     
                     // if (this.links[i].source.id == d.id) {

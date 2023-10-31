@@ -42,7 +42,7 @@ def hyp_view():
         return render_template("visualization.html", title='Hyperbolic', data=None, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
-@app.route('/index/<id>')
+@app.route('/<id>')
 def user_index(id):
     if id in euc_users:
         return redirect(url_for("euc_view", id=id))
