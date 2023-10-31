@@ -120,11 +120,11 @@ class SphericalVis {
             );
       
         this.svg.append('g')
-            .attr('class', 'sites')
             .selectAll('path')
             .data(this.nodePos.features)
             .join(
                 enter => enter.append('path')
+                    .attr("class", "sites")
                     .attr('d', this.geopath)
                     .attr('fill', "lightblue")
                     .attr('stroke', "black")
@@ -135,25 +135,28 @@ class SphericalVis {
     }
 
     interact() {
-        // this.svg.selectAll("path")
-        //     .on("mouseenter", (e, d) => {
-        //         console.log(d);
-        //         d3.select("#sph_node_" + d.d)
-        //             .attr("fill", this.#colors[2]);
+        this.svg.selectAll(".sites")
+            .on("mouseenter", function(e,d)  {
+                // console.log(d);
+                // d3.select("#sph_node_" + d.d)
+                //     .attr("fill", this.#colors[2]);
+
+                d3.select(this)
+                    .attr("fill", "orange")
                     
-        //             // if (this.links[i].source.id == d.id) {
-        //             //     d3.select("#graticule_" + this.links[i].target.id)
-        //             //         .attr("fill", this.#colors[1]);
-        //             // }
-        //             // if (this.links[i].target.id == d.id) {
-        //             //     d3.select("#node_" + this.links[i].source.id)
-        //             //         .attr("fill", this.#colors[1]);
-        //             // }
-        //     })
-        //     .on("mouseleave", (e, d) => {
-        //         this.layer1.selectAll(".sites")
-        //             .attr("fill", this.#colors[0]);
-        //     });
+                    // if (this.links[i].source.id == d.id) {
+                    //     d3.select("#graticule_" + this.links[i].target.id)
+                    //         .attr("fill", this.#colors[1]);
+                    // }
+                    // if (this.links[i].target.id == d.id) {
+                    //     d3.select("#node_" + this.links[i].source.id)
+                    //         .attr("fill", this.#colors[1]);
+                    // }
+            })
+            .on("mouseleave", (e, d) => {
+                this.layer1.selectAll(".sites")
+                    .attr("fill", this.#colors[0]);
+            });
     }
 
 }

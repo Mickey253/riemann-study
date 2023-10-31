@@ -81,11 +81,14 @@ class EuclideanVis {
         this.svg.on("dblclick", (e) => {
             console.log(e.x);
             // console.log(e.y);
+            let searchWidth = this.svg.node().getBoundingClientRect().width;
             
             
             // Calculate the center of the point.
-            var svgWidth = 930.75;
-            var svgHeight = 793.80;
+            // var svgWidth = 930.75;
+            // var svgHeight = 793.80;
+            var svgWidth = this.svg.node().getBoundingClientRect().width;
+            var svgHeight = this.svg.node().getBoundingClientRect().height;
             var centerX = svgWidth - e.x;
             var centerY = svgHeight - e.y;
             // Translate the SVG group to the center of the point.
