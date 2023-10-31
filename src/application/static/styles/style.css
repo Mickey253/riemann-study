@@ -18,6 +18,10 @@
     margin-left: auto;   
 }
 
+g {
+    transition: transform 0.5s ease;
+}
+
 #sidebar {
     background-color: #F8F9FA;
 }
