@@ -117,7 +117,9 @@ class SphericalVis {
                 enter => enter.append("path")
                     .attr("class", "links")
                     .attr("d", this.geopath)
-            );
+            )
+            .attr("id", (d) => {
+            });
       
         this.svg.append('g')
             .attr('class', 'sites')
@@ -126,34 +128,42 @@ class SphericalVis {
             .join(
                 enter => enter.append('path')
                     .attr('d', this.geopath)
-                    .attr('fill', "lightblue")
+                    .attr('fill', this.#colors[0])
                     .attr('stroke', "black")
-            );
-            // .attr("id", d => {
-            //     return "sph_node_" + d;
-            // });        
+            )
+            .attr("id", d => {
+                return "sph_node_" + d.geometry.label;
+            });        
     }
 
     interact() {
-        // this.svg.selectAll("path")
-        //     .on("mouseenter", (e, d) => {
-        //         console.log(d);
-        //         d3.select("#sph_node_" + d.d)
-        //             .attr("fill", this.#colors[2]);
+        this.svg.selectAll(".sites > path")
+            .on("mouseenter", (e, d) => {
+                d3.select("#sph_node_" + d.geometry.label)
+                    .attr("fill", this.#colors[2]);
+
+                    let colorLabels = [];
+                    for (let i = 0; i < this.links.length; i++) {
+                        console.log(this.links[i].source.id);
+                        if (this.links[i].source.id == d.geometry.label) {
+                            colorLabels.push(this.links[i].target.id);
+                        }
+                        if (this.links[i].target.id == d.geometry.label) {
+                            colorLabels.push(this.links[i].source.id);
+                        }
+                    }
+                    if (colorLabels.length > 2) {
+                        colorLabels.forEach(e => {
+                            d3.select("#sph_node_" + e)
+                            .attr("fill", this.#colors[1]);
+                        });
+                    }
                     
-        //             // if (this.links[i].source.id == d.id) {
-        //             //     d3.select("#graticule_" + this.links[i].target.id)
-        //             //         .attr("fill", this.#colors[1]);
-        //             // }
-        //             // if (this.links[i].target.id == d.id) {
-        //             //     d3.select("#node_" + this.links[i].source.id)
-        //             //         .attr("fill", this.#colors[1]);
-        //             // }
-        //     })
-        //     .on("mouseleave", (e, d) => {
-        //         this.layer1.selectAll(".sites")
-        //             .attr("fill", this.#colors[0]);
-        //     });
+            })
+            .on("mouseleave", (e, d) => {
+                d3.selectAll(".sites > path")
+                    .attr("fill", this.#colors[0]);
+            });
     }
 
 }
