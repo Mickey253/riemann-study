@@ -34,7 +34,7 @@ g {
     width:100%;
 }
 
-#question {
+.question {
     margin-top: 2%;
     font-weight: 500;
 }
@@ -47,7 +47,7 @@ g {
     margin: 0.2em;
 }
 
-#question-options {
+.question-options {
     display: flex;
     flex-direction: column;
     flex-basis: 100%;

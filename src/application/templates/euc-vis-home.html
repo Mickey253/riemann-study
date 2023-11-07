@@ -1,30 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 
-<style>
-    .graticules {
-      stroke: grey;
-      stroke-width: .2;
-      fill: none;
-    }
-    .links{
-        stroke: black;
-        stroke-width: 1;
-        fill: none;
-    }
-</style>
-
 <div class="container-fluid" id="main-body">
        <div class="row" id="main">
         <div class="col-3" id="sidebar">
             User ID: {{id}} <br>
-            Question ID: {{q_id}}
-            <div class="question" id="question-sph"></div>
-            <form class="question-options" id="question-options-sph">
+            <form action="{{ url_for('euc_view', id=id) }}">
+                <button type="submit">Start Test</button>
             </form>
+            
         </div>
         <div class="col-9" id="visualization-container">
-            <svg id="mainVis"></svg>
+            Introduction to Study
+            <br>
+            Possible example and explanation of visualization?
+            <br>
+            Introduction to Test
+            <br>
+            Details of Test
+            <br>
+            Possible Consent Requirements?
         </div>
         </div>
 </div>
@@ -32,7 +27,7 @@
 
 {% endblock %}
 
-{% block scripts %}
+<!-- {% block scripts %}
 {{ super() }}
 <script src="{{url_for('static', filename='js/sphericalVis.js')}}"></script>
 <script>
@@ -77,4 +72,4 @@
     });
 
 </script>
-{% endblock %}
+{% endblock %} -->

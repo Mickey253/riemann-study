@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid" id="main-body">
+       <div class="row" id="main">
+        <div class="col-3" id="sidebar">
+            User ID: {{id}} <br>
+            <form action="{{ url_for('sph_view', id=id) }}">
+                <button type="submit">Start Test</button>
+            </form>
+            
+        </div>
+        <div class="col-9" id="visualization-container">
+            Introduction to Study
+            <br>
+            Possible example and explanation of visualization?
+            <br>
+            Introduction to Test
+            <br>
+            Details of Test
+            <br>
+            Possible Consent Requirements?
+        </div>
+        </div>
+</div>
+
+
+{% endblock %}
