@@ -122,11 +122,11 @@ class SphericalVis {
             });
       
         this.svg.append('g')
-            .attr('class', 'sites')
-            .selectAll('path')
+            .selectAll('.sites')
             .data(this.nodePos.features)
             .join(
                 enter => enter.append('path')
+                    .attr("class", "sites")
                     .attr('d', this.geopath)
                     .attr('fill', this.#colors[0])
                     .attr('stroke', "black")
