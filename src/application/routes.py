@@ -2,6 +2,7 @@ from flask import jsonify, render_template, request, redirect, url_for
 from application import app
 from werkzeug.utils import secure_filename
 import json
+import re
 
 euc_users = ["E1", "E2", "E3"]
 sph_users = ["S1", "S2", "S3"]
@@ -40,16 +41,18 @@ def hyp_view_home():
 
 @app.route('/euclidean/test<id>') 
 def euc_view(id):
+    id_int = int(re.findall(r"\d+", id)[0])
     if id in euc_users:
-        with open("src/application/data/test-graph-0.json", 'r') as fdata:
+        with open(f"src/application/data/e_group_{id_int-1}.json", 'r') as fdata:
             gdata = json.load(fdata)
         return render_template("visualization.html", title='Euclidean', data=gdata, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
 @app.route('/spherical/test<id>') 
 def sph_view(id):
+    id_int = int(re.findall(r"\d+", id)[0])    
     if id in sph_users:
-        with open("src/application/data/sphere-test.json", 'r') as fdata:
+        with open(f"src/application/data/sphere-test2.json", 'r') as fdata:
             gdata = json.load(fdata)
         return render_template("sphere-visualization.html", title='Spherical', data=gdata, id=id, q_id="N/A")
     return redirect(url_for("index"))

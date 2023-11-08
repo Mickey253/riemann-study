@@ -8,8 +8,9 @@ def load_graph_from_txt(fname):
 H,_ = gt.triangulation(np.random.uniform(-1,1,(150,2)))
 
 E_group = [H,load_graph_from_txt("graphs/grid17.txt"), gt.lattice((10,10))]
-S_group = [load_graph_from_txt("graphs/dodecahedron_4.txt"), load_graph_from_txt("graphs/block_400.txt"), load_graph_from_txt("graphs/sierpinski3d.txt")]
-H_group = [gt.price_network(150), load_graph_from_txt("graphs/lesmis.txt"), load_graph_from_txt("graphs/rajat11.txt")]
+# S_group = [load_graph_from_txt("graphs/dodecahedron_4.txt"), load_graph_from_txt("graphs/block_400.txt"), load_graph_from_txt("graphs/sierpinski3d.txt")]
+S_group = []
+H_group = [gt.price_network(150,directed=False), load_graph_from_txt("graphs/lesmis.txt"), load_graph_from_txt("graphs/rajat11.txt")]
 
 names = {
     "e_group": ["triangulation", "grid17", "square_lattice"],
