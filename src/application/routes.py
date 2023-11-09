@@ -52,7 +52,7 @@ def euc_view(id):
 def sph_view(id):
     id_int = int(re.findall(r"\d+", id)[0])    
     if id in sph_users:
-        with open(f"src/application/data/sphere-test2.json", 'r') as fdata:
+        with open(f"src/application/data/s_group_{id_int-1}.json", 'r') as fdata:
             gdata = json.load(fdata)
         return render_template("sphere-visualization.html", title='Spherical', data=gdata, id=id, q_id="N/A")
     return redirect(url_for("index"))
