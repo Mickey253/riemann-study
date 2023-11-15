@@ -8,6 +8,11 @@ euc_users = ["E1", "E2", "E3"]
 sph_users = ["S1", "S2", "S3"]
 hyp_users = ["H1", "H2", "H3"]
 
+datanames = dict(zip(
+    range(9),
+    [f"{gtype}_group_{gnum}.json" for gtype in ['e','s','h'] for gnum in range(3)]
+))
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -39,6 +44,9 @@ def hyp_view_home():
         return render_template("hyp-vis-home.html", title='Hyperbolic', data=None, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
+def test_page(geom,id):
+    pass
+
 @app.route('/euclidean/test<id>') 
 def euc_view(id):
     id_int = int(re.findall(r"\d+", id)[0])
@@ -52,7 +60,7 @@ def euc_view(id):
 def sph_view(id):
     id_int = int(re.findall(r"\d+", id)[0])    
     if id in sph_users:
-        with open(f"src/application/data/s_group_{id_int-1}.json", 'r') as fdata:
+        with open(f"src/application/data/h_group_{id_int-1}.json", 'r') as fdata:
             gdata = json.load(fdata)
         return render_template("sphere-visualization.html", title='Spherical', data=gdata, id=id, q_id="N/A")
     return redirect(url_for("index"))
