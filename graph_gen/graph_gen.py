@@ -8,8 +8,8 @@ def load_graph_from_txt(fname):
 H,_ = gt.triangulation(np.random.uniform(-1,1,(150,2)))
 
 E_group = [H,load_graph_from_txt("graphs/grid17.txt"), gt.lattice((10,10))]
-# S_group = [load_graph_from_txt("graphs/dodecahedron_4.txt"), load_graph_from_txt("graphs/block_400.txt"), load_graph_from_txt("graphs/sierpinski3d.txt")]
-S_group = []
+S_group = [load_graph_from_txt("graphs/dodecahedron_4.txt"), load_graph_from_txt("graphs/block_400.txt"), load_graph_from_txt("graphs/sierpinski3d.txt")]
+# S_group = []
 H_group = [gt.price_network(150,directed=False), load_graph_from_txt("graphs/lesmis.txt"), load_graph_from_txt("graphs/rajat11.txt")]
 
 names = {
@@ -39,7 +39,7 @@ for sname, group in zip(("e_group", "s_group", "h_group"),(E_group, S_group, H_g
         nodes = [{
             "id": v,
             "euclidean": {"x": EX[v,0], "y": EX[v,1]},
-            "spherical": {"x": SX[v,0], "y": SX[v,1]},
+            "spherical": {"x": SX[v,1], "y": SX[v,0]}, #SMDS returns coordinates reversed from how webtool expects
             "hyperbolic": {"x": HX[v,0], "y": HX[v,1]}
         } for v in G.iter_vertices()]
         links = [{
