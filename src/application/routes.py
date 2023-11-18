@@ -48,6 +48,9 @@ def hyp_view_home():
         return render_template("hyp-vis-home.html", title='Hyperbolic', data=None, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
+def test_page(geom,id):
+    pass
+
 @app.route('/euclidean/test<id>') 
 def euc_view(id):
     if "E" in id:
