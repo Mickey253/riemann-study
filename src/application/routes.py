@@ -8,6 +8,15 @@ euc_users = ["E1", "E2", "E3"]
 sph_users = ["S1", "S2", "S3"]
 hyp_users = ["H1", "H2", "H3"]
 
+graph_ids = dict(zip(range(9), [f"{gtype}_group_{num}.json" for gtype in ["s","h","e"] for num in range(3)]))
+
+def get_graph(id):
+    id_int = int(re.findall(r"\d+", id)[0])
+    with open(f"src/application/data/{graph_ids[id_int]}", 'r') as fdata:
+        gdata = json.load(fdata)
+
+    return gdata
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -21,30 +30,28 @@ def about():
 @app.route('/euclidean/homepage') 
 def euc_view_home():
     id = request.args.get('id')
-    if id in euc_users:
+    if "E" in id:
         return render_template("euc-vis-home.html", title='Euclidean Homepage', data=None, id=id)
     return redirect(url_for("index"))
 
 @app.route('/spherical/homepage') 
 def sph_view_home():
     id = request.args.get('id')
-    if id in sph_users:
+    if "S" in id:
         return render_template("sph-vis-home.html", title='Spherical', data=None, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
 @app.route('/hyperbolic/homepage') 
 def hyp_view_home():
     id = request.args.get('id')
-    if id in hyp_users:
+    if "H" in id:
         return render_template("hyp-vis-home.html", title='Hyperbolic', data=None, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
 @app.route('/euclidean/test<id>') 
 def euc_view(id):
-    id_int = int(re.findall(r"\d+", id)[0])
-    if id in euc_users:
-        with open(f"src/application/data/e_group_{id_int-1}.json", 'r') as fdata:
-            gdata = json.load(fdata)
+    if "E" in id:
+        gdata = get_graph(id)
         return render_template("visualization.html", title='Euclidean', data=gdata, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
@@ -52,7 +59,7 @@ def euc_view(id):
 def sph_view(id):
     id_int = int(re.findall(r"\d+", id)[0])    
     if id in sph_users:
-        with open(f"src/application/data/e_group_1.json", 'r') as fdata:
+        with open(f"src/application/data/s_group_2.json", 'r') as fdata:
             gdata = json.load(fdata)
         return render_template("sphere-visualization.html", title='Spherical', data=gdata, id=id, q_id="N/A")
     return redirect(url_for("index"))
@@ -65,11 +72,11 @@ def hyp_view(id):
 
 @app.route('/<id>')
 def user_index(id):
-    if id in euc_users:
+    if   "E" in id:
         return redirect(url_for("euc_view_home", id=id))
-    elif id in sph_users:
+    elif "S" in id:
         return redirect(url_for("sph_view_home", id=id))
-    elif id in hyp_users:
+    elif "H" in id:
         return redirect(url_for("hyp_view_home", id=id))
     else:
         return render_template('errors/404.html'), 404
@@ -77,11 +84,11 @@ def user_index(id):
 @app.route('/index/')
 def user_index_form():
     id = request.args.get('id')
-    if id in euc_users:
+    if   "E" in id:
         return redirect(url_for("euc_view_home", id=id))
-    elif id in sph_users:
+    elif "S" in id:
         return redirect(url_for("sph_view_home", id=id))
-    elif id in hyp_users:
+    elif "H" in id:
         return redirect(url_for("hyp_view_home", id=id))
     else:
         return render_template('errors/404.html'), 404

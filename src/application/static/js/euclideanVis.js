@@ -11,9 +11,22 @@ class EuclideanVis {
         
         [this.nodes, this.links, this.idMap] = initGraph(nodes,links);
 
+        this.nodes.forEach(n => {
+            n.neighors = new Set();
+        });
+        this.links.forEach(e => {
+            e.source.neighors.add(e.target.id);
+            e.target.neighors.add(e.source.id);
+        });
+
         this.layer1 = this.svg.append("g");
         this.width = this.svg.node().getBoundingClientRect().width;
         this.height = this.svg.node().getBoundingClientRect().height;
+
+        this.origin = {
+            "x": this.width / 2,
+            "y": this.height / 2
+        }
 
     }
 
@@ -68,54 +81,27 @@ class EuclideanVis {
             });
     }
 
-    interact(){
+    addZoom(){
+        this.layer1.attr("transform", d3.zoomIdentity);
         let zoom = d3.zoom()
-	        .on('zoom', (e) => {
-                this.layer1
-		            .attr('transform', e.transform);
+	        .on('zoom', e => {
+                this.layer1.attr('transform', e.transform);
             });
-        this.svg
-            .call(zoom);
-          
-        d3.select("svg").on("dblclick.zoom", null);
-        this.svg.on("dblclick", (e) => {
-            console.log(e.x);
-            // console.log(e.y);
-            let searchWidth = this.svg.node().getBoundingClientRect().width;
-            
-            
-            // Calculate the center of the point.
-            // var svgWidth = 930.75;
-            // var svgHeight = 793.80;
-            var svgWidth = this.svg.node().getBoundingClientRect().width;
-            var svgHeight = this.svg.node().getBoundingClientRect().height;
-            var centerX = svgWidth - e.x;
-            var centerY = svgHeight - e.y;
-            // Translate the SVG group to the center of the point.
-            this.layer1.attr("transform", "translate(" + centerX/2 + ", " + centerY/2 + ")");
-        })  
+        this.svg.call(zoom);
+        d3.select("svg").on("dblclick.zoom", null);        
+    }
 
+    addHover(){
+        var tthis = this;
         this.layer1.selectAll(".nodes")
-            .on("mouseenter", (e, d) => {
-                for (let i = 0; i < this.links.length; i++) {
-                    d3.select("#node_" + d.id)
-                        .attr("fill", this.#colors[2]);
-                    
-                        if (this.links[i].source.id == d.id) {
-                        d3.select("#node_" + this.links[i].target.id)
-                            .attr("fill", this.#colors[1]);
-                        
-                        d3.select("#link_" + this.links[i].source.id + "_" + this.links[i].target.id)
-                            .attr("stroke-width", 4);
-                    }
-                    if (this.links[i].target.id == d.id) {
-                        d3.select("#node_" + this.links[i].source.id)
-                            .attr("fill", this.#colors[1]);
-                        
-                        d3.select("#link_" + this.links[i].source.id + "_" + this.links[i].target.id)
-                            .attr("stroke-width", 4);
-                    }
-                }
+            .on("mouseenter", function(e,d) {
+                d3.select(this).attr("fill", tthis.#colors[2]); //function(){} syntax has a different "this" which is the svg element attached.
+
+                tthis.layer1.selectAll(".nodes").filter(n => d.neighors.has(n.id))
+                    .attr("fill", tthis.#colors[1]); //We added an adjacency list data structure in preprocessing to make this efficient. 
+
+                tthis.layer1.selectAll(".links").filter(e => e.source.id === d.id || e.target.id === d.id)
+                    .attr("stroke-width", 4);
             })
             .on("mouseleave", (e, d) => {
                 this.layer1.selectAll(".nodes")
@@ -124,6 +110,56 @@ class EuclideanVis {
                 this.layer1.selectAll(".links")
                     .attr("stroke-width", 2);
             });
+    }
+
+    addDblClick(){
+        this.svg.on("dblclick", e => {
+            const transform = this.layer1.node().attributes.transform.value.toString();
+            const pattern = /\((-?\d+),\s*(-?\d+)\)/;
+            const matches = transform.match(pattern);
+            if (matches) {
+                var x0 = parseInt(matches[1]);
+                var y0 = parseInt(matches[2]);
+            }else {console.log("ahhhhhhhhh");}
+            console.log(transform);
+
+            let moveVector = [this.origin.x + x0, this.origin.y + y0];
+            console.log(moveVector);
+
+            let [x,y] = d3.pointer(e);
+            console.log(x,y);
+            let t = d3.transition().duration(750);
+            this.layer1.transition(t).attr("transform", `translate(${-x+moveVector[0]},${-y+moveVector[1]}) scale(1)`)
+            console.log(x-moveVector[0], y-moveVector[1]);
+
+
+        })
+    }
+
+    interact(){
+        this.addZoom();
+        this.addHover();
+        this.addDblClick();
+          
+
+        // this.svg.on("dblclick", (e) => {
+        //     console.log(e.x);
+        //     // console.log(e.y);
+        //     let searchWidth = this.svg.node().getBoundingClientRect().width;
+            
+            
+        //     // Calculate the center of the point.
+        //     // var svgWidth = 930.75;
+        //     // var svgHeight = 793.80;
+        //     var svgWidth = this.svg.node().getBoundingClientRect().width;
+        //     var svgHeight = this.svg.node().getBoundingClientRect().height;
+        //     var centerX = svgWidth - e.x;
+        //     var centerY = svgHeight - e.y;
+        //     // Translate the SVG group to the center of the point.
+        //     this.layer1.attr("transform", "translate(" + centerX/2 + ", " + centerY/2 + ")");
+        // })  
+
+
     }
 
 }
