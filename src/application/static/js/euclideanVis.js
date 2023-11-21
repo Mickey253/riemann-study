@@ -1,3 +1,14 @@
+function getFloatsFromString(s){
+    /*
+    Given string s, returns a list of substrings intrepretable as floating point numbers. 
+    */
+    const pattern = /-?\d+(\.\d+)?/g;
+    const matches = s.match(pattern);
+    if (matches) {
+        return matches.map(s => parseFloat(s));
+    }else {console.log("ahhhhhhhhh"); return null;}//Probably not good error handling.
+}
+
 class EuclideanVis {
     #nodeRadiusLarge = 10;
     #nodeRadiusSmall = 3;
@@ -83,12 +94,13 @@ class EuclideanVis {
 
     addZoom(){
         this.layer1.attr("transform", d3.zoomIdentity);
-        let zoom = d3.zoom()
+        this.zoom = d3.zoom()
 	        .on('zoom', e => {
                 this.layer1.attr('transform', e.transform);
             });
-        this.svg.call(zoom);
-        d3.select("svg").on("dblclick.zoom", null);        
+        this.svg.call(this.zoom);
+        this.svg.on("dblclick.zoom", null);        
+        this.svg.on("wheel.zoom", null);
     }
 
     addHover(){
@@ -115,51 +127,23 @@ class EuclideanVis {
     addDblClick(){
         this.svg.on("dblclick", e => {
             const transform = this.layer1.node().attributes.transform.value.toString();
-            const pattern = /\((-?\d+),\s*(-?\d+)\)/;
-            const matches = transform.match(pattern);
-            if (matches) {
-                var x0 = parseInt(matches[1]);
-                var y0 = parseInt(matches[2]);
-            }else {console.log("ahhhhhhhhh");}
-            console.log(transform);
+            let floats = getFloatsFromString(transform);
+            let x0 = floats[0];
+            let y0 = floats[1];
 
-            let moveVector = [this.origin.x + x0, this.origin.y + y0];
-            console.log(moveVector);
+            let xmove = this.origin.x + x0;
+            let ymove = this.origin.y + y0;
 
             let [x,y] = d3.pointer(e);
-            console.log(x,y);
             let t = d3.transition().duration(750);
-            this.layer1.transition(t).attr("transform", `translate(${-x+moveVector[0]},${-y+moveVector[1]}) scale(1)`)
-            console.log(x-moveVector[0], y-moveVector[1]);
-
-
-        })
+            this.layer1.transition(t).attr("transform", `translate(${xmove - x},${ymove - y}) scale(1)`)
+        });
     }
 
     interact(){
         this.addZoom();
         this.addHover();
         this.addDblClick();
-          
-
-        // this.svg.on("dblclick", (e) => {
-        //     console.log(e.x);
-        //     // console.log(e.y);
-        //     let searchWidth = this.svg.node().getBoundingClientRect().width;
-            
-            
-        //     // Calculate the center of the point.
-        //     // var svgWidth = 930.75;
-        //     // var svgHeight = 793.80;
-        //     var svgWidth = this.svg.node().getBoundingClientRect().width;
-        //     var svgHeight = this.svg.node().getBoundingClientRect().height;
-        //     var centerX = svgWidth - e.x;
-        //     var centerY = svgHeight - e.y;
-        //     // Translate the SVG group to the center of the point.
-        //     this.layer1.attr("transform", "translate(" + centerX/2 + ", " + centerY/2 + ")");
-        // })  
-
-
     }
 
 }
