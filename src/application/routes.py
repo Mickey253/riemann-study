@@ -1,4 +1,5 @@
 from flask import jsonify, render_template, request, redirect, url_for
+from urllib.parse import unquote as urllib_unquote
 from application import app
 from werkzeug.utils import secure_filename
 import json
@@ -11,12 +12,29 @@ hyp_users = ["H1", "H2", "H3"]
 graph_ids = dict(zip(range(9), [f"{gtype}_group_{num}.json" for gtype in ["s","h","e"] for num in range(3)]))
 
 def get_graph(id):
+    print(id)
     id_int = int(re.findall(r"\d+", id)[0])
     with open(f"src/application/data/{graph_ids[id_int]}", 'r') as fdata:
         gdata = json.load(fdata)
 
     return gdata
 
+def get_question(id):
+    with open(f"src/application/data/sample_questions.json", 'r') as fdata:
+        qdata = json.load(fdata)
+    graph_id = ""
+    question = {}
+    for q in qdata["questions"]:
+        if q["q_id"] == id:
+            graph_id = q["graph"]["graph_id"]
+            question = q
+            break
+    return get_graph(graph_id), question
+
+@app.template_filter('unquote')
+def unquote(url):
+    safe = app.jinja_env.filters['safe']
+    return safe(urllib_unquote(url))
 @app.route('/')
 @app.route('/index')
 def index():
@@ -38,24 +56,26 @@ def euc_view_home():
 def sph_view_home():
     id = request.args.get('id')
     if "S" in id:
-        return render_template("sph-vis-home.html", title='Spherical', data=None, id=id, q_id="N/A")
+        return render_template("sph-vis-home.html", title='Spherical', data=None, id=id)
     return redirect(url_for("index"))
 
 @app.route('/hyperbolic/homepage') 
 def hyp_view_home():
     id = request.args.get('id')
     if "H" in id:
-        return render_template("hyp-vis-home.html", title='Hyperbolic', data=None, id=id, q_id="N/A")
+        return render_template("hyp-vis-home.html", title='Hyperbolic', data=None, id=id)
     return redirect(url_for("index"))
 
 def test_page(geom,id):
     pass
 
-@app.route('/euclidean/test<id>') 
-def euc_view(id):
+@app.route('/euclidean/test<id>_<q>') 
+def euc_view(id, q):
+    print("This should be page id", id)
+    print("This should be question id", q)
     if "E" in id:
-        gdata = get_graph(id)
-        return render_template("visualization.html", title='Euclidean', data=gdata, id=id, q_id="N/A")
+        gdata, question = get_question(q)
+        return render_template("visualization.html", title='Euclidean', data=gdata, id=id, q_id=q, question=question)
     return redirect(url_for("index"))
 
 @app.route('/spherical/test<id>') 

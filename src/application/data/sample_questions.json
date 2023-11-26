@@ -1,0 +1,221 @@
+{
+    "questions": [ 
+        {
+            "q_id": "adj-fil-T2b-1",
+            "q_text": "Given highlighted node v (purple), how many neighbors of node v have degree 3?",
+            "q_options": {
+                "option_1" : 3,
+                "option_2" : 4,
+                "option_3" : 5,
+                "option_4" : 6
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "6"
+            },
+            "node": {
+                "type_1": [
+                    "node_38"
+                ],
+                "type_2": []
+            },
+            "q_answer": "option_4"
+        },
+        {
+            "q_id": "adj-fil-T2b-2",
+            "q_text": "Given highlighted node v (purple), how many neighbors of node v have degree 5?",
+            "q_options": {
+                "option_1" : 4,
+                "option_2" : 5,
+                "option_3" : 6,
+                "option_4" : 7
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "6"
+            },
+            "node": {
+                "type_1": [
+                    "node_9"
+                ],
+                "type_2": []
+            },
+            "q_answer": "option_2"
+        },
+        {
+            "q_id": "comcon-T5-1",
+            "q_text": "Given nodes u (purple) and v (green), are there any common neighbors?",
+            "q_options": {
+                "option_1" : "Yes",
+                "option_2" : "No"
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "4"
+            },
+            "node": {
+                "type_1": [
+                    "node_61"
+                ],
+                "type_2": [
+                    "node_16"
+                ]
+            },
+            "q_answer": "option_1"
+        },
+        {
+            "q_id": "comcon-T5-2",
+            "q_text": "Given nodes u (purple) and v (green), are there any common neighbors?",
+            "q_options": {
+                "option_1" : "Yes",
+                "option_2" : "No"
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "4"
+            },
+            "node": {
+                "type_1": [
+                    "node_57"
+                ],
+                "type_2": [
+                    "node_17"
+                ]
+            },
+            "q_answer": "option_2"
+        },
+        {
+            "q_id": "conn-T6-1",
+            "q_text": "Given nodes u (purple) and v (green), determine the length of a shortest path between u and v",
+            "q_options": {
+                "option_1" : 3,
+                "option_2" : 4,
+                "option_3" : 5,
+                "option_4" : 6
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "5"
+            },
+            "node": {
+                "type_1": [
+                    "node_57"
+                ],
+                "type_2": [
+                    "node_17"
+                ]
+            },
+            "q_answer": "option_3"
+        },
+        {
+            "q_id": "conn-T6-2",
+            "q_text": "Given nodes u (green) and v (purple), determine the length of a shortest path between u and v",
+            "q_options": {
+                "option_1" : 3,
+                "option_2" : 4,
+                "option_3" : 5,
+                "option_4" : 6
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "5"
+            },
+            "node": {
+                "type_1": [
+                    "node_47"
+                ],
+                "type_2": [
+                    "node_36"
+                ]
+            },
+            "q_answer": "option_2"
+        },
+        {
+            "q_id": "over-T9-1",
+            "q_text": "Estimate the total number of nodes in the graph",
+            "q_options": {
+                "option_1" : 30,
+                "option_2" : 40,
+                "option_3" : 50,
+                "option_4" : 60
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "4"
+            }
+        },
+        {
+            "q_id": "over-T9-2",
+            "q_text": "Estimate the total number of edges in the graph",
+            "q_options": {
+                "option_1" : 50,
+                "option_2" : 70,
+                "option_3" : 80,
+                "option_4" : 90
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "4"
+            }
+        },
+        {
+            "q_id": "acc-T11-1",
+            "q_text": "Given a set of nodes S (green), how many are reachable to each other with a distance of exactly 2 nodes between them? ",
+            "q_options": {
+                "option_1" : "1-4",
+                "option_2" : "5-7",
+                "option_3" : "4-8",
+                "option_4" : "6-10"
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "4"
+            }
+        },
+        {
+            "q_id": "acc-T11-2",
+            "q_text": "Given a set of nodes S (green), how many are reachable to each other with a distance of exactly 3 nodes between them? ",
+            "q_options": {
+                "option_1" : "0-2",
+                "option_2" : "2-5",
+                "option_3" : "3-7",
+                "option_4" : "4-7"
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "4"
+            }
+        },
+        {
+            "q_id": "adj-T12-1",
+            "q_text": "Given a set of nodes S (green), estimate the average degree of nodes (Node Degree: Number of nodes a node is directly connected to)? ",
+            "q_options": {
+                "option_1" : 2,
+                "option_2" : 3,
+                "option_3" : 4,
+                "option_4" : 5
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "4"
+            }
+        },
+        {
+            "q_id": "adj-T12-2",
+            "q_text": "Estimate the most common node degree of the graph (Node Degree: Number of nodes a node is directly connected to)? ",
+            "q_options": {
+                "option_1" : 8,
+                "option_2" : 10,
+                "option_3" : 12,
+                "option_4" : 15
+            },
+            "graph": {
+                "graph_type": "euclidean",
+                "graph_id": "4"
+            }
+        }
+               
+    ]
+    
+
+}
