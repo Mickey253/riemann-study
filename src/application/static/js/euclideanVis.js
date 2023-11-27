@@ -136,7 +136,7 @@ class EuclideanVis {
 
             let [x,y] = d3.pointer(e);
             let t = d3.transition().duration(750);
-            this.layer1.transition(t).attr("transform", `translate(${xmove - x},${ymove - y}) scale(1)`)
+            this.layer1.transition(t).attr("transform", `translate(${xmove - x},${ymove - y}) scale(1)`);
         });
     }
 
