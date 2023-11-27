@@ -134,33 +134,43 @@
             "q_id": "over-T9-1",
             "q_text": "Estimate the total number of nodes in the graph",
             "q_options": {
-                "option_1" : 30,
-                "option_2" : 40,
-                "option_3" : 50,
-                "option_4" : 60
+                "option_1" : 50,
+                "option_2" : 100,
+                "option_3" : 150,
+                "option_4" : 200
             },
             "graph": {
                 "graph_type": "euclidean",
-                "graph_id": "4"
-            }
+                "graph_id": "3"
+            },
+            "node": {
+                "type_1": [],
+                "type_2": []
+            },
+            "q_answer": "option_3"
         },
         {
             "q_id": "over-T9-2",
             "q_text": "Estimate the total number of edges in the graph",
             "q_options": {
-                "option_1" : 50,
-                "option_2" : 70,
-                "option_3" : 80,
-                "option_4" : 90
+                "option_1" : 90,
+                "option_2" : 110,
+                "option_3" : 130,
+                "option_4" : 150
             },
             "graph": {
                 "graph_type": "euclidean",
-                "graph_id": "4"
-            }
+                "graph_id": "3"
+            },
+            "node": {
+                "type_1": [],
+                "type_2": []
+            },
+            "q_answer": "option_4"
         },
         {
             "q_id": "acc-T11-1",
-            "q_text": "Given a set of nodes S (green), how many are reachable to each other with a distance of exactly 2 nodes between them? ",
+            "q_text": "Given a set of nodes S (purple), how many pairs are reachable to each other with a distance of exactly 2 nodes between them?",
             "q_options": {
                 "option_1" : "1-4",
                 "option_2" : "5-7",
@@ -169,50 +179,96 @@
             },
             "graph": {
                 "graph_type": "euclidean",
-                "graph_id": "4"
-            }
+                "graph_id": "5"
+            },
+            "node": {
+                "type_1": [
+                    "node_106",
+                    "node_87",
+                    "node_56",
+                    "node_104",
+                    "node_48",
+                    "node_24",
+                    "node_121"
+                ],
+                "type_2": []
+            },
+            "q_answer": "option_2"
         },
         {
             "q_id": "acc-T11-2",
-            "q_text": "Given a set of nodes S (green), how many are reachable to each other with a distance of exactly 3 nodes between them? ",
+            "q_text": "Given a set of nodes S (purple), how many pairs are reachable to each other with a distance of exactly 3 nodes between them?",
             "q_options": {
-                "option_1" : "0-2",
-                "option_2" : "2-5",
-                "option_3" : "3-7",
-                "option_4" : "4-7"
+                "option_1" : "0-5",
+                "option_2" : "3-9",
+                "option_3" : "5-10",
+                "option_4" : "11-16"
             },
             "graph": {
                 "graph_type": "euclidean",
-                "graph_id": "4"
-            }
+                "graph_id": "5"
+            },
+            "node": {
+                "type_1": [
+                    "node_47",
+                    "node_133",
+                    "node_62",
+                    "node_96",
+                    "node_34",
+                    "node_35",
+                    "node_86"
+                ],
+                "type_2": []
+            },
+            "q_answer": "option_4"
         },
         {
             "q_id": "adj-T12-1",
-            "q_text": "Given a set of nodes S (green), estimate the average degree of nodes (Node Degree: Number of nodes a node is directly connected to)? ",
+            "q_text": "Given a set of nodes S (purple), estimate the average degree of nodes (Node Degree: Number of nodes a node is directly connected to)? ",
             "q_options": {
-                "option_1" : 2,
-                "option_2" : 3,
-                "option_3" : 4,
-                "option_4" : 5
+                "option_1" : 4,
+                "option_2" : 6,
+                "option_3" : 3,
+                "option_4" : 8
             },
             "graph": {
                 "graph_type": "euclidean",
                 "graph_id": "4"
-            }
+            },
+            "node": {
+                "type_1": [
+                    "node_22",
+                    "node_30",
+                    "node_31",
+                    "node_29",
+                    "node_26",
+                    "node_21",
+                    "node_28",
+                    "node_32",
+                    "node_39"
+                ],
+                "type_2": []
+            },
+            "q_answer": "option_1"
         },
         {
             "q_id": "adj-T12-2",
             "q_text": "Estimate the most common node degree of the graph (Node Degree: Number of nodes a node is directly connected to)? ",
             "q_options": {
-                "option_1" : 8,
-                "option_2" : 10,
-                "option_3" : 12,
-                "option_4" : 15
+                "option_1" : 5,
+                "option_2" : 6,
+                "option_3" : 7,
+                "option_4" : 8
             },
             "graph": {
                 "graph_type": "euclidean",
-                "graph_id": "4"
-            }
+                "graph_id": "2"
+            },
+            "node": {
+                "type_1": [],
+                "type_2": []
+            },
+            "q_answer": "option_2"
         }
                
     ]

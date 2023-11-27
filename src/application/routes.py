@@ -45,16 +45,20 @@ def index():
 def about():
     return render_template('about.html', title='About')
 
-@app.route('/euclidean/homepage') 
-def euc_view_home():
+@app.route('/euclidean/homepage<data>') 
+def euc_view_home(data):
     id = request.args.get('id')
+    if id is None:
+        return redirect(url_for("index"))
     if "E" in id:
-        return render_template("euc-vis-home.html", title='Euclidean Homepage', data=None, id=id)
+        return render_template("euc-vis-home.html", title='Euclidean Homepage', data=data, id=id)
     return redirect(url_for("index"))
 
 @app.route('/spherical/homepage') 
 def sph_view_home():
     id = request.args.get('id')
+    if id is None:
+        return redirect(url_for("index"))
     if "S" in id:
         return render_template("sph-vis-home.html", title='Spherical', data=None, id=id)
     return redirect(url_for("index"))
@@ -62,6 +66,8 @@ def sph_view_home():
 @app.route('/hyperbolic/homepage') 
 def hyp_view_home():
     id = request.args.get('id')
+    if id is None:
+        return redirect(url_for("index"))
     if "H" in id:
         return render_template("hyp-vis-home.html", title='Hyperbolic', data=None, id=id)
     return redirect(url_for("index"))
@@ -93,10 +99,20 @@ def hyp_view(id):
         return render_template("visualization.html", title='Hyperbolic', data=None, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
+@app.route('/euclidean/test-end<id>') 
+def euc_view_end(id):
+    print(id)
+    if id is None:
+        return redirect(url_for("index"))
+    if "E" in id:
+        # TODO Write code for adding to database and changing status of user as completed_test
+        return redirect(url_for("euc_view_home", data=False, id=id))
+    return redirect(url_for("index"))
+
 @app.route('/<id>')
 def user_index(id):
     if   "E" in id:
-        return redirect(url_for("euc_view_home", id=id))
+        return redirect(url_for("euc_view_home", data=True, id=id))
     elif "S" in id:
         return redirect(url_for("sph_view_home", id=id))
     elif "H" in id:
@@ -108,7 +124,7 @@ def user_index(id):
 def user_index_form():
     id = request.args.get('id')
     if   "E" in id:
-        return redirect(url_for("euc_view_home", id=id))
+        return redirect(url_for("euc_view_home", data=True, id=id))
     elif "S" in id:
         return redirect(url_for("sph_view_home", id=id))
     elif "H" in id:

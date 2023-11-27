@@ -57,6 +57,8 @@ class EuclideanVis {
 
     draw(){
 
+        console.log(this.nodes)
+        console.log(this.links)
         this.layer1.selectAll(".links")
             .data(this.links, d => d.source.id + d.target.id)
             .join(
@@ -143,7 +145,6 @@ class EuclideanVis {
     }
 
     interact(id_list){
-        console.log(id_list);
         this.addZoom();
         this.addHover(id_list);
         this.addDblClick();

@@ -56,9 +56,9 @@
                 var answerNode = document.createElement("input")
                 var answerText = document.createElement("label")
                 answerNode.setAttribute("type", "radio")
-                answerNode.setAttribute('id', question_obj["q_options"][question_options[i]])
+                answerNode.setAttribute('id', question_options[i])
                 answerNode.setAttribute('name', "answers")
-                answerText.setAttribute('for', question_obj["q_options"][question_options[i]])
+                answerText.setAttribute('for', question_options[i])
                 answerText.textContent = question_obj["q_options"][question_options[i]]
                 parentChoices.appendChild(answerNode);
                 parentChoices.appendChild(answerText);
@@ -70,10 +70,17 @@
             questionChoices.appendChild(submitButton);
             
             var question_queue = ["adj-fil-T2b-1", "adj-fil-T2b-2", "comcon-T5-1", "comcon-T5-2", "conn-T6-1", "conn-T6-2", "over-T9-1", "over-T9-2", "acc-T11-1", "acc-T11-2", "adj-T12-1", "adj-T12-2"]
-            let index = question_queue.indexOf(questionID) + 1
+            var index = question_queue.indexOf(questionID) + 1
             var next_q = question_queue[index]
-            console.log(next_q)
-            var action_statement = `{{ url_for('euc_view', id=id, q='${next_q}')|unquote }}`
+            var action_statement;
+            console.log(question_queue.length)
+            console.log(index)
+            if (index == question_queue.length) {
+                action_statement = `{{ url_for('euc_view_end', id=id) }}`
+            } else {
+                action_statement = `{{ url_for('euc_view', id=id, q='${next_q}')|unquote }}`
+            }
+            
             document.getElementById('question-options-euc').action = action_statement; 
         }
 
