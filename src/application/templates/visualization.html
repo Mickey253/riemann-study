@@ -23,7 +23,6 @@
 {{ super() }}
 <script src="{{url_for('static', filename='js/euclideanVis.js')}}"></script>
 <script>
-    
     var ready = (callback) => {
         if (document.readyState != "loading") callback();
         else document.addEventListener("DOMContentLoaded", callback);
@@ -32,33 +31,57 @@
     ready(() => { 
         var data = {{data | tojson}};
         var questionID = "{{q_id}}";
+        var question_obj = {{question | tojson}};
         let vis = new EuclideanVis("#mainVis", data.nodes, data.links);
         vis.process();
         vis.draw();
-        vis.interact();
+        console.log(question_obj["node"]["type_1"]);
+        if (question_obj["node"]["type_2"].length != 0) {
+            vis.highlight_question(question_obj["node"]["type_1"], "#a837e6");
+            vis.highlight_question(question_obj["node"]["type_2"], "#57d132");
+            vis.interact(question_obj["node"]["type_1"].concat(question_obj["node"]["type_2"]));
+        } else {
+            vis.highlight_question(question_obj["node"]["type_1"], "#a837e6");
+            vis.interact(question_obj["node"]["type_1"]);
+        }
+
         question = document.getElementById("question-euc")
-        answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]
         if (questionID) {
-            question.textContent = "Sample Question"
+            question.textContent = question_obj["q_text"]
+            var question_options = Object.keys(question_obj["q_options"])
             questionChoices = document.getElementById("question-options-euc")
-            for (var i = 0; i < answers.length; i++) {
+            for (var i = 0; i < question_options.length; i++) {
                 var parentChoices = document.createElement("div")
                 parentChoices.className = "option-container"
                 var answerNode = document.createElement("input")
                 var answerText = document.createElement("label")
                 answerNode.setAttribute("type", "radio")
-                answerNode.setAttribute('id', answers[i])
+                answerNode.setAttribute('id', question_options[i])
                 answerNode.setAttribute('name', "answers")
-                answerText.setAttribute('for', answers[i])
-                answerText.textContent = answers[i]
+                answerText.setAttribute('for', question_options[i])
+                answerText.textContent = question_obj["q_options"][question_options[i]]
                 parentChoices.appendChild(answerNode);
                 parentChoices.appendChild(answerText);
                 questionChoices.appendChild(parentChoices);
             }
             var submitButton = document.createElement("input")
             submitButton.setAttribute("type", "submit")
-            submitButton.setAttribute("id", "submit-button")
+            submitButton.classList.add("submit-button")
             questionChoices.appendChild(submitButton);
+            
+            var question_queue = ["adj-fil-T2b-1", "adj-fil-T2b-2", "comcon-T5-1", "comcon-T5-2", "conn-T6-1", "conn-T6-2", "over-T9-1", "over-T9-2", "acc-T11-1", "acc-T11-2", "adj-T12-1", "adj-T12-2"]
+            var index = question_queue.indexOf(questionID) + 1
+            var next_q = question_queue[index]
+            var action_statement;
+            console.log(question_queue.length)
+            console.log(index)
+            if (index == question_queue.length) {
+                action_statement = `{{ url_for('euc_view_end', id=id) }}`
+            } else {
+                action_statement = `{{ url_for('euc_view', id=id, q='${next_q}')|unquote }}`
+            }
+            
+            document.getElementById('question-options-euc').action = action_statement; 
         }
 
     });

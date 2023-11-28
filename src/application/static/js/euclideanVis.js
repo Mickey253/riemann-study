@@ -57,6 +57,8 @@ class EuclideanVis {
 
     draw(){
 
+        console.log(this.nodes)
+        console.log(this.links)
         this.layer1.selectAll(".links")
             .data(this.links, d => d.source.id + d.target.id)
             .join(
@@ -103,20 +105,22 @@ class EuclideanVis {
         this.svg.on("wheel.zoom", null);
     }
 
-    addHover(){
+    addHover(id_list){
         var tthis = this;
         this.layer1.selectAll(".nodes")
             .on("mouseenter", function(e,d) {
-                d3.select(this).attr("fill", tthis.#colors[2]); //function(){} syntax has a different "this" which is the svg element attached.
+                if (!id_list.includes("node_" + d.id)) {
+                    d3.select(this).attr("fill", tthis.#colors[2]); //function(){} syntax has a different "this" which is the svg element attached.
+                }
 
-                tthis.layer1.selectAll(".nodes").filter(n => d.neighors.has(n.id))
+                tthis.layer1.selectAll(".nodes").filter(n => d.neighors.has(n.id) && !id_list.includes("node_" + n.id))
                     .attr("fill", tthis.#colors[1]); //We added an adjacency list data structure in preprocessing to make this efficient. 
 
                 tthis.layer1.selectAll(".links").filter(e => e.source.id === d.id || e.target.id === d.id)
                     .attr("stroke-width", 4);
             })
             .on("mouseleave", (e, d) => {
-                this.layer1.selectAll(".nodes")
+                this.layer1.selectAll(".nodes").filter(n => !id_list.includes("node_" + n.id))
                     .attr("fill", this.#colors[0]);
                 
                 this.layer1.selectAll(".links")
@@ -135,15 +139,19 @@ class EuclideanVis {
             let ymove = this.origin.y + y0;
 
             let [x,y] = d3.pointer(e);
-            let t = d3.transition().duration(750);
+            let t = d3.transition().duration(500);
             this.layer1.transition(t).attr("transform", `translate(${xmove - x},${ymove - y}) scale(1)`)
         });
     }
 
-    interact(){
+    interact(id_list){
         this.addZoom();
-        this.addHover();
+        this.addHover(id_list);
         this.addDblClick();
     }
 
+    highlight_question(id_list, color) {
+        this.layer1.selectAll(".nodes").filter(n => id_list.includes("node_" + n.id))
+            .attr("fill", color)
+    }
 }
