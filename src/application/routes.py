@@ -89,8 +89,9 @@ def sph_view(id):
 
 @app.route('/hyperbolic/test<id>') 
 def hyp_view(id):
-    if id in hyp_users:
-        return render_template("visualization.html", title='Hyperbolic', data=None, id=id, q_id="N/A")
+    with open(f"src/application/data/h_group_0.json", 'r') as fdata:
+        gdata = json.load(fdata)    
+    return render_template("hyperbolic-visualization.html", title='Hyperbolic', data=gdata, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
 @app.route('/<id>')
