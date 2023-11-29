@@ -8,6 +8,40 @@ var atan = Math.atan;
 var cos = Math.cos;
 var sin = Math.sin;
 
+function complex(re,im){
+    return {"re": re, "im": im};
+}
+
+function conjugate(z){
+    return {"re": z.re, "im": -z.im};
+}
+
+function negative(z){
+    return {"re": -z.re, "im": -z.im};
+}
+
+function complex_add(z1,z2){
+    return {"re": z1.re + z2.re, "im": z1.im + z2.im};
+}
+
+function complex_mult(z1,z2){
+    return {"re": z1.re*z2.re - z1.im*z2.im, "im": z1.re*z2.im + z1.im*z2.re};
+}
+
+function complex_div(z1,z2){
+    let numerator = complex_mult(z1,conjugate(z2));
+    let denominator = complex_mult(z2,conjugate(z2));
+    return {"re": numerator.re / denominator.re, "im": numerator.im / denominator.re};
+}
+
+function mobius(z, transform){
+    return complex_div(
+        complex_add(complex_mult(transform.a, z), transform.b), 
+        complex_add(complex_mult(transform.c, z), transform.d)
+    );
+}
+
+
 function lobachevskyToPolar(pt){
     let coshx = cosh(pt.x); 
     let coshy = cosh(pt.y);
@@ -45,6 +79,9 @@ class HyperbolicVis {
         // this.canvas = d3.select(canvas);
 
         [this.nodes, this.links, this.idMap] = initGraph(nodes,links);
+        
+        this.width = this.hcanvas.getUnderlayElement().offsetWidth;
+        this.height = this.hcanvas.getUnderlayElement().offsetHeight;
 
 
     }
@@ -54,20 +91,12 @@ class HyperbolicVis {
             n.polar = lobachevskyToPolar(n.hyperbolic);
             n.hpnt = HyperbolicCanvas.Point
                 .givenHyperbolicPolarCoordinates(n.polar.r, n.polar.theta);
+            n.complex = complex(n.hpnt.getX(), n.hpnt.getY());
         });
     }
 
     draw(){
-        // let path = this.hcanvas.pathForHyperbolic(
-        //     HyperbolicCanvas.Circle.givenEuclideanCenterRadius(HyperbolicCanvas.Point.givenCoordinates(0,0.25),.03)
-        // );        
-        // this.hcanvas.fillAndStroke(path);
-
-        // path = canvas.pathForHyperbolic(HyperbolicCanvas.Line.givenTwoPoints(
-        //     G.pathList[i][0].hPos,
-        //     G.pathList[i][1].hPos
-        //   ));
-        //   canvas.stroke(path);
+        this.hcanvas.clear();
           
         this.links.forEach(e => {
             this.hcanvas.stroke(
@@ -86,5 +115,50 @@ class HyperbolicVis {
             )
         });
     }
+
+    reposition(z){
+        let transform = {
+            "a": complex(1,0),
+            "b": negative(z),
+            "c": negative(conjugate(z)),
+            "d": complex(1,0)
+        };
+
+        this.nodes.forEach(n => {
+            n.complex = mobius(n.complex, transform);
+            n.hpnt = HyperbolicCanvas.Point.givenCoordinates(n.complex.re, n.complex.im);
+        });
+        this.draw();
+    }
+
+    addPan(){
+
+        var dragged = false;
+        var myDown = e => {
+            dragged = true;
+            let loc = this.hcanvas.at([this.width - e.layerX, this.height - e.layerY])
+            this.reposition(complex(-loc.getX(), -loc.getY()));
+        }
+        var myUp = function(e){
+            dragged = false;
+            console.log(e);
+        }
+        
+        var whileDragging = function(e){
+            if(dragged){
+            // resetLocation(e);
+            }
+        }
+      
+      var scroll = function(e){
+      
+      }
+      
+          this.hcanvas.getCanvasElement().addEventListener('mousemove', whileDragging);
+          document.addEventListener('wheel', scroll);
+          this.hcanvas.getCanvasElement().addEventListener('mousedown', myDown);
+          this.hcanvas.getCanvasElement().addEventListener('mouseup', myUp);
+    }
+
 
 }

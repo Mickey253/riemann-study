@@ -22,14 +22,6 @@ class EuclideanVis {
         
         [this.nodes, this.links, this.idMap] = initGraph(nodes,links);
 
-        this.nodes.forEach(n => {
-            n.neighors = new Set();
-        });
-        this.links.forEach(e => {
-            e.source.neighors.add(e.target.id);
-            e.target.neighors.add(e.source.id);
-        });
-
         this.layer1 = this.svg.append("g");
         this.width = this.svg.node().getBoundingClientRect().width;
         this.height = this.svg.node().getBoundingClientRect().height;
@@ -38,6 +30,9 @@ class EuclideanVis {
             "x": this.width / 2,
             "y": this.height / 2
         }
+
+        let answers = new GraphComputations(this.nodes,this.links);
+        answers.computeT2b(3);
 
     }
 
@@ -111,7 +106,7 @@ class EuclideanVis {
                     d3.select(this).attr("fill", tthis.#colors[2]); //function(){} syntax has a different "this" which is the svg element attached.
                 }
 
-                tthis.layer1.selectAll(".nodes").filter(n => d.neighors.has(n.id) && !id_list.includes("node_" + n.id))
+                tthis.layer1.selectAll(".nodes").filter(n => d.neighbors.has(n.id) && !id_list.includes("node_" + n.id))
                     .attr("fill", tthis.#colors[1]); //We added an adjacency list data structure in preprocessing to make this efficient. 
 
                 tthis.layer1.selectAll(".links").filter(e => e.source.id === d.id || e.target.id === d.id)
