@@ -8,6 +8,10 @@ var atan = Math.atan;
 var cos = Math.cos;
 var sin = Math.sin;
 
+function l2_norm(v){
+    return Math.sqrt(v.x*v.x + v.y*v.y);
+}
+
 function complex(re,im){
     return {"re": re, "im": im};
 }
@@ -59,6 +63,7 @@ function polarToLobachevsky(pt){
 class HyperbolicVis {
     #nodeRadiusLarge = 3;
     #nodeRadiusSmall = 0.03;
+    #stepSize = 3;
 
     #colors = ["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949","#af7aa1","#ff9da7","#9c755f","#bab0ab"];
     #margin = {top: 15, bottom: 15, left:15, right:15};
@@ -83,6 +88,9 @@ class HyperbolicVis {
         this.width = this.hcanvas.getUnderlayElement().offsetWidth;
         this.height = this.hcanvas.getUnderlayElement().offsetHeight;
 
+        this.curPos = HyperbolicCanvas.Point.ORIGIN;
+        this.pixelOrigin = {"x": this.width / 2, "y": this.height / 2};
+        this.curMove = {"x": 0, "y": 0};
 
     }
 
@@ -131,33 +139,40 @@ class HyperbolicVis {
         this.draw();
     }
 
+    addDblClick(){
+        let onDblClick = e => {
+            let loc = this.hcanvas.at([this.width - e.layerX, this.height - e.layerY])
+            this.reposition(complex(-loc.getX(), -loc.getY()));    
+        };
+        this.hcanvas.getCanvasElement().addEventListener("dblclick", onDblClick);
+    }
+
     addPan(){
 
         var dragged = false;
-        var myDown = e => {
+        var onDown = e => {
             dragged = true;
-            let loc = this.hcanvas.at([this.width - e.layerX, this.height - e.layerY])
-            this.reposition(complex(-loc.getX(), -loc.getY()));
+            this.curMove = {"x": e.clientX, "y": e.clientY};
         }
-        var myUp = function(e){
-            dragged = false;
-            console.log(e);
+        var onUp = e => {
+            dragged = false;     
         }
-        
-        var whileDragging = function(e){
+        var whileDragging = e => {
             if(dragged){
-            // resetLocation(e);
+                let newMove = {"x": e.clientX, "y": e.clientY};
+                let diff = {"x": newMove.x - this.curMove.x, "y": newMove.y - this.curMove.y};
+                let norm = l2_norm(diff);
+                if (norm > 2){
+                    var unit = {"x": diff.x / norm, "y": diff.y / norm};
+                    let loc = this.hcanvas.at([this.pixelOrigin.x - this.#stepSize * unit.x, this.pixelOrigin.y - this.#stepSize * unit.y]);
+                    this.reposition(complex(loc.getX(), loc.getY()));
+                }
             }
         }
       
-      var scroll = function(e){
-      
-      }
-      
-          this.hcanvas.getCanvasElement().addEventListener('mousemove', whileDragging);
-          document.addEventListener('wheel', scroll);
-          this.hcanvas.getCanvasElement().addEventListener('mousedown', myDown);
-          this.hcanvas.getCanvasElement().addEventListener('mouseup', myUp);
+        this.hcanvas.getCanvasElement().addEventListener('mousemove', whileDragging);
+        this.hcanvas.getCanvasElement().addEventListener('mousedown', onDown);
+        this.hcanvas.getCanvasElement().addEventListener('mouseup', onUp);
     }
 
 
