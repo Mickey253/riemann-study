@@ -137,7 +137,7 @@ class SphericalVis {
     }
 
     interact() {
-        this.svg.selectAll(".sites > path")
+        this.svg.selectAll(".sites")
             .on("mouseenter", (e, d) => {
                 d3.select("#sph_node_" + d.geometry.label)
                     .attr("fill", this.#colors[2]);
@@ -161,7 +161,7 @@ class SphericalVis {
                     
             })
             .on("mouseleave", (e, d) => {
-                d3.selectAll(".sites > path")
+                d3.selectAll(".sites")
                     .attr("fill", this.#colors[0]);
             });
     }

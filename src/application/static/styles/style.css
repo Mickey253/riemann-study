@@ -90,3 +90,8 @@ g {
 .submit-button:focus-visible {
   box-shadow: none;
 }
+
+.intro-title {
+    text-align: center;
+    margin: 1em;
+}

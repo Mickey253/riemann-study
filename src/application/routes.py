@@ -4,12 +4,24 @@ from application import app
 from werkzeug.utils import secure_filename
 import json
 import re
+from pymongo import MongoClient
+# from mongopass import mongopass
+mongopass = "mongodb+srv://riemann-study123:SzGVFYvxfGVqy3lq@riemann-study.mhxq2bq.mongodb.net/?retryWrites=true&w=majority"
+client = MongoClient(mongopass)
+
+db = client.riemannStudy
+riemannCollection = db.riemannCollection
+
 
 euc_users = ["E1", "E2", "E3"]
 sph_users = ["S1", "S2", "S3"]
 hyp_users = ["H1", "H2", "H3"]
 
 graph_ids = dict(zip(range(9), [f"{gtype}_group_{num}.json" for gtype in ["s","h","e"] for num in range(3)]))
+
+
+def generate_id(id):
+    return id
 
 def get_graph(id):
     print(id)
@@ -51,6 +63,9 @@ def euc_view_home(data):
     if id is None:
         return redirect(url_for("index"))
     if "E" in id:
+        user_id = generate_id(id)
+        new_val = { "id": user_id }
+        riemannCollection.insert_one(new_val)
         return render_template("euc-vis-home.html", title='Euclidean Homepage', data=data, id=id)
     return redirect(url_for("index"))
 

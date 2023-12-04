@@ -10,3 +10,5 @@ setuptools==66.0.0
 Werkzeug==2.2.3
 wheel==0.38.4
 WTForms==3.0.1
+pymongo[srv]
+Flask-PyMongo
