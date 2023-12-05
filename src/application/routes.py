@@ -80,18 +80,16 @@ def euc_view(id, q):
 
 @app.route('/spherical/test<id>') 
 def sph_view(id):
-    id_int = int(re.findall(r"\d+", id)[0])    
-    if id in sph_users:
-        with open(f"src/application/data/s_group_2.json", 'r') as fdata:
-            gdata = json.load(fdata)
+    if "S" in id:
+        gdata = get_graph(id)
         return render_template("sphere-visualization.html", title='Spherical', data=gdata, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
 @app.route('/hyperbolic/test<id>') 
 def hyp_view(id):
-    with open(f"src/application/data/h_group_0.json", 'r') as fdata:
-        gdata = json.load(fdata)    
-    return render_template("hyperbolic-visualization.html", title='Hyperbolic', data=gdata, id=id, q_id="N/A")
+    if "H" in id:
+        gdata = get_graph(id)
+        return render_template("hyperbolic-visualization.html", title='Hyperbolic', data=gdata, id=id, q_id="N/A")
     return redirect(url_for("index"))
 
 @app.route('/<id>')
