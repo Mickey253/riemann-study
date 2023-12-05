@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid" id="main-body">
+       <div class="row" id="main">
+        <div class="col-3" id="sidebar">
+            User ID: {{id}} <br>
+            Question ID: {{q_id}}
+            <div class="question" id="question-euc"></div>
+            <form class="question-options" id="question-options-euc">
+            </form>
+        </div>
+        <div class="col-9" id="container-fluid">
+            <div id="hyperbolic-canvas"></div>
+        </div>
+        </div>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{url_for('static', filename='js/hyperbolic_mess/hyperbolic_canvas.js')}}"></script>
+<script src="{{url_for('static', filename='js/hyperbolicVis.js')}}"></script>
+<script>
+    var ready = (callback) => {
+        if (document.readyState != "loading") callback();
+        else document.addEventListener("DOMContentLoaded", callback);
+      }
+
+    ready(() => { 
+        var data = {{data | tojson}};
+        let Vis = new HyperbolicVis("#hyperbolic-canvas", data.nodes, data.links);
+        Vis.process();
+        Vis.draw();
+        Vis.addDblClick();
+        Vis.addPan();  
+        
+    });
+
+</script>
+{% endblock %}

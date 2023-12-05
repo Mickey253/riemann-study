@@ -49,11 +49,13 @@ class SphericalVis {
               y: tthis.phi(transform.y)
             };
         
-            tthis.projection.rotate([r.x, r.y, 0]);
+            tthis.projection.rotate([r.x+180, r.y-90, 0]);
             tthis.svg.selectAll("path").attr("d", tthis.geopath);
         }            
-        this.svg.call(d3.zoom().on('zoom', zoomed));        
-
+        let zoom = d3.zoom().on('zoom', zoomed);
+        this.svg.call(zoom);        
+        this.svg.on("dblclick.zoom", null);     
+        this.svg.on("wheel.zoom", null);
 
         this.lambda = d3.scaleLinear()
             .domain([this.#margin.left, this.width-this.#margin.right])
@@ -136,7 +138,14 @@ class SphericalVis {
             });        
     }
 
-    interact() {
+    addWheel(){
+        this.svg.on("wheel", e => {
+            this.projection.fitSize([250,250])
+            this.draw()
+        })
+    }
+
+    addHover(){
         this.svg.selectAll(".sites > path")
             .on("mouseenter", (e, d) => {
                 d3.select("#sph_node_" + d.geometry.label)
@@ -163,7 +172,12 @@ class SphericalVis {
             .on("mouseleave", (e, d) => {
                 d3.selectAll(".sites > path")
                     .attr("fill", this.#colors[0]);
-            });
+            });        
+    }
+
+    interact() {
+        this.addHover();
+        this.addWheel();
     }
 
 }
