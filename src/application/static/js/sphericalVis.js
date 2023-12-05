@@ -8,6 +8,7 @@ function deg2rad(d){
 class SphericalVis {
     #nodeRadiusLarge = 3;
     #nodeRadiusSmall = 1;
+    #scaleSpeed = 10;
 
     #colors = ["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949","#af7aa1","#ff9da7","#9c755f","#bab0ab"];
     #margin = {top: 15, bottom: 15, left:15, right:15};
@@ -30,14 +31,14 @@ class SphericalVis {
     }
 
     addProjection(){
-        let projection = this.projection = d3.geoOrthographic();
+        let projection = this.projection = d3.geoOrthographic()//.fitExtent([[0,0],[500,500]]);
         let path = this.geopath = d3.geoPath().projection(projection);
 
         this.svg.append('path')
             .attr('id', "sphere")
             .datum({type: "Sphere"})
             .attr("d", path)
-            .attr("stroke", "white")
+            .attr("stroke", "black")
             .attr("stroke-width", 2)
             .attr("fill", "white");
 
@@ -111,37 +112,43 @@ class SphericalVis {
         //                 .attr("class", "graticules")
         //                 .attr("d", this.geopath)
         //     );
+
+        this.svg.select("#sphere").attr("d", this.geopath);
       
-        this.svg.append('g')
+        this.svg
             .selectAll(".links")
-            .data(this.linkRoutes)
+            .data(this.linkRoutes, (d,i) => i)
             .join(
                 enter => enter.append("path")
                     .attr("class", "links")
+                    .attr("d", this.geopath),
+                update => update 
                     .attr("d", this.geopath)
             )
-            .attr("id", (d) => {
-            });
+            // .attr("id", (d) => {
+            // });
       
-        this.svg.append('g')
+        this.svg
             .selectAll('.sites')
-            .data(this.nodePos.features)
+            .data(this.nodePos.features, (d,i) => d.geometry.label)
             .join(
                 enter => enter.append('path')
                     .attr("class", "sites")
                     .attr('d', this.geopath)
                     .attr('fill', this.#colors[0])
-                    .attr('stroke', "black")
+                    .attr('stroke', "black"),
+                update => update    
+                    .attr("d", this.geopath)
             )
-            .attr("id", d => {
-                return "sph_node_" + d.geometry.label;
-            });        
+            // .attr("id", d => {
+            //     return "sph_node_" + d.geometry.label;
+            // });        
     }
 
     addWheel(){
         this.svg.on("wheel", e => {
-            this.projection.fitSize([250,250])
-            this.draw()
+            this.projection.scale(this.projection.scale() + this.#scaleSpeed * Math.sign(e.deltaY));
+            this.draw();
         })
     }
 
