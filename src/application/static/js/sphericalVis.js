@@ -145,15 +145,16 @@ class SphericalVis {
         })
     }
 
-    addHover(){
-        this.svg.selectAll(".sites > path")
+    addHover(id_list){
+        this.svg.selectAll(".sites")
             .on("mouseenter", (e, d) => {
-                d3.select("#sph_node_" + d.geometry.label)
-                    .attr("fill", this.#colors[2]);
+                if (!id_list.includes("#sph_node_" + d.geometry.label)) {
+                    d3.select("#sph_node_" + d.geometry.label)
+                    .attr("fill", this.#colors[2]); 
+                }
 
                     let colorLabels = [];
                     for (let i = 0; i < this.links.length; i++) {
-                        console.log(this.links[i].source.id);
                         if (this.links[i].source.id == d.geometry.label) {
                             colorLabels.push(this.links[i].target.id);
                         }
@@ -163,21 +164,28 @@ class SphericalVis {
                     }
                     if (colorLabels.length > 2) {
                         colorLabels.forEach(e => {
-                            d3.select("#sph_node_" + e)
-                            .attr("fill", this.#colors[1]);
+                            if (!id_list.includes("#sph_node_" + e)) {
+                                d3.select("#sph_node_" + e)
+                                .attr("fill", this.#colors[1]); 
+                            }
                         });
                     }
                     
             })
             .on("mouseleave", (e, d) => {
-                d3.selectAll(".sites")
+                d3.selectAll(".sites").filter(n => !id_list.includes("#sph_node_" + n.geometry.label))
                     .attr("fill", this.#colors[0]);
             });        
     }
 
-    interact() {
-        this.addHover();
+    interact(id_list) {
+        this.addHover(id_list);
         this.addWheel();
+    }
+
+    highlight_question(id_list, color) {
+        d3.selectAll(".sites").filter(n => id_list.includes("#sph_node_" + n.geometry.label))
+            .attr("fill", color)
     }
 
 }

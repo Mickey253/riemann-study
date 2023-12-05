@@ -6,8 +6,8 @@
         <div class="col-3" id="sidebar">
             User ID: {{id}} <br>
             Question ID: {{q_id}}
-            <div class="question" id="question-euc"></div>
-            <form class="question-options" id="question-options-euc">
+            <div class="question" id="question-hyp"></div>
+            <form class="question-options" id="question-options-hyp">
             </form>
         </div>
         <div class="col-9" id="container-fluid">
@@ -31,12 +31,69 @@
 
     ready(() => { 
         var data = {{data | tojson}};
+        var questionID = "{{q_id}}";
+        var question_obj = {{question | tojson}};
         let Vis = new HyperbolicVis("#hyperbolic-canvas", data.nodes, data.links);
         Vis.process();
         Vis.draw();
         Vis.addDblClick();
         Vis.addPan();  
-        
+
+
+        // TODO: Change code based on how hyperbolic is visualized 
+
+        // for (var i = 0; i < question_obj["node"]["type_1"].length; i++) {
+        //     question_obj["node"]["type_1"][i] = "#hyp_" + question_obj["node"]["type_1"][i]
+        // }
+        // for (var i = 0; i < question_obj["node"]["type_2"].length; i++) {
+        //     question_obj["node"]["type_2"][i] = "#hyp_" + question_obj["node"]["type_2"][i]
+        // }
+
+        // if (question_obj["node"]["type_2"].length != 0) {
+        //     vis.highlight_question(question_obj["node"]["type_1"], "#a837e6");
+        //     vis.highlight_question(question_obj["node"]["type_2"], "#57d132");
+        //     vis.interact(question_obj["node"]["type_1"].concat(question_obj["node"]["type_2"]));
+        // } else {
+        //     vis.highlight_question(question_obj["node"]["type_1"], "#a837e6");
+        //     vis.interact(question_obj["node"]["type_1"]);
+        // }
+
+        // question = document.getElementById("question-sph")
+        // if (questionID) {
+        //     question.textContent = question_obj["q_text"]
+        //     var question_options = Object.keys(question_obj["q_options"])
+        //     questionChoices = document.getElementById("question-options-sph")
+        //     for (var i = 0; i < question_options.length; i++) {
+        //         var parentChoices = document.createElement("div")
+        //         parentChoices.className = "option-container"
+        //         var answerNode = document.createElement("input")
+        //         var answerText = document.createElement("label")
+        //         answerNode.setAttribute("type", "radio")
+        //         answerNode.setAttribute('id', question_options[i])
+        //         answerNode.setAttribute('name', "answers")
+        //         answerText.setAttribute('for', question_options[i])
+        //         answerText.textContent = question_obj["q_options"][question_options[i]]
+        //         parentChoices.appendChild(answerNode);
+        //         parentChoices.appendChild(answerText);
+        //         questionChoices.appendChild(parentChoices);
+        //     }
+        //     var submitButton = document.createElement("input")
+        //     submitButton.setAttribute("type", "submit")
+        //     submitButton.classList.add("submit-button")
+        //     questionChoices.appendChild(submitButton);
+            
+        //     var question_queue = ["adj-fil-T2b-1", "adj-fil-T2b-2", "comcon-T5-1", "comcon-T5-2", "conn-T6-1", "conn-T6-2", "over-T9-1", "over-T9-2", "acc-T11-1", "acc-T11-2", "adj-T12-1", "adj-T12-2"]
+        //     var index = question_queue.indexOf(questionID) + 1
+        //     var next_q = question_queue[index]
+        //     var action_statement;
+        //     if (index == question_queue.length) {
+        //         action_statement = `{{ url_for('sph_view_end', id=id) }}`
+        //     } else {
+        //         action_statement = `{{ url_for('sph_view', id=id, q='${next_q}')|unquote }}`
+        //     }
+            
+        //     document.getElementById('question-options-sph').action = action_statement; 
+        // }
     });
 
 </script>

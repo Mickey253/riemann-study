@@ -63,28 +63,28 @@ def euc_view_home(data):
     if id is None:
         return redirect(url_for("index"))
     if "E" in id:
-        user_id = generate_id(id)
-        new_val = { "id": user_id }
-        riemannCollection.insert_one(new_val)
+        # user_id = generate_id(id)
+        # new_val = { "id": user_id }
+        # riemannCollection.insert_one(new_val)
         return render_template("euc-vis-home.html", title='Euclidean Homepage', data=data, id=id)
     return redirect(url_for("index"))
 
-@app.route('/spherical/homepage') 
-def sph_view_home():
+@app.route('/spherical/homepage<data>') 
+def sph_view_home(data):
     id = request.args.get('id')
     if id is None:
         return redirect(url_for("index"))
     if "S" in id:
-        return render_template("sph-vis-home.html", title='Spherical', data=None, id=id)
+        return render_template("sph-vis-home.html", title='Spherical Homepage', data=data, id=id)
     return redirect(url_for("index"))
 
-@app.route('/hyperbolic/homepage') 
-def hyp_view_home():
+@app.route('/hyperbolic/homepage<data>') 
+def hyp_view_home(data):
     id = request.args.get('id')
     if id is None:
         return redirect(url_for("index"))
     if "H" in id:
-        return render_template("hyp-vis-home.html", title='Hyperbolic', data=None, id=id)
+        return render_template("hyp-vis-home.html", title='Hyperbolic', data=data, id=id)
     return redirect(url_for("index"))
 
 def test_page(geom,id):
@@ -92,30 +92,27 @@ def test_page(geom,id):
 
 @app.route('/euclidean/test<id>_<q>') 
 def euc_view(id, q):
-    print("This should be page id", id)
-    print("This should be question id", q)
     if "E" in id:
         gdata, question = get_question(q)
         return render_template("visualization.html", title='Euclidean', data=gdata, id=id, q_id=q, question=question)
     return redirect(url_for("index"))
 
-@app.route('/spherical/test<id>') 
-def sph_view(id):
+@app.route('/spherical/test<id>_<q>') 
+def sph_view(id, q):
     if "S" in id:
-        gdata = get_graph(id)
-        return render_template("sphere-visualization.html", title='Spherical', data=gdata, id=id, q_id="N/A")
+        gdata, question = get_question(q)
+        return render_template("sphere-visualization.html", title='Spherical', data=gdata, id=id, q_id=q, question=question)
     return redirect(url_for("index"))
 
-@app.route('/hyperbolic/test<id>') 
-def hyp_view(id):
+@app.route('/hyperbolic/test<id>_<q>') 
+def hyp_view(id, q):
     if "H" in id:
-        gdata = get_graph(id)
-        return render_template("hyperbolic-visualization.html", title='Hyperbolic', data=gdata, id=id, q_id="N/A")
+        gdata, question = get_question(q)
+        return render_template("hyperbolic-visualization.html", title='Hyperbolic', data=gdata, id=id, q_id=q, question=question)
     return redirect(url_for("index"))
 
 @app.route('/euclidean/test-end<id>') 
 def euc_view_end(id):
-    print(id)
     if id is None:
         return redirect(url_for("index"))
     if "E" in id:
@@ -123,14 +120,32 @@ def euc_view_end(id):
         return redirect(url_for("euc_view_home", data=False, id=id))
     return redirect(url_for("index"))
 
+@app.route('/spherical/test-end<id>') 
+def sph_view_end(id):
+    if id is None:
+        return redirect(url_for("index"))
+    if "S" in id:
+        # TODO Write code for adding to database and changing status of user as completed_test
+        return redirect(url_for("sph_view_home", data=False, id=id))
+    return redirect(url_for("index"))
+
+@app.route('/hyperbolic/test-end<id>') 
+def hyp_view_end(id):
+    if id is None:
+        return redirect(url_for("index"))
+    if "H" in id:
+        # TODO Write code for adding to database and changing status of user as completed_test
+        return redirect(url_for("hyp_view_home", data=False, id=id))
+    return redirect(url_for("index"))
+
 @app.route('/<id>')
 def user_index(id):
     if   "E" in id:
         return redirect(url_for("euc_view_home", data=True, id=id))
     elif "S" in id:
-        return redirect(url_for("sph_view_home", id=id))
+        return redirect(url_for("sph_view_home", data=True, id=id))
     elif "H" in id:
-        return redirect(url_for("hyp_view_home", id=id))
+        return redirect(url_for("hyp_view_home", data=True, id=id))
     else:
         return render_template('errors/404.html'), 404
 
@@ -140,9 +155,9 @@ def user_index_form():
     if   "E" in id:
         return redirect(url_for("euc_view_home", data=True, id=id))
     elif "S" in id:
-        return redirect(url_for("sph_view_home", id=id))
+        return redirect(url_for("sph_view_home", data=True, id=id))
     elif "H" in id:
-        return redirect(url_for("hyp_view_home", id=id))
+        return redirect(url_for("hyp_view_home", data=True, id=id))
     else:
         return render_template('errors/404.html'), 404
 

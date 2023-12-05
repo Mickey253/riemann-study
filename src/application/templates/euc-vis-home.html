@@ -2,52 +2,67 @@
 {% block content %}
 
 <div class="container-fluid" id="main-body">
-       <div class="row" id="main">
+    <div class="row" id="main">
         <div class="col-3" id="sidebar">
             User ID: {{id}} <br>
             <form action="{{ url_for('euc_view', id=id, q='adj-fil-T2b-1') }}">
                 <button id="start-test" type="submit">Start Test</button>
             </form>
             <span id="postTest"></span>
-            
+
         </div>
         <div class="col-9" id="visualization-container">
             <h2 class="intro-title">Riemann Spaces Study</h2>
             <p>
-            Hello Participants, <br>
-            
-            Thanks for joining the "Riemann Spaces" study! We're looking into how visualization of graphs in different ways can affect how people interact with graphs in different ways. Graphs, for this study, are considered as networks that show connections between things. Our study is all about exploring how people understand these maps in regular 2D (like paper) and other not-so-regular spaces like on a ball or a strange-shaped surface.
-            
+                Hello Participants, <br>
+
+                Thanks for joining the "Riemann Spaces" study! We're looking into how visualization of graphs in
+                different ways can affect how people interact with graphs in different ways. Graphs, for this study, are
+                considered as networks that show connections between things. Our study is all about exploring how people
+                understand these maps in regular 2D (like paper) and other not-so-regular spaces like on a ball or a
+                strange-shaped surface.
+
             <h4>Possible Example and Explanation of Visualization:</h4>
-            
+
             TODO
 
             <h4>Introduction to Test</h4>
-            
-            In this test, we want to see how well you get along with different kinds of graphs. We'll show you some in the usual flat way and then in some different, kind of strange ways. Based on different visualizations, you will be answering some questions which can invlove counting, calculation and estimation. You can use different interactions to make your task easier and the interactions you can use are listed below:
+
+            In this test, we want to see how well you get along with different kinds of graphs. We'll show you some in
+            the usual flat way and then in some different, kind of strange ways. Based on different visualizations, you
+            will be answering some questions which can invlove counting, calculation and estimation. You can use
+            different interactions to make your task easier and the interactions you can use are listed below:
             <ul>
-                <li><b>Zoom and Pan:</b> You can scroll with a mouse to zoom in and out and drag the graph for panning.</li>
-                <li><b>Hover:</b> By hovering over nodes, you will be able to see the hovered node highlighted (red) and the neighbors highlighted (yellow) along with them.</li>
-                <li><b>Double click:</b> Double clicking anywhere on canvas (white space where the graph is located) will recenter the point you clicked to the center of your screen.</li>
+                <li><b>Zoom and Pan:</b> You can scroll with a mouse to zoom in and out and drag the graph for panning.
+                </li>
+                <li><b>Hover:</b> By hovering over nodes, you will be able to see the hovered node highlighted (red) and
+                    the neighbors highlighted (yellow) along with them.</li>
+                <li><b>Double click:</b> Double clicking anywhere on canvas (white space where the graph is located)
+                    will recenter the point you clicked to the center of your screen.</li>
             </ul>
-            
+
             <h4>Details of Test</h4>
 
             TODO
 
             <h4>Consent</h4>
-            
+
             Before we get started, here are a few important things to know:
             <ul>
-                <li>Informed Consent: You're here because you want to be! If you have questions, just ask before saying you're okay to start.</li>
-                <li>Anonymity and Confidentiality: Your answers are private, and we won't tell anyone who said what. Your personal details are safe with us.</li>
-                <li>Voluntary Participation: You can leave the study whenever you want. No pressure, and no consequences if you decide it's not for you.</li>
-                <li>Ethical Considerations: We promise to treat you fairly and keep everything honest and respectful. Your well-being is our top priority.</li>
+                <li>Informed Consent: You're here because you want to be! If you have questions, just ask before saying
+                    you're okay to start.</li>
+                <li>Anonymity and Confidentiality: Your answers are private, and we won't tell anyone who said what.
+                    Your personal details are safe with us.</li>
+                <li>Voluntary Participation: You can leave the study whenever you want. No pressure, and no consequences
+                    if you decide it's not for you.</li>
+                <li>Ethical Considerations: We promise to treat you fairly and keep everything honest and respectful.
+                    Your well-being is our top priority.</li>
             </ul>
-            Thanks a bunch for being part of this cool study! Your thoughts and ideas will help us understand how people see and understand different kinds of graphs.
+            Thanks a bunch for being part of this cool study! Your thoughts and ideas will help us understand how people
+            see and understand different kinds of graphs.
             </p>
         </div>
-        </div>
+    </div>
 </div>
 
 
@@ -55,22 +70,22 @@
 
 {% block scripts %}
 {{ super() }}
-<script src="{{url_for('static', filename='js/sphericalVis.js')}}"></script>
 <script>
-    
+
     var ready = (callback) => {
         if (document.readyState != "loading") callback();
         else document.addEventListener("DOMContentLoaded", callback);
-      }
+    }
 
-    ready(() => { 
-        var data = {{data | tojson}};
-        if (data == "False") {
+    ready(() => {
+        var data = {{ data | tojson
+    }};
+    if (data == "False") {
         document.getElementById("start-test").style.display = "none";
         document.getElementById("postTest").textContent = "Thanks for testing! You can exit the tool.";
-       } else {
+    } else {
         document.getElementById("start-test").style.display = "block";
-       }
+    }
     });
 </script>
 {% endblock %}
