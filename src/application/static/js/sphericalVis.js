@@ -37,9 +37,9 @@ class SphericalVis {
             .attr('id', "sphere")
             .datum({type: "Sphere"})
             .attr("d", path)
-            .attr("stroke", "#444")
+            .attr("stroke", "white")
             .attr("stroke-width", 2)
-            .attr("fill", "#b5aeae");
+            .attr("fill", "white");
 
         var tthis = this;
         function zoomed(e){
@@ -103,14 +103,14 @@ class SphericalVis {
 
     draw(){
       
-        this.svg.append('g')
-            .selectAll('.graticules')
-            .data([this.graticule()])
-            .join(
-                enter => enter.append("path")
-                        .attr("class", "graticules")
-                        .attr("d", this.geopath)
-            );
+        // this.svg.append('g')
+        //     .selectAll('.graticules')
+        //     .data([this.graticule()])
+        //     .join(
+        //         enter => enter.append("path")
+        //                 .attr("class", "graticules")
+        //                 .attr("d", this.geopath)
+        //     );
       
         this.svg.append('g')
             .selectAll(".links")

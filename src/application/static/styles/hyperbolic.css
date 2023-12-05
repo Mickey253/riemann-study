@@ -24,7 +24,7 @@ html, body {
   It is not recommended to apply styling beyond background color.
   */
   div#hyperbolic-canvas div.backdrop {
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(255, 255, 255);
   }
   
   /*
@@ -33,6 +33,6 @@ html, body {
   It is not recommended to apply styling beyond background color.
   */
   div#hyperbolic-canvas div.backdrop div.underlay {
-    background-color: #333333;
+    background-color: #ffffff;
   }
   
