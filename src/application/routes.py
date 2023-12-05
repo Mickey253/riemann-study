@@ -63,9 +63,9 @@ def euc_view_home(data):
     if id is None:
         return redirect(url_for("index"))
     if "E" in id:
-        # user_id = generate_id(id)
-        # new_val = { "id": user_id }
-        # riemannCollection.insert_one(new_val)
+        user_id = generate_id(id)
+        new_val = { "id": user_id }
+        riemannCollection.insert_one(new_val)
         return render_template("euc-vis-home.html", title='Euclidean Homepage', data=data, id=id)
     return redirect(url_for("index"))
 
@@ -75,6 +75,9 @@ def sph_view_home(data):
     if id is None:
         return redirect(url_for("index"))
     if "S" in id:
+        user_id = generate_id(id)
+        new_val = { "id": user_id }
+        riemannCollection.insert_one(new_val)
         return render_template("sph-vis-home.html", title='Spherical Homepage', data=data, id=id)
     return redirect(url_for("index"))
 
@@ -84,6 +87,9 @@ def hyp_view_home(data):
     if id is None:
         return redirect(url_for("index"))
     if "H" in id:
+        user_id = generate_id(id)
+        new_val = { "id": user_id }
+        riemannCollection.insert_one(new_val)
         return render_template("hyp-vis-home.html", title='Hyperbolic', data=data, id=id)
     return redirect(url_for("index"))
 
