@@ -21,6 +21,7 @@
 
 {% block scripts %}
 {{ super() }}
+<script src="{{url_for('static', filename='js/graph_answers.js')}}"></script>
 <script src="{{url_for('static', filename='js/euclideanVis.js')}}"></script>
 <script>
     var ready = (callback) => {

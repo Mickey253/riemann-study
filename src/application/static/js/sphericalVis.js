@@ -37,9 +37,9 @@ class SphericalVis {
             .attr('id', "sphere")
             .datum({type: "Sphere"})
             .attr("d", path)
-            .attr("stroke", "#444")
+            .attr("stroke", "white")
             .attr("stroke-width", 2)
-            .attr("fill", "#b5aeae");
+            .attr("fill", "white");
 
         var tthis = this;
         function zoomed(e){
@@ -49,11 +49,13 @@ class SphericalVis {
               y: tthis.phi(transform.y)
             };
         
-            tthis.projection.rotate([r.x, r.y, 0]);
+            tthis.projection.rotate([r.x+180, r.y-90, 0]);
             tthis.svg.selectAll("path").attr("d", tthis.geopath);
         }            
-        this.svg.call(d3.zoom().on('zoom', zoomed));        
-
+        let zoom = d3.zoom().on('zoom', zoomed);
+        this.svg.call(zoom);        
+        this.svg.on("dblclick.zoom", null);     
+        this.svg.on("wheel.zoom", null);
 
         this.lambda = d3.scaleLinear()
             .domain([this.#margin.left, this.width-this.#margin.right])
@@ -101,14 +103,14 @@ class SphericalVis {
 
     draw(){
       
-        this.svg.append('g')
-            .selectAll('.graticules')
-            .data([this.graticule()])
-            .join(
-                enter => enter.append("path")
-                        .attr("class", "graticules")
-                        .attr("d", this.geopath)
-            );
+        // this.svg.append('g')
+        //     .selectAll('.graticules')
+        //     .data([this.graticule()])
+        //     .join(
+        //         enter => enter.append("path")
+        //                 .attr("class", "graticules")
+        //                 .attr("d", this.geopath)
+        //     );
       
         this.svg.append('g')
             .selectAll(".links")
@@ -136,8 +138,15 @@ class SphericalVis {
             });        
     }
 
-    interact() {
-        this.svg.selectAll(".sites")
+    addWheel(){
+        this.svg.on("wheel", e => {
+            this.projection.fitSize([250,250])
+            this.draw()
+        })
+    }
+
+    addHover(){
+        this.svg.selectAll(".sites > path")
             .on("mouseenter", (e, d) => {
                 d3.select("#sph_node_" + d.geometry.label)
                     .attr("fill", this.#colors[2]);
@@ -163,7 +172,12 @@ class SphericalVis {
             .on("mouseleave", (e, d) => {
                 d3.selectAll(".sites")
                     .attr("fill", this.#colors[0]);
-            });
+            });        
+    }
+
+    interact() {
+        this.addHover();
+        this.addWheel();
     }
 
 }
