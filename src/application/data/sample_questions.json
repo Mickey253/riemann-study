@@ -2,7 +2,7 @@
     "questions": [ 
         {
             "q_id": "adj-fil-T2b-1",
-            "q_text": "Given highlighted node v (purple), how many neighbors of node v have degree 3?",
+            "q_text": "How many neighbors of the highlighted node have degree 3?",
             "q_options": {
                 "option_1" : 3,
                 "option_2" : 4,
@@ -23,7 +23,7 @@
         },
         {
             "q_id": "adj-fil-T2b-2",
-            "q_text": "Given highlighted node v (purple), how many neighbors of node v have degree 5?",
+            "q_text": "How many neighbors of the highlighted node have degree 5?",
             "q_options": {
                 "option_1" : 4,
                 "option_2" : 5,
@@ -44,7 +44,7 @@
         },
         {
             "q_id": "comcon-T5-1",
-            "q_text": "Given nodes u (purple) and v (green), are there any common neighbors?",
+            "q_text": "Do the two highlighted nodes have any common neighbors?",
             "q_options": {
                 "option_1" : "Yes",
                 "option_2" : "No"
@@ -65,7 +65,7 @@
         },
         {
             "q_id": "comcon-T5-2",
-            "q_text": "Given nodes u (purple) and v (green), are there any common neighbors?",
+            "q_text": "Do the two highlighted nodes have any common neighbors?",
             "q_options": {
                 "option_1" : "Yes",
                 "option_2" : "No"
@@ -86,7 +86,7 @@
         },
         {
             "q_id": "conn-T6-1",
-            "q_text": "Given nodes u (purple) and v (green), determine the length of a shortest path between u and v",
+            "q_text": "What is the length of the shortest path between the two highlighted nodes?",
             "q_options": {
                 "option_1" : 3,
                 "option_2" : 4,
@@ -109,7 +109,7 @@
         },
         {
             "q_id": "conn-T6-2",
-            "q_text": "Given nodes u (green) and v (purple), determine the length of a shortest path between u and v",
+            "q_text": "What is the length of the shortest path between the two highlighted nodes?",
             "q_options": {
                 "option_1" : 3,
                 "option_2" : 4,
@@ -134,10 +134,10 @@
             "q_id": "over-T9-1",
             "q_text": "Estimate the total number of nodes in the graph",
             "q_options": {
-                "option_1" : 50,
-                "option_2" : 100,
-                "option_3" : 150,
-                "option_4" : 200
+                "option_1" : "50-100",
+                "option_2" : "101-150",
+                "option_3" : "151-200",
+                "option_4" : "201-250"
             },
             "graph": {
                 "graph_type": "euclidean",
@@ -153,10 +153,10 @@
             "q_id": "over-T9-2",
             "q_text": "Estimate the total number of edges in the graph",
             "q_options": {
-                "option_1" : 90,
-                "option_2" : 110,
-                "option_3" : 130,
-                "option_4" : 150
+                "option_1" : "50-100",
+                "option_2" : "101-150",
+                "option_3" : "151-200",
+                "option_4" : "201-250"
             },
             "graph": {
                 "graph_type": "euclidean",
@@ -170,12 +170,12 @@
         },
         {
             "q_id": "acc-T11-1",
-            "q_text": "Given a set of nodes S (purple), how many pairs are reachable to each other with a distance of exactly 2 nodes between them?",
+            "q_text": "How many pairs of highlighted nodes have distance 2 or less?",
             "q_options": {
-                "option_1" : "1-4",
-                "option_2" : "5-7",
-                "option_3" : "4-8",
-                "option_4" : "6-10"
+                "option_1" : "0-5",
+                "option_2" : "6-10",
+                "option_3" : "11-15",
+                "option_4" : "16-20"
             },
             "graph": {
                 "graph_type": "euclidean",
@@ -197,12 +197,12 @@
         },
         {
             "q_id": "acc-T11-2",
-            "q_text": "Given a set of nodes S (purple), how many pairs are reachable to each other with a distance of exactly 3 nodes between them?",
+            "q_text": "How many pairs of highlighted nodes have distance 2 or less?",
             "q_options": {
                 "option_1" : "0-5",
-                "option_2" : "3-9",
-                "option_3" : "5-10",
-                "option_4" : "11-16"
+                "option_2" : "6-10",
+                "option_3" : "11-15",
+                "option_4" : "16-20"
             },
             "graph": {
                 "graph_type": "euclidean",
@@ -224,12 +224,12 @@
         },
         {
             "q_id": "adj-T12-1",
-            "q_text": "Given a set of nodes S (purple), estimate the average degree of nodes (Node Degree: Number of nodes a node is directly connected to)? ",
+            "q_text": "Estimate the average degree of the highlighted nodes. <br> (Node Degree: Number of nodes a node is directly connected to)? ",
             "q_options": {
-                "option_1" : 4,
-                "option_2" : 6,
-                "option_3" : 3,
-                "option_4" : 8
+                "option_1" : "3-5",
+                "option_2" : "6-8",
+                "option_3" : "9-11",
+                "option_4" : "12-14"
             },
             "graph": {
                 "graph_type": "euclidean",
@@ -255,10 +255,10 @@
             "q_id": "adj-T12-2",
             "q_text": "Estimate the most common node degree of the graph (Node Degree: Number of nodes a node is directly connected to)? ",
             "q_options": {
-                "option_1" : 5,
-                "option_2" : 6,
-                "option_3" : 7,
-                "option_4" : 8
+                "option_1" : "3-5",
+                "option_2" : "6-8",
+                "option_3" : "9-11",
+                "option_4" : "12-14"
             },
             "graph": {
                 "graph_type": "euclidean",

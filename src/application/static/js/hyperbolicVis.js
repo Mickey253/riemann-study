@@ -140,28 +140,26 @@ class HyperbolicVis {
     }
 
     addDblClick(){
-        let interpLen = 10;
+        let interpLen = 20;
 
 
         let onDblClick = e => {
             let destPos = {"x": this.width - e.layerX, "y": this.height - e.layerY};
 
-            let interpolate = Array.from(Array(interpLen), (n,i) => {
-                //a(src) + 1-a(dst)
-                let a = (i+1) / interpLen;
-                let pos = {"x": (1-a) * this.pixelOrigin.x + (a) * destPos.x, "y": (1-a) * this.pixelOrigin.y + (a) * destPos.y}
-                console.log(pos.x)
-                return this.hcanvas.at([pos.x, pos.y]);
-            });
+            var curPos = HyperbolicCanvas.Point.ORIGIN;
+            destPos = HyperbolicCanvas.Point.givenCoordinates(destPos.x, destPos.y);
+            let dist = curPos.hyperbolicDistanceTo(destPos);
+            let step = dist / interpLen;
+            let angle = curPos.hyperbolicAngleTo(destPos);
+            
+            let interpolate = new Array(interpLen).fill(0).map((n,i) => {
+                curPos = curPos.hyperbolicDistantPoint(step,angle);
+                console.log(curPos);
+            })
 
-            // interpolate.forEach(pnt => {
-            //     setTimeout(() => {
-            //         this.reposition(complex(-pnt.getX(), -pnt.getY()));
-            //     }, 10);
-            // });
 
-            let loc = this.hcanvas.at([this.width - e.layerX, this.height - e.layerY])
-            this.reposition(complex(-interpolate[2].getX(), -interpolate[2].getY()));    
+            // let loc = this.hcanvas.at([this.width - e.layerX, this.height - e.layerY])
+            // this.reposition(complex(-interpolate[9].getX(), -interpolate[9].getY()));    
         };
         this.hcanvas.getCanvasElement().addEventListener("dblclick", onDblClick);
     }
