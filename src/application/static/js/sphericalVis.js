@@ -31,7 +31,10 @@ class SphericalVis {
     }
 
     addProjection(){
-        let projection = this.projection = d3.geoOrthographic()//.fitExtent([[0,0],[500,500]]);
+        let projection = this.projection = d3.geoOrthographic()
+            .scale(this.height / 2)
+            .translate([this.width / 2, this.height / 2]);
+
         let path = this.geopath = d3.geoPath().projection(projection);
 
         this.svg.append('path')
@@ -50,21 +53,21 @@ class SphericalVis {
               y: tthis.phi(transform.y)
             };
         
-            tthis.projection.rotate([r.x+180, r.y-90, 0]);
+            tthis.projection.rotate([r.x, r.y, 0]);
             tthis.svg.selectAll("path").attr("d", tthis.geopath);
         }            
-        let zoom = d3.zoom().on('zoom', zoomed);
+        let zoom = this.zoom = d3.zoom().on('zoom', zoomed);
         this.svg.call(zoom);        
         this.svg.on("dblclick.zoom", null);     
         this.svg.on("wheel.zoom", null);
 
         this.lambda = d3.scaleLinear()
             .domain([this.#margin.left, this.width-this.#margin.right])
-            .range([-180, 180]);
+            .range([0, 180]);
    
         this.phi = d3.scaleLinear()
             .domain([this.#margin.top, this.height-this.#margin.bottom])
-            .range([90, -90]);        
+            .range([0,-90]);        
 
         this.graticule = d3.geoGraticule().step([10,10]);
 
@@ -91,7 +94,9 @@ class SphericalVis {
             let tgt = points.features[this.idMap.get(e.target.id)];
             let obj = {
                 "type": "LineString", 
-                "coordinates": [src.geometry.coordinates, tgt.geometry.coordinates]
+                "coordinates": [src.geometry.coordinates, tgt.geometry.coordinates],
+                "source": this.nodes[this.idMap.get(e.source.id)],
+                "target": this.nodes[this.idMap.get(e.target.id)]
             }
             return obj;
           } );
@@ -101,18 +106,19 @@ class SphericalVis {
 
     }
 
+    drawGraticule(){
+       this.svg.append('g')
+            .selectAll('.graticules')
+            .data([this.graticule()])
+            .join(
+                enter => enter.append("path")
+                        .attr("class", "graticules")
+                        .attr("d", this.geopath)
+            );
+    }
 
     draw(){
       
-        // this.svg.append('g')
-        //     .selectAll('.graticules')
-        //     .data([this.graticule()])
-        //     .join(
-        //         enter => enter.append("path")
-        //                 .attr("class", "graticules")
-        //                 .attr("d", this.geopath)
-        //     );
-
         this.svg.select("#sphere").attr("d", this.geopath);
       
         this.svg
@@ -121,6 +127,7 @@ class SphericalVis {
             .join(
                 enter => enter.append("path")
                     .attr("class", "links")
+                    .style("stroke-width", 1)
                     .attr("d", this.geopath),
                 update => update 
                     .attr("d", this.geopath)
@@ -137,6 +144,7 @@ class SphericalVis {
                     .attr('d', this.geopath)
                     .attr('fill', this.#colors[0])
                     .attr('stroke', "black"),
+                    // .attr('pointer-events', 'visibleStroke'),
                 update => update    
                     .attr("d", this.geopath)
             )
@@ -153,38 +161,41 @@ class SphericalVis {
     }
 
     addHover(){
-        this.svg.selectAll(".sites > path")
-            .on("mouseenter", (e, d) => {
-                d3.select("#sph_node_" + d.geometry.label)
-                    .attr("fill", this.#colors[2]);
+        var tthis = this;
+        this.svg.selectAll(".sites")
+            .on("mouseenter", function(e,pnt) {
+                d3.select(this).attr("fill", tthis.#colors[2]); //function(){} syntax has a different "this" which is the svg element attached.
+                
+                let d = tthis.nodes[tthis.idMap.get(pnt.geometry.label)];
+                tthis.svg.selectAll(".sites").filter(n => d.neighbors.has(n.geometry.label))
+                    .attr("fill", tthis.#colors[1]); //We added an adjacency list data structure in preprocessing to make this efficient. 
 
-                    let colorLabels = [];
-                    for (let i = 0; i < this.links.length; i++) {
-                        console.log(this.links[i].source.id);
-                        if (this.links[i].source.id == d.geometry.label) {
-                            colorLabels.push(this.links[i].target.id);
-                        }
-                        if (this.links[i].target.id == d.geometry.label) {
-                            colorLabels.push(this.links[i].source.id);
-                        }
-                    }
-                    if (colorLabels.length > 2) {
-                        colorLabels.forEach(e => {
-                            d3.select("#sph_node_" + e)
-                            .attr("fill", this.#colors[1]);
-                        });
-                    }
-                    
+                tthis.svg.selectAll(".links").filter(e => e.source.id === d.id || e.target.id === d.id)
+                    .style("stroke-width", 4);
             })
             .on("mouseleave", (e, d) => {
-                d3.selectAll(".sites > path")
+                this.svg.selectAll(".sites")//.filter(n => !id_list.includes("node_" + n.id))
                     .attr("fill", this.#colors[0]);
-            });        
+                
+                this.svg.selectAll(".links")
+                    .style("stroke-width", 1);
+            });
+    }
+
+    addDblclick(){
+        this.svg.on("dblclick", e => {
+            let [x,y] = d3.pointer(e);
+            let newCenter = this.projection.invert([x,y]);
+            let newCenterPixel = {"x": this.lambda.invert(newCenter[0]), "y": this.phi.invert(newCenter[1])}
+            this.svg.transition(d3.transition().duration(750))
+                .call(this.zoom.transform, d3.zoomIdentity.translate(-newCenterPixel.x, -newCenterPixel.y))
+           })
     }
 
     interact() {
         this.addHover();
         this.addWheel();
+        this.addDblclick();
     }
 
 }
