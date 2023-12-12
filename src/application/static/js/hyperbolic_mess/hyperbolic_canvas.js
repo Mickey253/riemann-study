@@ -8,7 +8,7 @@
     
     Angle.normalize = function (angle) {
       if (angle < 0) {
-        return Math.abs(Math.floor(angle / Math.TAU)) * Math.TAU + angle;
+        return Math.abs(Math.floor(angle / Math.TAU)) * Math.TAU + angle; 
       } else if (angle >= Math.TAU) {
         return angle % Math.TAU;
       } else {
@@ -418,6 +418,25 @@
       canvas.width = canvas.height = d;
     };
     
+    // Canvas.prototype.setupSize2 = function () {
+    //   let container = this.getContainerElement();
+    //   let underlay = this.getUnderlayElement();
+    //   let canvas = this.getCanvasElement();
+    //   let backdrop = this.getBackdropElement();
+    
+    //   let w = container.clientWidth;
+    //   let h = container.clientHeight;
+    //   let d = this._diameter = h;
+    //   let r = this._radius = d / 2;
+    
+    //   underlay.style['width'] = underlay.style['height'] = '' + d + 'px';
+    //   backdrop.style['width'] = backdrop.style['height'] = '' + d + 'px';
+    //   underlay.style['border-radius'] = '' + Math.floor(r) + 'px';
+    //   canvas.style['border-radius']   = '' + Math.floor(r) + 'px';
+    //   //canvas.height = d;
+    //   //canvas.width = d;
+    // };
+
     },{"./hyperbolic_canvas.js":5}],4:[function(require,module,exports){
     const HyperbolicCanvas = require('./hyperbolic_canvas.js');
     

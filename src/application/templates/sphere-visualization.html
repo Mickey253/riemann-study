@@ -46,7 +46,7 @@
         var data = {{data | tojson}};
         var questionID = "{{q_id}}";
         let vis = new SphericalVis("#mainVis", data.nodes, data.links);
-        vis.addProjection();
+        vis.process();
         vis.draw();
         vis.interact();
         question = document.getElementById("question-sph")

@@ -531,9 +531,6 @@ HyperbolicCanvas.scripts['poincare_disk'] = function (canvas,graphStr) {
         }
       }
 
-
-
-
       requestAnimationFrame(render);
     };
 

@@ -149,4 +149,9 @@ class EuclideanVis {
         this.layer1.selectAll(".nodes").filter(n => id_list.includes("node_" + n.id))
             .attr("fill", color)
     }
+
+    resetToDefault(){
+        this.process();
+        this.draw();
+    }
 }

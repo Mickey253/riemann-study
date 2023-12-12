@@ -6,7 +6,7 @@ function deg2rad(d){
 }
 
 class SphericalVis {
-    #nodeRadiusLarge = 3;
+    #nodeRadiusLarge = 10;
     #nodeRadiusSmall = 1;
     #scaleSpeed = 10;
 
@@ -30,12 +30,14 @@ class SphericalVis {
 
     }
 
-    addProjection(){
+    process(){
         let projection = this.projection = d3.geoOrthographic()
             .scale(this.height / 2)
             .translate([this.width / 2, this.height / 2]);
 
-        let path = this.geopath = d3.geoPath().projection(projection);
+        let path = this.geopath = d3.geoPath()
+                .projection(projection)
+                .pointRadius(this.#nodeRadiusLarge);
 
         this.svg.append('path')
             .attr('id', "sphere")
@@ -196,6 +198,12 @@ class SphericalVis {
         this.addHover();
         this.addWheel();
         this.addDblclick();
+    }
+
+    resetToDefault(){
+        //This is not good, since we append things.....
+        this.process();
+        this.draw();
     }
 
 }
