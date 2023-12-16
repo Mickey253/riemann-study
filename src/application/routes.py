@@ -6,8 +6,7 @@ import json
 import re
 from pymongo import MongoClient
 # from mongopass import mongopass
-mongopass = "mongodb+srv://riemann-study123:SzGVFYvxfGVqy3lq@riemann-study.mhxq2bq.mongodb.net/?retryWrites=true&w=majority"
-client = MongoClient(mongopass)
+client = MongoClient(app.config.get('MONGOPASS'))
 
 db = client.riemannStudy
 riemannCollection = db.riemannCollection
@@ -18,8 +17,10 @@ sph_users = ["S1", "S2", "S3"]
 hyp_users = ["H1", "H2", "H3"]
 
 graph_ids = dict(zip(range(9), [f"{gtype}_group_{num}.json" for gtype in ["s","h","e"] for num in range(3)]))
-
-
+question_queue = ["adj-fil-T2b-1", "adj-fil-T2b-2", "comcon-T5-1", "comcon-T5-2", "conn-T6-1", "conn-T6-2", "over-T9-1", "over-T9-2", "acc-T11-1", "acc-T11-2", "adj-T12-1", "adj-T12-2"]
+user_answers = dict()
+for each in question_queue:
+    user_answers[each] = "null"
 def generate_id(id):
     return id
 
@@ -88,7 +89,7 @@ def hyp_view_home(data):
         return redirect(url_for("index"))
     if "H" in id:
         user_id = generate_id(id)
-        new_val = { "id": user_id }
+        new_val = { "id": user_id, "completed_test": False, "results": None, "feedback": None }
         riemannCollection.insert_one(new_val)
         return render_template("hyp-vis-home.html", title='Hyperbolic', data=data, id=id)
     return redirect(url_for("index"))
@@ -167,3 +168,17 @@ def user_index_form():
     else:
         return render_template('errors/404.html'), 404
 
+@app.route('/euclidean/test/next<id>_<q>_<a>')
+def next_question(id, q, a):
+    user_answers[q] = a
+    print(user_answers)
+    next_q_index = question_queue.index(q) + 1
+    if next_q_index >= len(question_queue):
+        return redirect(url_for("get_feedback", id=id))
+    else:
+        next_q = question_queue[next_q_index]
+        return redirect(url_for("euc_view", id=id, q=next_q))
+    
+@app.route('/euclidean/get-feedback<id>')
+def get_feedback(id):
+    return render_template("feedback.html", title='Feedback', id=id)

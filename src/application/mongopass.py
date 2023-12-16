@@ -1,1 +1,0 @@
-mongopass = "mongodb+srv://riemann-study123:SzGVFYvxfGVqy3lq@riemann-study.mhxq2bq.mongodb.net/?retryWrites=true&w=majority"
