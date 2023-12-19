@@ -19,6 +19,7 @@ hyp_users = ["H1", "H2", "H3"]
 graph_ids = dict(zip(range(9), [f"{gtype}_group_{num}.json" for gtype in ["s","h","e"] for num in range(3)]))
 question_queue = ["adj-fil-T2b-1", "adj-fil-T2b-2", "comcon-T5-1", "comcon-T5-2", "conn-T6-1", "conn-T6-2", "over-T9-1", "over-T9-2", "acc-T11-1", "acc-T11-2", "adj-T12-1", "adj-T12-2"]
 user_answers = dict()
+feedback_answers = { "fq1": "", "fq2": "", "fq3": ""}
 for each in question_queue:
     user_answers[each] = "null"
 def generate_id(id):
@@ -118,32 +119,32 @@ def hyp_view(id, q):
         return render_template("hyperbolic-visualization.html", title='Hyperbolic', data=gdata, id=id, q_id=q, question=question)
     return redirect(url_for("index"))
 
-@app.route('/euclidean/test-end<id>') 
-def euc_view_end(id):
-    if id is None:
-        return redirect(url_for("index"))
-    if "E" in id:
-        # TODO Write code for adding to database and changing status of user as completed_test
-        return redirect(url_for("euc_view_home", data=False, id=id))
-    return redirect(url_for("index"))
+# @app.route('/euclidean/test-end<id>') 
+# def euc_view_end(id):
+#     if id is None:
+#         return redirect(url_for("index"))
+#     if "E" in id:
+#         # TODO Write code for adding to database and changing status of user as completed_test
+#         return redirect(url_for("euc_view_home", data=False, id=id))
+#     return redirect(url_for("index"))
 
-@app.route('/spherical/test-end<id>') 
-def sph_view_end(id):
-    if id is None:
-        return redirect(url_for("index"))
-    if "S" in id:
-        # TODO Write code for adding to database and changing status of user as completed_test
-        return redirect(url_for("sph_view_home", data=False, id=id))
-    return redirect(url_for("index"))
+# @app.route('/spherical/test-end<id>') 
+# def sph_view_end(id):
+#     if id is None:
+#         return redirect(url_for("index"))
+#     if "S" in id:
+#         # TODO Write code for adding to database and changing status of user as completed_test
+#         return redirect(url_for("sph_view_home", data=False, id=id))
+#     return redirect(url_for("index"))
 
-@app.route('/hyperbolic/test-end<id>') 
-def hyp_view_end(id):
-    if id is None:
-        return redirect(url_for("index"))
-    if "H" in id:
-        # TODO Write code for adding to database and changing status of user as completed_test
-        return redirect(url_for("hyp_view_home", data=False, id=id))
-    return redirect(url_for("index"))
+# @app.route('/hyperbolic/test-end<id>') 
+# def hyp_view_end(id):
+#     if id is None:
+#         return redirect(url_for("index"))
+#     if "H" in id:
+#         # TODO Write code for adding to database and changing status of user as completed_test
+#         return redirect(url_for("hyp_view_home", data=False, id=id))
+#     return redirect(url_for("index"))
 
 @app.route('/<id>')
 def user_index(id):
@@ -172,6 +173,9 @@ def user_index_form():
 def next_question(id, q, a):
     user_answers[q] = a
     print(user_answers)
+    query = { "id" : id}
+    update = {"$set": { "results": user_answers } }
+    riemannCollection.update_one(query, update)
     next_q_index = question_queue.index(q) + 1
     if next_q_index >= len(question_queue):
         return redirect(url_for("get_feedback", id=id))
@@ -179,6 +183,23 @@ def next_question(id, q, a):
         next_q = question_queue[next_q_index]
         return redirect(url_for("euc_view", id=id, q=next_q))
     
-@app.route('/euclidean/get-feedback<id>')
+@app.route('/get-feedback<id>')
 def get_feedback(id):
     return render_template("feedback.html", title='Feedback', id=id)
+
+@app.route('/store-feedback<id>')
+def store_feedback(id):
+    fq1 = request.args.get('fq1')
+    fq2 = request.args.get('fq2')
+    fq3 = request.args.get('fq3')
+    feedback_answers["fq1"] = fq1
+    feedback_answers["fq2"] = fq2
+    feedback_answers["fq3"] = fq3
+    query = { "id" : id}
+    update = {"$set": { "feedback": feedback_answers } }
+    riemannCollection.update_one(query, update)
+    return redirect(url_for("end"))
+
+@app.route('/end')
+def end():
+    return render_template("end.html", title='End of Study')
