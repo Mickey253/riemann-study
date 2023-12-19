@@ -1,40 +1,2833 @@
-[{
-    "
-    @inproceedings{sala2018representation,
-    author    = {Frederic Sala and
-                Christopher De Sa and
-                Albert Gu and
-                Christopher R{\'{e}}},
-    @editor    = {Jennifer G. Dy and
-                Andreas Krause},
-    title     = {Representation Tradeoffs for Hyperbolic Embeddings},
-    booktitle = {Proceedings of the 35th International Conference on Machine Learning},
-    IGNORE = {
-                {ICML} 2018, Stockholmsm{\"{a}}ssan, Stockholm, Sweden, July
-                10-15, 2018},
-    series    = {Proceedings of Machine Learning Research},
-    volume    = {80},
-    pages     = {4457--4466},
-    publisher = {{PMLR}},
-    year      = {2018},
-    @url       = {http://proceedings.mlr.press/v80/sala18a.html},
-    timestamp = {Wed, 03 Apr 2019 18:17:30 +0200},
-    biburl    = {https://dblp.org/rec/conf/icml/SalaSGR18.bib},
-    bibsource = {dblp computer science bibliography, https://dblp.org}
-  "
-},
-{
-  "
-    @article{krioukov2010hyperbolic,
-  title={Hyperbolic geometry of complex networks},
-  author={Krioukov, Dmitri and Papadopoulos, Fragkiskos and Kitsak, Maksim and Vahdat, Amin and Bogun{\'a}, Mari{\'a}n},
-  journal={Physical Review E},
-  volume={82},
-  number={3},
-  pages={036106},
-  year={2010},
-  publisher={APS}
-  "
-}
-}
+[
+  {
+      "author": [
+          {
+              "name": "Kruiger, Johannes F."
+          },
+          {
+              "name": "Rauber, Paulo E."
+          },
+          {
+              "name": "Martins, Rafael Messias"
+          },
+          {
+              "name": "Kerren, Andreas"
+          },
+          {
+              "name": "Kobourov, Stephen G."
+          },
+          {
+              "name": "Telea, Alexandru C."
+          }
+      ],
+      "citekey": "DBLP:journals/cgf/KruigerRMKKT17",
+      "collection": "bibtex",
+      "id": "DBLP:journals/cgf/KruigerRMKKT17",
+      "journal": {
+          "name": "Comput. Graph. Forum",
+          "volume": "36",
+          "number": "3",
+          "pages": "283--294"
+      },
+      "sections": [
+          "GL by DR",
+          "local",
+          "Euclidean",
+          "SuiteSparse"
+      ],
+      "summarized": false,
+      "summarizer": "Jacob",
+      "title": "Graph Layouts by t-SNE",
+      "type": "article",
+      "use_image": false,
+      "year": "2017"
+  },
+  {
+      "author": [
+          {
+              "name": "Zheng, Jonathan X."
+          },
+          {
+              "name": "Pawar, Samraat"
+          },
+          {
+              "name": "Goodman, Dan F. M."
+          }
+      ],
+      "citekey": "DBLP:journals/tvcg/ZhengPG19",
+      "collection": "bibtex",
+      "id": "DBLP:journals/tvcg/ZhengPG19",
+      "journal": {
+          "name": "IEEE Trans. Vis. Comput. Graph.",
+          "volume": "25",
+          "number": "9",
+          "pages": "2738--2748"
+      },
+      "sections": [
+          "GL by DR",
+          "global",
+          "Euclidean",
+          "SuiteSparse"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Graph Drawing by Stochastic Gradient Descent",
+      "type": "article",
+      "use_image": false,
+      "year": "2019"
+  },
+  {
+      "author": [
+          {
+              "name": "Wattenberg, Martin"
+          },
+          {
+              "name": "Vi\u00e9gas, Fernanda"
+          },
+          {
+              "name": "Johnson, Ian"
+          }
+      ],
+      "citekey": "wattenberg2016how",
+      "collection": "bibtex",
+      "id": "wattenberg2016how",
+      "sections": [
+          "DR",
+          "t-sne",
+          "no graph",
+          "Euclidean"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "How to Use t-SNE Effectively",
+      "type": "article",
+      "use_image": false,
+      "year": "2016"
+  },
+  {
+      "author": [
+          {
+              "name": "Kamada, Tomihisa"
+          },
+          {
+              "name": "Kawai, Satoru"
+          }
+      ],
+      "citekey": "DBLP:journals/ipl/KamadaK89",
+      "collection": "bibtex",
+      "id": "DBLP:journals/ipl/KamadaK89",
+      "journal": {
+          "name": "Inf. Process. Lett.",
+          "volume": "31",
+          "number": "1",
+          "pages": "7--15"
+      },
+      "sections": [
+          "classic",
+          "GL by DR",
+          "global",
+          "Euclidean",
+          "small graphs"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "An Algorithm for Drawing General Undirected Graphs",
+      "type": "article",
+      "use_image": false,
+      "year": "1989"
+  },
+  {
+      "author": [
+          {
+              "name": "Zhu, Minfeng"
+          },
+          {
+              "name": "Chen, Wei"
+          },
+          {
+              "name": "Hu, Yuanzhe"
+          },
+          {
+              "name": "Hou, Yuxuan"
+          },
+          {
+              "name": "Liu, Liangjun"
+          },
+          {
+              "name": "Zhang, Kaiyuan"
+          }
+      ],
+      "citekey": "DBLP:journals/tvcg/ZhuCHHLZ21",
+      "collection": "bibtex",
+      "id": "DBLP:journals/tvcg/ZhuCHHLZ21",
+      "journal": {
+          "name": "IEEE Trans. Vis. Comput. Graph.",
+          "volume": "27",
+          "number": "2",
+          "pages": "1666--1676"
+      },
+      "sections": [
+          "GL by DR",
+          "local",
+          "Euclidean",
+          "SuiteSparse"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "DRGraph: An Efficient Graph Layout Algorithm for Large-scale Graphs\nby Dimensionality Reduction",
+      "type": "article",
+      "use_image": false,
+      "year": "2021"
+  },
+  {
+      "author": [
+          {
+              "name": "Devkota, Sabin"
+          },
+          {
+              "name": "Ahmed, Abu Reyan"
+          },
+          {
+              "name": "Luca, Felice De"
+          },
+          {
+              "name": "Isaacs, Katherine E."
+          },
+          {
+              "name": "Kobourov, Stephen G."
+          }
+      ],
+      "booktitle": "Graph Drawing and Network Visualization - 27th International Symposium,\nGD 2019",
+      "citekey": "DBLP:conf/gd/DevkotaALIK19",
+      "collection": "bibtex",
+      "editor": [
+          {
+              "name": {
+                  "name": "Archambault, Daniel",
+                  "ID": "ArchambaultDaniel"
+              }
+          },
+          {
+              "name": {
+                  "name": "T\u00f3th, Csaba D.",
+                  "ID": "T\u00f3thCsabaD"
+              }
+          }
+      ],
+      "id": "DBLP:conf/gd/DevkotaALIK19",
+      "pages": "291--304",
+      "publisher": {
+          "name": "Springer"
+      },
+      "sections": [
+          "simultaneous optimization",
+          "euclidean"
+      ],
+      "series": "Lecture Notes in Computer Science",
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Stress-Plus-X (SPX) Graph Layout",
+      "type": "inproceedings",
+      "use_image": false,
+      "volume": "11904",
+      "year": "2019"
+  },
+  {
+      "author": [
+          {
+              "name": "Ahmed, Reyan"
+          },
+          {
+              "name": "De Luca, Felice"
+          },
+          {
+              "name": "Devkota, Sabin"
+          },
+          {
+              "name": "Kobourov, Stephen G"
+          },
+          {
+              "name": "Li, Mingwei"
+          }
+      ],
+      "citekey": "DBLP:conf/gd/AhmedLDKL20",
+      "collection": "bibtex",
+      "id": "DBLP:conf/gd/AhmedLDKL20",
+      "journal": {
+          "name": "IEEE Transactions on Visualization and Computer Graphics",
+          "volume": "",
+          "number": "",
+          "pages": "1--1"
+      },
+      "sections": [
+          "simultaneous optimization",
+          "euclidean"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Multicriteria Scalable Graph Drawing via Stochastic Gradient Descent, $(SGD)^2$",
+      "type": "article",
+      "use_image": false,
+      "year": "2022"
+  },
+  {
+      "author": [
+          {
+              "name": "Noack, Andreas"
+          }
+      ],
+      "booktitle": "International symposium on graph drawing",
+      "citekey": "noack2003energy",
+      "collection": "bibtex",
+      "id": "noack2003energy",
+      "organization": "Springer",
+      "pages": "425--436",
+      "sections": [
+          "FDA",
+          "local",
+          "euclidean"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "An energy model for visual graph clustering",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "2003"
+  },
+  {
+      "author": [
+          {
+              "name": "Brandes, Ulrik"
+          },
+          {
+              "name": "Pich, Christian"
+          }
+      ],
+      "booktitle": "Graph Drawing, 14th International Symposium, GD 2006,  Revised Papers",
+      "citekey": "DBLP:conf/gd/BrandesP06",
+      "collection": "bibtex",
+      "editor": [
+          {
+              "name": {
+                  "name": "Kaufmann, Michael",
+                  "ID": "KaufmannMichael"
+              }
+          },
+          {
+              "name": {
+                  "name": "Wagner, Dorothea",
+                  "ID": "WagnerDorothea"
+              }
+          }
+      ],
+      "id": "DBLP:conf/gd/BrandesP06",
+      "pages": "42--53",
+      "publisher": {
+          "name": "Springer"
+      },
+      "sections": [
+          "GL by DR",
+          "PMDS",
+          "initialization",
+          "large graphs"
+      ],
+      "series": "Lecture Notes in Computer Science",
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Eigensolver Methods for Progressive Multidimensional Scaling of Large\nData",
+      "type": "inproceedings",
+      "use_image": false,
+      "volume": "4372",
+      "year": "2006"
+  },
+  {
+      "author": [
+          {
+              "name": "Tamassia, Roberto"
+          }
+      ],
+      "citekey": "tamassia2013handbook",
+      "collection": "bibtex",
+      "id": "tamassia2013handbook",
+      "publisher": {
+          "name": "CRC press"
+      },
+      "sections": [
+          "survey",
+          "GL"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Handbook of graph drawing and visualization",
+      "type": "book",
+      "use_image": false,
+      "year": "2013"
+  },
+  {
+      "author": [
+          {
+              "name": "Fruchterman, Thomas M. J."
+          },
+          {
+              "name": "Reingold, Edward M."
+          }
+      ],
+      "citekey": "DBLP:journals/spe/FruchtermanR91",
+      "collection": "bibtex",
+      "id": "DBLP:journals/spe/FruchtermanR91",
+      "journal": {
+          "name": "Softw. Pract. Exp.",
+          "volume": "21",
+          "number": "11",
+          "pages": "1129--1164"
+      },
+      "sections": [
+          "FDA",
+          "euclidean",
+          "classic"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Graph Drawing by Force-directed Placement",
+      "type": "article",
+      "use_image": false,
+      "year": "1991"
+  },
+  {
+      "author": [
+          {
+              "name": "Purchase, Helen C."
+          }
+      ],
+      "citekey": "DBLP:journals/vlc/Purchase02",
+      "collection": "bibtex",
+      "id": "DBLP:journals/vlc/Purchase02",
+      "journal": {
+          "name": "J. Vis. Lang. Comput.",
+          "volume": "13",
+          "number": "5",
+          "pages": "501--516"
+      },
+      "sections": [
+          "metrics",
+          "evaluation",
+          "euclidean"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Metrics for Graph Drawing Aesthetics",
+      "type": "article",
+      "use_image": false,
+      "year": "2002"
+  },
+  {
+      "address": "New York, NY, USA",
+      "author": [
+          {
+              "name": "Lee, Bongshin"
+          },
+          {
+              "name": "Plaisant, Catherine"
+          },
+          {
+              "name": "Parr, Cynthia Sims"
+          },
+          {
+              "name": "Fekete, Jean-Daniel"
+          },
+          {
+              "name": "Henry, Nathalie"
+          }
+      ],
+      "booktitle": "Proceedings of the 2006 AVI Workshop on BEyond Time and Errors: Novel Evaluation Methods for Information Visualization",
+      "citekey": "10.1145/1168149.1168168",
+      "collection": "bibtex",
+      "id": "10.1145/1168149.1168168",
+      "pages": "1--5",
+      "publisher": {
+          "name": "Association for Computing Machinery",
+          "address": "New York, NY, USA"
+      },
+      "sections": [
+          "taxonomy"
+      ],
+      "series": "BELIV '06",
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Task Taxonomy for Graph Visualization",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "2006"
+  },
+  {
+      "author": [
+          {
+              "name": "Frey, DF"
+          },
+          {
+              "name": "Pimentel, RA"
+          }
+      ],
+      "citekey": "frey1978principal",
+      "collection": "bibtex",
+      "id": "frey1978principal",
+      "sections": [
+          "DR",
+          "PCA"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Principal component analysis and factor analysis",
+      "type": "article",
+      "use_image": false,
+      "year": "1978"
+  },
+  {
+      "author": [
+          {
+              "name": "Espadoto, Mateus"
+          },
+          {
+              "name": "Martins, Rafael Messias"
+          },
+          {
+              "name": "Kerren, Andreas"
+          },
+          {
+              "name": "Hirata, Nina S. T."
+          },
+          {
+              "name": "Telea, Alexandru C."
+          }
+      ],
+      "citekey": "DBLP:journals/tvcg/EspadotoMKHT21",
+      "collection": "bibtex",
+      "id": "DBLP:journals/tvcg/EspadotoMKHT21",
+      "journal": {
+          "name": "IEEE Trans. Vis. Comput. Graph.",
+          "volume": "27",
+          "number": "3",
+          "pages": "2153--2173"
+      },
+      "sections": [
+          "survey",
+          "DR"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Toward a Quantitative Survey of Dimension Reduction Techniques",
+      "type": "article",
+      "use_image": false,
+      "year": "2021"
+  },
+  {
+      "author": [
+          {
+              "name": "Van der Maaten, Laurens"
+          },
+          {
+              "name": "Hinton, Geoffrey"
+          }
+      ],
+      "citekey": "van2008visualizing",
+      "collection": "bibtex",
+      "id": "van2008visualizing",
+      "journal": {
+          "name": "Journal of machine learning research",
+          "volume": "9",
+          "number": "11"
+      },
+      "sections": [
+          "tsne",
+          "DR"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Visualizing data using t-SNE.",
+      "type": "article",
+      "use_image": false,
+      "year": "2008"
+  },
+  {
+      "author": [
+          {
+              "name": "Shepard, Roger N"
+          }
+      ],
+      "citekey": "shepard1962analysis",
+      "collection": "bibtex",
+      "id": "shepard1962analysis",
+      "journal": {
+          "name": "Psychometrika",
+          "volume": "27",
+          "number": "2",
+          "pages": "125--140"
+      },
+      "sections": [
+          "mds",
+          "dr"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "The analysis of proximities: multidimensional scaling with an unknown distance function. I.",
+      "type": "article",
+      "use_image": false,
+      "year": "1962"
+  },
+  {
+      "author": [
+          {
+              "name": "Kruskal, Joseph B"
+          }
+      ],
+      "citekey": "kruskal1964multidimensional",
+      "collection": "bibtex",
+      "id": "kruskal1964multidimensional",
+      "journal": {
+          "name": "Psychometrika",
+          "volume": "29",
+          "number": "1",
+          "pages": "1--27"
+      },
+      "sections": [
+          "mds",
+          "dr"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis",
+      "type": "article",
+      "use_image": false,
+      "year": "1964"
+  },
+  {
+      "author": [
+          {
+              "name": "Torgerson, Warren S"
+          }
+      ],
+      "citekey": "torgerson1952multidimensional",
+      "collection": "bibtex",
+      "id": "torgerson1952multidimensional",
+      "journal": {
+          "name": "Psychometrika",
+          "volume": "17",
+          "number": "4",
+          "pages": "401--419"
+      },
+      "sections": [
+          "mds",
+          "dr"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Multidimensional scaling: I. Theory and method",
+      "type": "article",
+      "use_image": false,
+      "year": "1952"
+  },
+  {
+      "author": [
+          {
+              "name": "Cai, Hongyun"
+          },
+          {
+              "name": "Zheng, Vincent W."
+          },
+          {
+              "name": "Chang, Kevin Chen-Chuan"
+          }
+      ],
+      "citekey": "DBLP:journals/tkde/CaiZC18",
+      "collection": "bibtex",
+      "id": "DBLP:journals/tkde/CaiZC18",
+      "journal": {
+          "name": "IEEE Trans. Knowl. Data Eng.",
+          "volume": "30",
+          "number": "9",
+          "pages": "1616--1637"
+      },
+      "sections": [
+          "survey",
+          "Graph embedding",
+          "ML"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "A Comprehensive Survey of Graph Embedding: Problems, Techniques, and Applications",
+      "type": "article",
+      "use_image": false,
+      "year": "2018"
+  },
+  {
+      "author": [
+          {
+              "name": "McInnes, Leland"
+          },
+          {
+              "name": "Healy, John"
+          }
+      ],
+      "citekey": "mcionnes2018umap",
+      "collection": "bibtex",
+      "id": "mcionnes2018umap",
+      "journal": {
+          "name": "CoRR",
+          "volume": "abs/1802.03426"
+      },
+      "sections": [
+          "DR",
+          "UMAP"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "UMAP: Uniform Manifold Approximation and Projection for Dimension\nReduction",
+      "type": "article",
+      "use_image": false,
+      "year": "2018"
+  },
+  {
+      "author": [
+          {
+              "name": "Watts, Duncan J"
+          },
+          {
+              "name": "Strogatz, Steven H"
+          }
+      ],
+      "citekey": "watts1998collective",
+      "collection": "bibtex",
+      "id": "watts1998collective",
+      "journal": {
+          "name": "Nature",
+          "volume": "393",
+          "number": "6684",
+          "pages": "440--442"
+      },
+      "sections": [
+          "small-world",
+          "hyperbolic"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Collective dynamics of \u2018small-world\u2019networks",
+      "type": "article",
+      "use_image": false,
+      "year": "1998"
+  },
+  {
+      "author": [
+          {
+              "name": "Holme, Petter"
+          },
+          {
+              "name": "Kim, Beom Jun"
+          }
+      ],
+      "citekey": "holme2002growing",
+      "collection": "bibtex",
+      "id": "holme2002growing",
+      "journal": {
+          "name": "Physical review E",
+          "volume": "65",
+          "number": "2",
+          "pages": "026107"
+      },
+      "sections": [
+          "small-world",
+          "hyperbolic"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Growing scale-free networks with tunable clustering",
+      "type": "article",
+      "use_image": false,
+      "year": "2002"
+  },
+  {
+      "author": [
+          {
+              "name": "Holland, Paul W"
+          },
+          {
+              "name": "Laskey, Kathryn Blackmond"
+          },
+          {
+              "name": "Leinhardt, Samuel"
+          }
+      ],
+      "citekey": "holland1983stochastic",
+      "collection": "bibtex",
+      "id": "holland1983stochastic",
+      "journal": {
+          "name": "Social networks",
+          "volume": "5",
+          "number": "2",
+          "pages": "109--137"
+      },
+      "sections": [
+          "small-world",
+          "hyperbolic"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Stochastic blockmodels: First steps",
+      "type": "article",
+      "use_image": false,
+      "year": "1983"
+  },
+  {
+      "author": [
+          {
+              "name": "Munzner, Tamara"
+          }
+      ],
+      "citekey": "DBLP:books/daglib/0034520",
+      "collection": "bibtex",
+      "id": "DBLP:books/daglib/0034520",
+      "publisher": {
+          "name": "A K Peters"
+      },
+      "sections": [
+          "visualization"
+      ],
+      "series": "A.K. Peters visualization series",
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Visualization Analysis and Design",
+      "type": "book",
+      "use_image": false,
+      "year": "2014"
+  },
+  {
+      "author": [
+          {
+              "name": "Nguyen, Quan Hoang"
+          },
+          {
+              "name": "Eades, Peter"
+          },
+          {
+              "name": "Hong, Seok-Hee"
+          }
+      ],
+      "booktitle": "IEEE Pacific Visualization Symposium, PacificVis 2013, February\n27 2013-March 1, 2013, Sydney, NSW, Australia",
+      "citekey": "DBLP:conf/apvis/NguyenEH13",
+      "collection": "bibtex",
+      "editor": [
+          {
+              "name": {
+                  "name": "Carpendale, Sheelagh",
+                  "ID": "CarpendaleSheelagh"
+              }
+          },
+          {
+              "name": {
+                  "name": "Chen, Wei",
+                  "ID": "ChenWei"
+              }
+          },
+          {
+              "name": {
+                  "name": "Hong, Seok-Hee",
+                  "ID": "HongSeok-Hee"
+              }
+          }
+      ],
+      "id": "DBLP:conf/apvis/NguyenEH13",
+      "pages": "209--216",
+      "publisher": {
+          "name": "IEEE Computer Society"
+      },
+      "sections": [
+          "metrics"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "On the faithfulness of graph visualizations",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "2013"
+  },
+  {
+      "author": [
+          {
+              "name": "Nocaj, Arlind"
+          },
+          {
+              "name": "Ortmann, Mark"
+          },
+          {
+              "name": "Brandes, Ulrik"
+          }
+      ],
+      "citekey": "DBLP:journals/jgaa/NocajOB15",
+      "collection": "bibtex",
+      "id": "DBLP:journals/jgaa/NocajOB15",
+      "journal": {
+          "name": "J. Graph Algorithms Appl.",
+          "volume": "19",
+          "number": "2",
+          "pages": "595--618"
+      },
+      "sections": [
+          "GL",
+          "Force-directed",
+          "Euclidean"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Untangling the Hairballs of Multi-Centered, Small-World Online Social\nMedia Networks",
+      "type": "article",
+      "use_image": false,
+      "year": "2015"
+  },
+  {
+      "author": [
+          {
+              "name": "Krioukov, Dmitri"
+          },
+          {
+              "name": "Papadopoulos, Fragkiskos"
+          },
+          {
+              "name": "Kitsak, Maksim"
+          },
+          {
+              "name": "Vahdat, Amin"
+          },
+          {
+              "name": "Bogun\u00e1, Mari\u00e1n"
+          }
+      ],
+      "citekey": "krioukov2010hyperbolic",
+      "collection": "bibtex",
+      "id": "krioukov2010hyperbolic",
+      "journal": {
+          "name": "Physical Review E",
+          "volume": "82",
+          "number": "3",
+          "pages": "036106"
+      },
+      "sections": [
+          "Theory",
+          "Hyperbolic"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Hyperbolic geometry of complex networks",
+      "type": "article",
+      "use_image": false,
+      "year": "2010"
+  },
+  {
+      "author": [
+          {
+              "name": "Cvetkovski, , Andrej"
+          },
+          {
+              "name": "Crovella, , Mark"
+          }
+      ],
+      "citekey": "pd-mds",
+      "collection": "bibtex",
+      "id": "pd-mds",
+      "sections": [
+          "Technique",
+          "hyperbolic"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Multidimensional scaling in the Poincare disk",
+      "type": "misc",
+      "use_image": false,
+      "year": "2016"
+  },
+  {
+      "author": [
+          {
+              "name": "Hu, Yifan"
+          }
+      ],
+      "citekey": "hu2005efficient",
+      "collection": "bibtex",
+      "id": "hu2005efficient",
+      "journal": {
+          "name": "Mathematica journal",
+          "volume": "10",
+          "number": "1",
+          "pages": "37--71"
+      },
+      "sections": [
+          "GD",
+          "FDA"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Efficient, high-quality force-directed graph drawing",
+      "type": "article",
+      "use_image": false,
+      "year": "2005"
+  },
+  {
+      "author": [
+          {
+              "name": "Barry, Nick"
+          }
+      ],
+      "citekey": "hyperbolic-canvas",
+      "collection": "bibtex",
+      "howpublished": "r\u0306lhttps://github.com/ItsNickBarry/hyperbolic-canvas",
+      "id": "hyperbolic-canvas",
+      "note": "accessed: 2021-06-06",
+      "sections": [
+          "application",
+          "hyperbolic",
+          "visualization"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Hyperbolic Canvas Github Page",
+      "type": "misc",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "name": "Tominski, Christian"
+          },
+          {
+              "name": "Gladisch, Stefan"
+          },
+          {
+              "name": "Kister, Ulrike"
+          },
+          {
+              "name": "Dachselt, Raimund"
+          },
+          {
+              "name": "Schumann, Heidrun"
+          }
+      ],
+      "booktitle": "Computer Graphics Forum",
+      "citekey": "tominski2017interactive",
+      "collection": "bibtex",
+      "id": "tominski2017interactive",
+      "organization": "Wiley Online Library",
+      "pages": "173--200",
+      "sections": [
+          "lens"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Interactive lenses for visualization: An extended survey",
+      "type": "inproceedings",
+      "use_image": false,
+      "volume": "36(6)",
+      "year": "2017"
+  },
+  {
+      "author": [
+          {
+              "name": "Clough, James R"
+          },
+          {
+              "name": "Evans, Tim S"
+          }
+      ],
+      "citekey": "clough2018",
+      "collection": "bibtex",
+      "id": "clough2018",
+      "journal": {
+          "name": "PloS one",
+          "volume": "12",
+          "number": "11",
+          "pages": "e0187301"
+      },
+      "sections": [
+          "hyperbolic",
+          "Technique",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Embedding graphs in Lorentzian spacetime",
+      "type": "article",
+      "use_image": false,
+      "year": "2017"
+  },
+  {
+      "author": [
+          {
+              "name": "Walter, J\u00f6rg"
+          },
+          {
+              "name": "Ontrup, J\u00f6rg"
+          },
+          {
+              "name": "Wessling, Daniel"
+          },
+          {
+              "name": "Ritter, Helge"
+          }
+      ],
+      "booktitle": "Third IEEE International Conference on Data Mining",
+      "citekey": "walter2003interactive",
+      "collection": "bibtex",
+      "id": "walter2003interactive",
+      "organization": "IEEE",
+      "pages": "355--362",
+      "sections": [
+          "hyperbolic",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Interactive visualization and navigation in large data collections using the hyperbolic space",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "2003"
+  },
+  {
+      "author": [
+          {
+              "name": "Zhou, Yuansheng"
+          },
+          {
+              "name": "Sharpee, Tatyana O"
+          }
+      ],
+      "citekey": "zhou2021hyperbolic",
+      "collection": "bibtex",
+      "id": "zhou2021hyperbolic",
+      "journal": {
+          "name": "Iscience",
+          "volume": "24",
+          "number": "3",
+          "pages": "102225"
+      },
+      "sections": [
+          "hyperbolic",
+          "application",
+          "Theory"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Hyperbolic geometry of gene expression",
+      "type": "article",
+      "use_image": false,
+      "year": "2021"
+  },
+  {
+      "author": [
+          {
+              "name": "Rossi, Ryan A."
+          },
+          {
+              "name": "Ahmed, Nesreen K."
+          }
+      ],
+      "booktitle": "AAAI",
+      "citekey": "nr",
+      "collection": "bibtex",
+      "id": "nr",
+      "sections": [
+          "graph"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "The Network Data Repository with Interactive Graph Analytics and Visualization",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "2015"
+  },
+  {
+      "author": [
+          {
+              "name": "Papadopoulos, Fragkiskos"
+          },
+          {
+              "name": "Krioukov, Dmitri"
+          },
+          {
+              "name": "Bogun\u00e1, Mari\u00e1n"
+          },
+          {
+              "name": "Vahdat, Amin"
+          }
+      ],
+      "booktitle": "2010 Proceedings IEEE INFOCOM",
+      "citekey": "papadopoulos2010greedy",
+      "collection": "bibtex",
+      "id": "papadopoulos2010greedy",
+      "organization": "IEEE",
+      "pages": "1--9",
+      "sections": [
+          "theory",
+          "hyperbolic"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Greedy forwarding in dynamic scale-free networks embedded in hyperbolic metric spaces",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "2010"
+  },
+  {
+      "author": [
+          {
+              "name": "Robbins, Herbert"
+          },
+          {
+              "name": "Monro, Sutton"
+          }
+      ],
+      "citekey": "robbins1951stochastic",
+      "collection": "bibtex",
+      "id": "robbins1951stochastic",
+      "sections": [
+          "sgd"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "A stochastic approximation method",
+      "type": "article",
+      "use_image": false,
+      "year": "1951"
+  },
+  {
+      "author": [
+          {
+              "name": "De Leeuw, Jan"
+          },
+          {
+              "name": "Mair, Patrick"
+          }
+      ],
+      "citekey": "de2009multidimensional",
+      "collection": "bibtex",
+      "id": "de2009multidimensional",
+      "journal": {
+          "name": "Journal of statistical software",
+          "volume": "31",
+          "pages": "1--30"
+      },
+      "sections": [
+          "euclidean"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Multidimensional scaling using majorization: SMACOF in R",
+      "type": "article",
+      "use_image": false,
+      "year": "2009"
+  },
+  {
+      "author": [
+          {
+              "name": "B\u00f6rner, Katy"
+          }
+      ],
+      "citekey": "placesandspaces",
+      "collection": "bibtex",
+      "id": "placesandspaces",
+      "sections": [
+          "spherical",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "type": "misc",
+      "use_image": false,
+      "year": "2012"
+  },
+  {
+      "author": [
+          {
+              "name": "G\u00fcnther, Ingo"
+          }
+      ],
+      "citekey": "worldprocessor",
+      "collection": "bibtex",
+      "id": "worldprocessor",
+      "sections": [
+          "spherical",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "type": "misc",
+      "use_image": false,
+      "year": "2007"
+  },
+  {
+      "author": [
+          {
+              "name": "Munzner, Tamara"
+          }
+      ],
+      "citekey": "munzner2000interactive",
+      "collection": "bibtex",
+      "id": "munzner2000interactive",
+      "school": "Stanford University",
+      "sections": [
+          "hyperbolic",
+          "Technique",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Interactive visualization of large graphs and networks",
+      "type": "phdthesis",
+      "use_image": false,
+      "year": "2000"
+  },
+  {
+      "author": [
+          {
+              "name": "Gansner, Emden R"
+          },
+          {
+              "name": "Koren, Yehuda"
+          },
+          {
+              "name": "North, Stephen"
+          }
+      ],
+      "booktitle": "International Symposium on Graph Drawing",
+      "citekey": "gansner2004graph",
+      "collection": "bibtex",
+      "id": "gansner2004graph",
+      "organization": "Springer",
+      "pages": "239--250",
+      "sections": [
+          "euclidean"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Graph drawing by stress majorization",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "2004"
+  },
+  {
+      "author": [
+          {
+              "name": "Eppstein, David"
+          }
+      ],
+      "booktitle": "Graph Drawing and Network Visualization - 29th International Symposium,\nGD 2021, T\u00fcbingen, Germany, September 14-17, 2021, Revised\nSelected Papers",
+      "citekey": "eppstein2021limitations",
+      "collection": "bibtex",
+      "editor": [
+          {
+              "name": {
+                  "name": "Purchase, Helen C.",
+                  "ID": "PurchaseHelenC"
+              }
+          },
+          {
+              "name": {
+                  "name": "Rutter, Ignaz",
+                  "ID": "RutterIgnaz"
+              }
+          }
+      ],
+      "id": "eppstein2021limitations",
+      "pages": "343--357",
+      "publisher": {
+          "name": "Springer"
+      },
+      "sections": [
+          "theory",
+          "hyperbolic"
+      ],
+      "series": "Lecture Notes in Computer Science",
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Limitations on Realistic Hyperbolic Graph Drawing",
+      "type": "inproceedings",
+      "use_image": false,
+      "volume": "12868",
+      "year": "2021"
+  },
+  {
+      "author": [
+          {
+              "name": "Lamping, John"
+          },
+          {
+              "name": "Rao, Ramana"
+          }
+      ],
+      "citekey": "lamping1996the",
+      "collection": "bibtex",
+      "id": "lamping1996the",
+      "journal": {
+          "name": "J. Vis. Lang. Comput.",
+          "volume": "7",
+          "number": "1",
+          "pages": "33--55"
+      },
+      "sections": [
+          "hyperbolic",
+          "application",
+          "Technique"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "The Hyperbolic Browser: A Focus + Context Technique for Visualizing Large Hierarchies",
+      "type": "article",
+      "use_image": false,
+      "year": "1996"
+  },
+  {
+      "author": [
+          {
+              "name": "Knuth, Donald Ervin"
+          }
+      ],
+      "citekey": "knuth1993stanford",
+      "collection": "bibtex",
+      "id": "knuth1993stanford",
+      "publisher": {
+          "name": "AcM Press New York"
+      },
+      "sections": [
+          "graph"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "The Stanford GraphBase: a platform for combinatorial computing",
+      "type": "book",
+      "use_image": false,
+      "volume": "1",
+      "year": "1993"
+  },
+  {
+      "author": [
+          {
+              "name": "Belmonte, Nicolas Garcia"
+          }
+      ],
+      "citekey": "jit",
+      "collection": "bibtex",
+      "howpublished": "r\u0306lhttps://philogb.github.io/jit/demos.html",
+      "id": "jit",
+      "note": "accessed: 2021-06-06",
+      "sections": [
+          "hyperbolic",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Javascript InfoVis Toolkit",
+      "type": "misc",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "name": "Bou, Bernard"
+          }
+      ],
+      "citekey": "treebolic",
+      "collection": "bibtex",
+      "howpublished": "r\u0306lhttp://treebolic.sourceforge.net/treebolic2/en/index.html",
+      "id": "treebolic",
+      "note": "accessed: 2021-06-06",
+      "sections": [
+          "hyperbolic",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Treebolic2 Webpage",
+      "type": "misc",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "name": "Glatzhofer, Michael"
+          }
+      ],
+      "citekey": "hyperbolicTOL",
+      "collection": "bibtex",
+      "howpublished": "r\u0306lhttps://hyperbolic-tree-of-life.github.io/",
+      "id": "hyperbolicTOL",
+      "sections": [
+          "hyperbolic",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Hyperbolic tree of life",
+      "type": "misc",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "name": "Glatzhofer, Michael"
+          }
+      ],
+      "citekey": "Michael2018survey",
+      "collection": "bibtex",
+      "id": "Michael2018survey",
+      "school": "Institute of Interactive Systems and Data Science (ISDS),Graz University of Technology, Austria",
+      "sections": [
+          "hyperbolic",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Hyperbolic Browsing",
+      "type": "mastersthesis",
+      "use_image": false,
+      "year": "2018"
+  },
+  {
+      "author": [
+          {
+              "name": "Glatzofer, Michael"
+          }
+      ],
+      "citekey": "d3-hypertree",
+      "collection": "bibtex",
+      "howpublished": "r\u0306lhttps://github.com/glouwa/d3-hypertree",
+      "id": "d3-hypertree",
+      "note": "accessed: 2021-06-06",
+      "sections": [
+          "hyperbolic",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "d3-hypertree Github page",
+      "type": "misc",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "name": "Hyun, Young"
+          }
+      ],
+      "citekey": "walrus2000",
+      "collection": "bibtex",
+      "howpublished": "r\u0306lhttps://www.caida.org/catalog/software/walrus/#H2540",
+      "id": "walrus2000",
+      "note": "Accessed: 2021-06-06",
+      "sections": [
+          "hyperbolic",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "type": "misc",
+      "use_image": false,
+      "year": "2000"
+  },
+  {
+      "author": [
+          {
+              "name": "Zhang, Songxiao"
+          },
+          {
+              "name": "Kelleher, Adam"
+          }
+      ],
+      "citekey": "h3py",
+      "collection": "bibtex",
+      "howpublished": "r\u0306lhttps://github.com/buzzfeed/pyh3",
+      "id": "h3py",
+      "note": "Accessed: 2021-06-06",
+      "sections": [
+          "hyperbolic",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "H3py Github Page",
+      "type": "misc",
+      "use_image": false,
+      "year": "2016"
+  },
+  {
+      "author": [
+          {
+              "name": "Gibson, Helen"
+          },
+          {
+              "name": "Faith, Joe"
+          },
+          {
+              "name": "Vickers, Paul"
+          }
+      ],
+      "citekey": "gibson2013survey",
+      "collection": "bibtex",
+      "id": "gibson2013survey",
+      "journal": {
+          "name": "Information visualization",
+          "volume": "12",
+          "number": "3-4",
+          "pages": "324--357"
+      },
+      "sections": [
+          "survey",
+          "GL"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "A survey of two-dimensional graph layout techniques for information visualisation",
+      "type": "article",
+      "use_image": false,
+      "year": "2013"
+  },
+  {
+      "author": [
+          {
+              "name": "Miller, Jacob"
+          },
+          {
+              "name": "Huroyan, Vahan"
+          },
+          {
+              "name": "Kobourov, Stephen"
+          }
+      ],
+      "booktitle": "Graph Drawing and Network Visualization: 30th International Symposium, GD 2022, Tokyo, Japan, September 13--16, 2022, Revised Selected Papers",
+      "citekey": "miller2023spherical",
+      "collection": "bibtex",
+      "id": "miller2023spherical",
+      "organization": "Springer",
+      "pages": "77--92",
+      "sections": [
+          "spherical",
+          "technique"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Spherical Graph Drawing by Multi-dimensional Scaling",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "2023"
+  },
+  {
+      "author": [
+          {
+              "name": "Du, Fan"
+          },
+          {
+              "name": "Cao, Nan"
+          },
+          {
+              "name": "Lin, Yu-Ru"
+          },
+          {
+              "name": "Xu, Panpan"
+          },
+          {
+              "name": "Tong, Hanghang"
+          }
+      ],
+      "booktitle": "Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems",
+      "citekey": "du2017isphere",
+      "collection": "bibtex",
+      "id": "du2017isphere",
+      "pages": "2916--2927",
+      "sections": [
+          "spherical",
+          "hyperbolic",
+          "user study"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "isphere: Focus+ context sphere visualization for interactive large graph exploration",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "2017"
+  },
+  {
+      "author": [
+          {
+              "name": "Chen, Kun-Ting"
+          },
+          {
+              "name": "Dwyer, Tim"
+          },
+          {
+              "name": "Bach, Benjamin"
+          },
+          {
+              "name": "Marriott, Kim"
+          }
+      ],
+      "booktitle": "Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems",
+      "citekey": "chen2021sa",
+      "collection": "bibtex",
+      "id": "chen2021sa",
+      "pages": "1--12",
+      "sections": [
+          "torus",
+          "technique"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "It\u2019s a wrap: Toroidal wrapping of network visualisations supports cluster understanding tasks",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "2021"
+  },
+  {
+      "author": [
+          {
+              "name": "Beck, Fabian"
+          },
+          {
+              "name": "Burch, Michael"
+          },
+          {
+              "name": "Diehl, Stephan"
+          },
+          {
+              "name": "Weiskopf, Daniel"
+          }
+      ],
+      "citekey": "DBLP:journals/cgf/BeckBDW17",
+      "collection": "bibtex",
+      "id": "DBLP:journals/cgf/BeckBDW17",
+      "journal": {
+          "name": "Comput. Graph. Forum",
+          "volume": "36",
+          "number": "1",
+          "pages": "133--159"
+      },
+      "sections": [
+          "survey"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "A Taxonomy and Survey of Dynamic Graph Visualization",
+      "type": "article",
+      "use_image": false,
+      "year": "2017"
+  },
+  {
+      "author": [
+          {
+              "name": "Wang, Chaoli"
+          },
+          {
+              "name": "Tao, Jun"
+          }
+      ],
+      "citekey": "DBLP:journals/cgf/WangT17",
+      "collection": "bibtex",
+      "id": "DBLP:journals/cgf/WangT17",
+      "journal": {
+          "name": "Comput. Graph. Forum",
+          "volume": "36",
+          "number": "1",
+          "pages": "263--287"
+      },
+      "sections": [
+          "survey"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Graphs in Scientific Visualization: A Survey",
+      "type": "article",
+      "use_image": false,
+      "year": "2017"
+  },
+  {
+      "author": [
+          {
+              "name": "Kale, Bharat"
+          },
+          {
+              "name": "Sun, Maoyuan"
+          },
+          {
+              "name": "Papka, Michael E"
+          }
+      ],
+      "booktitle": "Computer Graphics Forum",
+      "citekey": "kale2023state",
+      "collection": "bibtex",
+      "id": "kale2023state",
+      "number": "3",
+      "organization": "Wiley Online Library",
+      "pages": "471--490",
+      "sections": [
+          "survey"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "The State of the Art in Visualizing Dynamic Multivariate Networks",
+      "type": "inproceedings",
+      "use_image": false,
+      "volume": "42",
+      "year": "2023"
+  },
+  {
+      "author": [
+          {
+              "name": "Sch\u00f6ttler, Sarah"
+          },
+          {
+              "name": "Yang, Yalong"
+          },
+          {
+              "name": "Pfister, Hanspeter"
+          },
+          {
+              "name": "Bach, Benjamin"
+          }
+      ],
+      "citekey": "DBLP:journals/cgf/SchottlerYPB21",
+      "collection": "bibtex",
+      "id": "DBLP:journals/cgf/SchottlerYPB21",
+      "journal": {
+          "name": "Comput. Graph. Forum",
+          "volume": "40",
+          "number": "6",
+          "pages": "5--33"
+      },
+      "sections": [
+          "survey"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Visualizing and Interacting with Geospatial Networks: A Survey and\nDesign Space",
+      "type": "article",
+      "use_image": false,
+      "year": "2021"
+  },
+  {
+      "author": [
+          {
+              "name": "McGee, Fintan"
+          },
+          {
+              "name": "Ghoniem, Mohammad"
+          },
+          {
+              "name": "Melan\u00e7on, Guy"
+          },
+          {
+              "name": "Otjacques, Beno\u00eet"
+          },
+          {
+              "name": "Pinaud, Bruno"
+          }
+      ],
+      "citekey": "DBLP:journals/cgf/McGeeGMOP19",
+      "collection": "bibtex",
+      "id": "DBLP:journals/cgf/McGeeGMOP19",
+      "journal": {
+          "name": "Comput. Graph. Forum",
+          "volume": "38",
+          "number": "6",
+          "pages": "125--149"
+      },
+      "sections": [
+          "survey"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "The State of the Art in Multilayer Network Visualization",
+      "type": "article",
+      "use_image": false,
+      "year": "2019"
+  },
+  {
+      "author": [
+          {
+              "name": "Di Bartolomeo, Sara"
+          },
+          {
+              "name": "Crnovrsanin, Tarik"
+          },
+          {
+              "name": "Saffo, David"
+          },
+          {
+              "name": "Dunne, Cody"
+          }
+      ],
+      "citekey": "di2023designing",
+      "collection": "bibtex",
+      "id": "di2023designing",
+      "sections": [
+          "survey"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Designing Computational Evaluations for Graph Layout Algorithms: the State of the Art",
+      "type": "article",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "name": "B\u00f6rner, Katy"
+          },
+          {
+              "name": "Klavans, Richard"
+          },
+          {
+              "name": "Patek, Michael"
+          },
+          {
+              "name": "Zoss, Angela M."
+          },
+          {
+              "name": "Biberstine, Joseph R."
+          },
+          {
+              "name": "Light, Robert P."
+          },
+          {
+              "name": "Larivi\u00e8re, Vincent"
+          },
+          {
+              "name": "Boyack, Kevin W."
+          }
+      ],
+      "citekey": "borner2012",
+      "collection": "bibtex",
+      "id": "borner2012",
+      "journal": {
+          "name": "PLOS ONE",
+          "volume": "7",
+          "number": "7",
+          "pages": "1--10",
+          "month": "07"
+      },
+      "sections": [
+          "survey"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Design and Update of a Classification System: The UCSD Map of Science",
+      "type": "article",
+      "use_image": false,
+      "year": "2012"
+  },
+  {
+      "author": [
+          {
+              "name": "Bonamy, Marthe"
+          },
+          {
+              "name": "Mohar, Bojan"
+          },
+          {
+              "name": "Wesolek, Alexandra"
+          }
+      ],
+      "booktitle": "Graph Drawing and Network Visualization - 28th International Symposium,\nGD 2020, Vancouver, BC, Canada, September 16-18, 2020, Revised Selected\nPapers",
+      "citekey": "DBLP:conf/gd/BonamyMW20",
+      "collection": "bibtex",
+      "editor": [
+          {
+              "name": {
+                  "name": "Auber, David",
+                  "ID": "AuberDavid"
+              }
+          },
+          {
+              "name": {
+                  "name": "Valtr, Pavel",
+                  "ID": "ValtrPavel"
+              }
+          }
+      ],
+      "id": "DBLP:conf/gd/BonamyMW20",
+      "pages": "341--355",
+      "publisher": {
+          "name": "Springer"
+      },
+      "sections": [
+          "spherical",
+          "theory"
+      ],
+      "series": "Lecture Notes in Computer Science",
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Limiting Crossing Numbers for Geodesic Drawings on the Sphere",
+      "type": "inproceedings",
+      "use_image": false,
+      "volume": "12590",
+      "year": "2020"
+  },
+  {
+      "author": [
+          {
+              "name": "Gross, Markus H"
+          },
+          {
+              "name": "Sprenger, Thomas C"
+          },
+          {
+              "name": "Finger, J"
+          }
+      ],
+      "booktitle": "Proceedings of VIZ'97: Visualization Conference, Information Visualization Symposium and Parallel Rendering Symposium",
+      "citekey": "gross1997visualizing",
+      "collection": "bibtex",
+      "id": "gross1997visualizing",
+      "organization": "IEEE",
+      "pages": "11--16",
+      "sections": [
+          "spherical",
+          "technique",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Visualizing information on a sphere",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "1997"
+  },
+  {
+      "author": [
+          {
+              "name": "Wu, Yingxin"
+          },
+          {
+              "name": "Takatsuka, Masahiro"
+          }
+      ],
+      "booktitle": "Proceedings of the 2006 Asia-Pacific Symposium on Information Visualisation-Volume 60",
+      "citekey": "wu2006visualizing",
+      "collection": "bibtex",
+      "id": "wu2006visualizing",
+      "pages": "77--83",
+      "sections": [
+          "spherical",
+          "application"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Visualizing multivariate network on the surface of a sphere",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "2006"
+  },
+  {
+      "author": [
+          {
+              "name": "Biedl, Therese"
+          }
+      ],
+      "booktitle": "Graph Drawing and Network Visualization - 30th International Symposium,\nGD 2022, Tokyo, Japan, September 13-16, 2022, Revised Selected Papers",
+      "citekey": "DBLP:conf/gd/Biedl22",
+      "collection": "bibtex",
+      "editor": [
+          {
+              "name": {
+                  "name": "Angelini, Patrizio",
+                  "ID": "AngeliniPatrizio"
+              }
+          },
+          {
+              "name": {
+                  "name": "Hanxleden, Reinhard von",
+                  "ID": "HanxledenReinhardvon"
+              }
+          }
+      ],
+      "id": "DBLP:conf/gd/Biedl22",
+      "pages": "404--417",
+      "publisher": {
+          "name": "Springer"
+      },
+      "sections": [
+          "theory",
+          "torus"
+      ],
+      "series": "Lecture Notes in Computer Science",
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Visibility Representations of Toroidal and Klein-bottle Graphs",
+      "type": "inproceedings",
+      "use_image": false,
+      "volume": "13764",
+      "year": "2022"
+  },
+  {
+      "author": [
+          {
+              "name": "Nobre, Carolina"
+          },
+          {
+              "name": "Meyer, Miriah D."
+          },
+          {
+              "name": "Streit, Marc"
+          },
+          {
+              "name": "Lex, Alexander"
+          }
+      ],
+      "citekey": "DBLP:journals/cgf/NobreMSL19",
+      "collection": "bibtex",
+      "id": "DBLP:journals/cgf/NobreMSL19",
+      "journal": {
+          "name": "Comput. Graph. Forum",
+          "volume": "38",
+          "number": "3",
+          "pages": "807--832"
+      },
+      "sections": [
+          "survey"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "The State of the Art in Visualizing Multivariate Networks",
+      "type": "article",
+      "use_image": false,
+      "year": "2019"
+  },
+  {
+      "author": [
+          {
+              "name": "Von Landesberger, Tatiana"
+          },
+          {
+              "name": "Kuijper, Arjan"
+          },
+          {
+              "name": "Schreck, Tobias"
+          },
+          {
+              "name": "Kohlhammer, J\u00f6rn"
+          },
+          {
+              "name": "van Wijk, Jarke J"
+          },
+          {
+              "name": "Fekete, J-D"
+          },
+          {
+              "name": "Fellner, Dieter W"
+          }
+      ],
+      "booktitle": "Computer graphics forum",
+      "citekey": "von2011visual",
+      "collection": "bibtex",
+      "id": "von2011visual",
+      "number": "6",
+      "organization": "Wiley Online Library",
+      "pages": "1719--1749",
+      "sections": [
+          "survey"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Visual analysis of large graphs: state-of-the-art and future research challenges",
+      "type": "inproceedings",
+      "use_image": false,
+      "volume": "30",
+      "year": "2011"
+  },
+  {
+      "author": [
+          {
+              "name": "Shneiderman, Ben"
+          },
+          {
+              "name": "Dunne, Cody"
+          },
+          {
+              "name": "Sharma, Puneet"
+          },
+          {
+              "name": "Wang, Ping"
+          }
+      ],
+      "citekey": "shneiderman2012innovation",
+      "collection": "bibtex",
+      "id": "shneiderman2012innovation",
+      "journal": {
+          "name": "Information Visualization",
+          "volume": "11",
+          "number": "2",
+          "pages": "87--105"
+      },
+      "sections": [
+          "hyperbolic",
+          "user study"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Innovation trajectories for information visualizations: Comparing treemaps, cone trees, and hyperbolic trees",
+      "type": "article",
+      "use_image": false,
+      "year": "2012"
+  },
+  {
+      "author": [
+          {
+              "name": "Furnas, George W."
+          }
+      ],
+      "booktitle": "Proceedings of the SIGCHI Conference on Human Factors in Computing\nSystems, CHI 1886, Boston, Massachusetts, USA, April 13-17, 1986",
+      "citekey": "DBLP:conf/chi/Furnas86",
+      "collection": "bibtex",
+      "editor": [
+          {
+              "name": {
+                  "name": "Mantei, Marilyn M.",
+                  "ID": "ManteiMarilynM"
+              }
+          },
+          {
+              "name": {
+                  "name": "Orbeton, Peter",
+                  "ID": "OrbetonPeter"
+              }
+          }
+      ],
+      "id": "DBLP:conf/chi/Furnas86",
+      "pages": "16--23",
+      "publisher": {
+          "name": "ACM"
+      },
+      "sections": [
+          "lens"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Generalized fisheye views",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "1986"
+  },
+  {
+      "author": [
+          {
+              "name": "Buja, Andreas"
+          },
+          {
+              "name": "McDonald, John Alan"
+          },
+          {
+              "name": "Michalak, J."
+          },
+          {
+              "name": "Stuetzle, Werner"
+          }
+      ],
+      "booktitle": "2nd IEEE Visualization Conference, IEEE Vis 1991, San Diego, CA,\nUSA, October 22-25, 1991, Proceedings",
+      "citekey": "DBLP:conf/visualization/BujaMMS91",
+      "collection": "bibtex",
+      "editor": [
+          {
+              "name": {
+                  "name": "Nielson, Gregory M.",
+                  "ID": "NielsonGregoryM"
+              }
+          },
+          {
+              "name": {
+                  "name": "Rosenblum, Lawrence J.",
+                  "ID": "RosenblumLawrenceJ"
+              }
+          }
+      ],
+      "id": "DBLP:conf/visualization/BujaMMS91",
+      "pages": "156--163",
+      "publisher": {
+          "name": "IEEE Computer Society Press"
+      },
+      "sections": [
+          "lens"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Interactive Data Visualization Using Focusing and Linking",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "1991"
+  },
+  {
+      "author": [
+          {
+              "name": "Becker, Richard A."
+          },
+          {
+              "name": "Eick, Stephen G."
+          },
+          {
+              "name": "Wilks, Allan R."
+          }
+      ],
+      "citekey": "DBLP:journals/tvcg/BeckerEW95",
+      "collection": "bibtex",
+      "id": "DBLP:journals/tvcg/BeckerEW95",
+      "journal": {
+          "name": "IEEE Trans. Vis. Comput. Graph.",
+          "volume": "1",
+          "number": "1",
+          "pages": "16--28"
+      },
+      "sections": [
+          "GD"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Visualizing Network Data",
+      "type": "article",
+      "use_image": false,
+      "year": "1995"
+  },
+  {
+      "author": [
+          {
+              "name": "Yoghourdjian, Vahan"
+          },
+          {
+              "name": "Archambault, Daniel"
+          },
+          {
+              "name": "Diehl, Stephan"
+          },
+          {
+              "name": "Dwyer, Tim"
+          },
+          {
+              "name": "Klein, Karsten"
+          },
+          {
+              "name": "Purchase, Helen C."
+          },
+          {
+              "name": "Wu, Hsiang-Yun"
+          }
+      ],
+      "citekey": "DBLP:journals/corr/abs-1809-00270",
+      "collection": "bibtex",
+      "id": "DBLP:journals/corr/abs-1809-00270",
+      "journal": {
+          "name": "CoRR",
+          "volume": "abs/1809.00270"
+      },
+      "sections": [
+          "survey"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Exploring the Limits of Complexity: A Survey of Empirical Studies\non Graph Visualisation",
+      "type": "article",
+      "use_image": false,
+      "year": "2018"
+  },
+  {
+      "author": [
+          {
+              "name": "Yang, Menglin"
+          },
+          {
+              "name": "Zhou, Min"
+          },
+          {
+              "name": "Li, Zhihao"
+          },
+          {
+              "name": "Liu, Jiahong"
+          },
+          {
+              "name": "Pan, Lujia"
+          },
+          {
+              "name": "Xiong, Hui"
+          },
+          {
+              "name": "King, Irwin"
+          }
+      ],
+      "citekey": "DBLP:journals/corr/abs-2202-13852",
+      "collection": "bibtex",
+      "id": "DBLP:journals/corr/abs-2202-13852",
+      "journal": {
+          "name": "CoRR",
+          "volume": "abs/2202.13852"
+      },
+      "sections": [
+          "application",
+          "hyperbolic",
+          "non-visual"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Hyperbolic Graph Neural Networks: A Review of Methods and Applications",
+      "type": "article",
+      "use_image": false,
+      "year": "2022"
+  },
+  {
+      "author": [
+          {
+              "name": "Yi, Ji Soo"
+          },
+          {
+              "name": "Kang, Youn ah"
+          },
+          {
+              "name": "Stasko, John T."
+          },
+          {
+              "name": "Jacko, Julie A."
+          }
+      ],
+      "citekey": "DBLP:journals/tvcg/YiKSJ07",
+      "collection": "bibtex",
+      "id": "DBLP:journals/tvcg/YiKSJ07",
+      "journal": {
+          "name": "IEEE Trans. Vis. Comput. Graph.",
+          "volume": "13",
+          "number": "6",
+          "pages": "1224--1231"
+      },
+      "sections": [
+          "theory"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Toward a Deeper Understanding of the Role of Interaction in Information\nVisualization",
+      "type": "article",
+      "use_image": false,
+      "year": "2007"
+  },
+  {
+      "author": [
+          {
+              "name": "Shneiderman, Ben"
+          }
+      ],
+      "booktitle": "Proceedings of the 1996 IEEE Symposium on Visual Languages, Boulder,\nColorado, USA, September 3-6, 1996",
+      "citekey": "DBLP:conf/vl/Shneiderman96",
+      "collection": "bibtex",
+      "id": "DBLP:conf/vl/Shneiderman96",
+      "pages": "336--343",
+      "publisher": {
+          "name": "IEEE Computer Society"
+      },
+      "sections": [
+          "taxonomy"
+      ],
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "The Eyes Have It: A Task by Data Type Taxonomy for Information Visualizations",
+      "type": "inproceedings",
+      "use_image": false,
+      "year": "1996"
+  },
+  {
+      "author": [
+          {
+              "@pid": "42/6663",
+              "text": "Luca Castelli Aleardi"
+          },
+          {
+              "@pid": "221/3388",
+              "text": "Gaspard Denis"
+          },
+          {
+              "@pid": "80/5167",
+              "text": "\u00c9ric Fusy"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.4230/LIPICS.SEA.2018.24",
+      "new_paper": true,
+      "sections": [
+          "spherical"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Fast Spherical Drawing of Triangulations: An Experimental Study of Graph Drawing Tools.",
+      "url": "https://dblp.org/rec/conf/wea/AleardiDF18",
+      "use_image": false
+  },
+
+  {
+      "author": [
+          {
+              "@pid": "67/9300",
+              "text": "Kun-Ting Chen"
+          },
+          {
+              "@pid": "183/8838",
+              "text": "Quynh Quang Ngo"
+          },
+          {
+              "@pid": "119/8784",
+              "text": "Kuno Kurzhals"
+          },
+          {
+              "@pid": "m/KimMarriott",
+              "text": "Kim Marriott"
+          },
+          {
+              "@pid": "21/6679",
+              "text": "Tim Dwyer"
+          },
+          {
+              "@pid": "80/6465",
+              "text": "Michael Sedlmair"
+          },
+          {
+              "@pid": "w/DanielWeiskopf",
+              "text": "Daniel Weiskopf"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.48550/ARXIV.2303.17066",
+      "new_paper": true,
+      "sections": [
+          "technique",
+          "torus",
+          "theory"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Reading Strategies for Graph Visualizations that Wrap Around in Torus Topology.",
+      "url": "https://dblp.org/rec/journals/corr/abs-2303-17066",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "275/7349",
+              "text": "Steve Wolligandt"
+          },
+          {
+              "@pid": "85/4516",
+              "text": "Thomas Wilde"
+          },
+          {
+              "@pid": "55/499",
+              "text": "Christian R\u00f6ssl"
+          },
+          {
+              "@pid": "t/HolgerTheisel",
+              "text": "Holger Theisel"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.1111/CGF.14183",
+      "new_paper": true,
+      "sections": [
+          "hyperbolic",
+          "visualization"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "A Modified Double Gyre with Ground Truth Hyperbolic Trajectories for Flow Visualization.",
+      "url": "https://dblp.org/rec/journals/cgf/WolligandtWRT21",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "284/6753",
+              "text": "Ming-Hsuan Kang"
+          },
+          {
+              "@pid": "94/8435",
+              "text": "Wu-Hsiung Lin"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.7155/JGAA.00551",
+      "new_paper": true,
+      "sections": [
+          "theory",
+          "spherical"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Equilateral Spherical Drawings of Planar Cayley Graphs.",
+      "url": "https://dblp.org/rec/journals/jgaa/KangL21",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "205/2872",
+              "text": "Myroslav Kryven"
+          },
+          {
+              "@pid": "94/2770",
+              "text": "Alexander Ravsky"
+          },
+          {
+              "@pid": "w/AlexanderWolff",
+              "text": "Alexander Wolff 0001"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.7155/JGAA.00495",
+      "new_paper": true,
+      "sections": [
+          "theory",
+          "spherical"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Drawing Graphs on Few Circles and Few Spheres.",
+      "url": "https://dblp.org/rec/journals/jgaa/KryvenRW19",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "126/0936",
+              "text": "Mithileysh Sathiyanarayanan"
+          },
+          {
+              "@pid": "65/10492",
+              "text": "Donato Pirozzi"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.1109/COMSNETS.2016.7439961",
+      "new_paper": true,
+      "sections": [
+          "spherical",
+          "application"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Spherule diagrams with graph for social network visualization.",
+      "url": "https://dblp.org/rec/conf/comsnets/Sathiyanarayanan16a",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "74/2172",
+              "text": "Sergio Cabello"
+          },
+          {
+              "@pid": "08/3382",
+              "text": "Bojan Mohar"
+          },
+          {
+              "@pid": "32/4283",
+              "text": "Robert S\u00e1mal"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.1016/J.ENDM.2015.06.105",
+      "new_paper": true,
+      "sections": [
+          "theory",
+          "torus"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Drawing a disconnected graph on the torus (Extended abstract).",
+      "url": "https://dblp.org/rec/journals/endm/CabelloMS15",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "87/575",
+              "text": "Oh-Hyun Kwon"
+          },
+          {
+              "@pid": "62/5695",
+              "text": "Chris Muelder"
+          },
+          {
+              "@pid": "63/728",
+              "text": "Kyungwon Lee"
+          },
+          {
+              "@pid": "93/5838",
+              "text": "Kwan-Liu Ma"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.1109/PACIFICVIS.2015.7156357",
+      "new_paper": true,
+      "sections": [
+          "spherical",
+          "technique"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Spherical layout and rendering methods for immersive graph visualization.",
+      "url": "https://dblp.org/rec/conf/apvis/KwonMLM15",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "30/11042",
+              "text": "Peichang Ouyang"
+          },
+          {
+              "@pid": "14/11042",
+              "text": "Dongsheng Cheng"
+          },
+          {
+              "@pid": "39/4117",
+              "text": "Yanhua Cao"
+          },
+          {
+              "@pid": "66/11041",
+              "text": "Xiaogen Zhan"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.1016/J.CAG.2011.12.005",
+      "new_paper": true,
+      "sections": [
+          "hyperbolic",
+          "application"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "The visualization of hyperbolic patterns from invariant mapping method.",
+      "url": "https://dblp.org/rec/journals/cg/OuyangCCZ12",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "26/2033",
+              "text": "Kazumi Saito"
+          },
+          {
+              "@pid": "28/3674",
+              "text": "Masahiro Kimura"
+          },
+          {
+              "@pid": "43/4213",
+              "text": "Kouzou Ohara"
+          },
+          {
+              "@pid": "08/6525",
+              "text": "Hiroshi Motoda"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.1145/2187980.2188253",
+      "new_paper": true,
+      "sections": [
+          "spherical",
+          "application"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Graph embedding on spheres and its application to visualization of information diffusion data.",
+      "url": "https://dblp.org/rec/conf/www/SaitoKOM12",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "e/DEppstein",
+              "text": "David Eppstein"
+          },
+          {
+              "@pid": "g/MichaelTGoodrich",
+              "text": "Michael T. Goodrich"
+          }
+      ],
+      "booktitle": "",
+      "doi": "",
+      "new_paper": true,
+      "sections": [
+          "hyperbolic",
+          "theory"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Succinct Greedy Graph Drawing in the Hyperbolic Plane",
+      "url": "https://dblp.org/rec/journals/corr/abs-0806-0341",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "28/6557",
+              "text": "George K. Francis"
+          },
+          {
+              "@pid": "54/2253",
+              "text": "John M. Sullivan"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.1109/TVCG.2004.33",
+      "new_paper": true,
+      "sections": [
+          "spherical",
+          "visualization"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Visualizing a Sphere Eversion.",
+      "url": "https://dblp.org/rec/journals/tvcg/FrancisS04",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "41/6390",
+              "text": "Archana P. Sangole"
+          },
+          {
+              "@pid": "93/2506",
+              "text": "George K. Knopf"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.1016/J.CAG.2003.08.012",
+      "new_paper": true,
+      "sections": [
+          "spherical",
+          "application"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "Visualization of randomly ordered numeric data sets using spherical self-organizing feature maps.",
+      "url": "https://dblp.org/rec/journals/cg/SangoleK03",
+      "use_image": false
+  },
+  {
+      "author": [
+          {
+              "@pid": "50/1266",
+              "text": "Andrea Donafee"
+          },
+          {
+              "@pid": "05/2263",
+              "text": "Carsten Maple"
+          }
+      ],
+      "booktitle": "",
+      "doi": "10.1109/IV.2003.1217979",
+      "new_paper": true,
+      "sections": [
+          "spherical"
+      ],        
+      "summarized": false,
+      "summarizer": "unassigned",
+      "title": "A Graph Drawing Algorithm for Spherical Pictures.",
+      "url": "https://dblp.org/rec/conf/iv/DonafeeM03",
+      "use_image": false
+  }
 ]

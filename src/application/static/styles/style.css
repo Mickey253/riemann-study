@@ -54,6 +54,12 @@ g {
     flex: 1;
 }
 
+.question-node{
+    fill: "black";
+    stroke: "grey";
+    stroke-width: 2px;
+}
+
 .submit-button {
   background-color: #000000;
   width: 5vw;

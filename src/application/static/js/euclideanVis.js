@@ -37,6 +37,7 @@ class EuclideanVis {
     }
 
     process(){
+        //TODO: Change aspect ratio to square
         let xextent = d3.extent(this.nodes, d => d.euclidean.x);
         let yextent = d3.extent(this.nodes, d => d.euclidean.y);
 
@@ -147,7 +148,10 @@ class EuclideanVis {
 
     highlight_question(id_list, color) {
         this.layer1.selectAll(".nodes").filter(n => id_list.includes("node_" + n.id))
-            .attr("fill", color)
+            .attr("fill", "red")
+            .attr("stroke", "black")
+            .attr("stroke-width", 3)
+            .attr("r", this.#nodeRadiusLarge + 5);
     }
 
     resetToDefault(){

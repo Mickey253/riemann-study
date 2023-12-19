@@ -86,7 +86,7 @@
         },
         {
             "q_id": "conn-T6-1",
-            "q_text": "What is the length of the shortest path between the two highlighted nodes?",
+            "q_text": "What is the distance of the shortest path between the two highlighted nodes?",
             "q_options": {
                 "option_1" : 3,
                 "option_2" : 4,
@@ -109,7 +109,7 @@
         },
         {
             "q_id": "conn-T6-2",
-            "q_text": "What is the length of the shortest path between the two highlighted nodes?",
+            "q_text": "What is the distance of the shortest path between the two highlighted nodes?",
             "q_options": {
                 "option_1" : 3,
                 "option_2" : 4,
