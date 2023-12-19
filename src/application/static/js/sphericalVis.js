@@ -194,8 +194,8 @@ class SphericalVis {
            })
     }
 
-    interact() {
-        this.addHover();
+    interact(id_list) {
+        this.addHover(id_list);
         this.addWheel();
         this.addDblclick();
     }
@@ -204,6 +204,11 @@ class SphericalVis {
         //This is not good, since we append things.....
         this.process();
         this.draw();
+    }
+
+    highlight_question(id_list, color) {
+        d3.selectAll(".sites").filter(n => id_list.includes("#sph_node_" + n.geometry.label))
+            .attr("fill", color)
     }
 
 }

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid" id="main-body">
+       <div class="row" id="main">
+        <div class="col-3" id="sidebar">
+            User ID: {{id}} <br>
+        </div>
+        <div class="col-9" id="visualization-container">
+            <div class="col-md-6 offset-md-2 feedback-con">
+                <form id="feedback-form" action="{{ url_for('store_feedback', id=id) }}">
+                    <label class="feedback-label" for="fq1">Was there any question you found particularly difficult or time consuming?</label>
+                    <textarea class="feedback-input" id="fq1" name="fq1" placeholder="Type here..."></textarea>
+                    <label class="feedback-label" for="fq2">Did you have any problems taking this study?</label>
+                    <textarea class="feedback-input" id="fq2" name="fq2" placeholder="Type here..."></textarea>
+                    <label class="feedback-label" for="fq3">Please leave any other comments or observations to help us improve the study.</label>
+                    <textarea class="feedback-input" id="fq3" name="fq3" placeholder="Type here..."></textarea>
+                    <br>
+                    <button type="submit" id="feedback-submit" class="submit-button">Submit</button>
+                </form>
+            </div>
+            
+        </div>
+        </div>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+
+</script>
+{% endblock %}

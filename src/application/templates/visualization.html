@@ -36,7 +36,6 @@
         let vis = new EuclideanVis("#mainVis", data.nodes, data.links);
         vis.process();
         vis.draw();
-        console.log(question_obj["node"]["type_1"]);
         if (question_obj["node"]["type_2"].length != 0) {
             vis.highlight_question(question_obj["node"]["type_1"], "#a837e6");
             vis.highlight_question(question_obj["node"]["type_2"], "#57d132");
@@ -69,19 +68,30 @@
             submitButton.setAttribute("type", "submit")
             submitButton.classList.add("submit-button")
             questionChoices.appendChild(submitButton);
-            
-            var question_queue = ["adj-fil-T2b-1", "adj-fil-T2b-2", "comcon-T5-1", "comcon-T5-2", "conn-T6-1", "conn-T6-2", "over-T9-1", "over-T9-2", "acc-T11-1", "acc-T11-2", "adj-T12-1", "adj-T12-2"]
-            var index = question_queue.indexOf(questionID) + 1
-            var next_q = question_queue[index]
-            var action_statement;
-            console.log(question_queue.length)
-            console.log(index)
-            if (index == question_queue.length) {
-                action_statement = `{{ url_for('euc_view_end', id=id) }}`
-            } else {
-                action_statement = `{{ url_for('euc_view', id=id, q='${next_q}')|unquote }}`
+
+            var resetButton = document.createElement("button")
+            resetButton.classList.add("reset-button")
+            document.getElementById("navbarToggler").appendChild(resetButton)
+            resetButton.appendChild(document.createTextNode('Reset Visualization'));
+            resetButton.onclick = function() {
+                // Define function here for resetting visualization
             }
-            
+
+            var current_answer = 'null'
+            for (var i = 0; i < question_options.length; i++) {
+                
+                var option = document.getElementById(question_options[i]);
+                console.log(option);
+                option.addEventListener('change', (e) => {
+                    current_answer = e.target.id;
+                    var action_statement = `{{ url_for('next_question', id=id, q='${questionID}', a='${current_answer}')|unquote }}`
+                    console.log(action_statement);
+                    document.getElementById('question-options-euc').action = action_statement; 
+                })
+            }
+           
+            var action_statement = `{{ url_for('next_question', id=id, q='${questionID}', a='${current_answer}')|unquote }}`
+            console.log(action_statement);
             document.getElementById('question-options-euc').action = action_statement; 
         }
 
