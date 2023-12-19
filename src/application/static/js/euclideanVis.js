@@ -59,9 +59,9 @@ class EuclideanVis {
             .data(this.links, d => d.source.id + d.target.id)
             .join(
                 enter => enter.append("line")
-                    .attr("class", "links")
-                    .attr("stroke", "grey")
-                    .attr("stroke-width", 2)
+                    .attr("class", "links default-link")
+                    // .attr("stroke", "grey")
+                    // .attr("stroke-width", 2)
                     .attr("x1", d => d.source.x)
                     .attr("y1", d => d.source.y)
                     .attr("x2", d => d.target.x)
@@ -76,9 +76,9 @@ class EuclideanVis {
             .data(this.nodes, d => d.id)
             .join(
                 enter => enter.append("circle")
-                    .attr("class", "nodes")
+                    .attr("class", "nodes default-node")
                     .attr("stroke", "black")
-                    .attr("fill", this.#colors[0])
+                    // .attr("fill", this.#colors[0])
                     .attr("cx", d => d.x)
                     .attr("cy", d => d.y)
                     .attr("r", this.#nodeRadiusLarge),
@@ -106,21 +106,21 @@ class EuclideanVis {
         this.layer1.selectAll(".nodes")
             .on("mouseenter", function(e,d) {
                 if (!id_list.includes("node_" + d.id)) {
-                    d3.select(this).attr("fill", tthis.#colors[2]); //function(){} syntax has a different "this" which is the svg element attached.
+                    d3.select(this).attr("class", "nodes hover-node"); //function(){} syntax has a different "this" which is the svg element attached.
                 }
 
                 tthis.layer1.selectAll(".nodes").filter(n => d.neighbors.has(n.id) && !id_list.includes("node_" + n.id))
-                    .attr("fill", tthis.#colors[1]); //We added an adjacency list data structure in preprocessing to make this efficient. 
+                    .attr("class", "nodes hover-neighbor-node"); //We added an adjacency list data structure in preprocessing to make this efficient. 
 
                 tthis.layer1.selectAll(".links").filter(e => e.source.id === d.id || e.target.id === d.id)
-                    .attr("stroke-width", 4);
+                    .attr("class", "links hover-link");
             })
             .on("mouseleave", (e, d) => {
                 this.layer1.selectAll(".nodes").filter(n => !id_list.includes("node_" + n.id))
-                    .attr("fill", this.#colors[0]);
+                    .attr("class", "nodes default-node");
                 
                 this.layer1.selectAll(".links")
-                    .attr("stroke-width", 2);
+                    .attr("class", "links default-link");
             });
     }
 
@@ -148,10 +148,10 @@ class EuclideanVis {
 
     highlight_question(id_list, color) {
         this.layer1.selectAll(".nodes").filter(n => id_list.includes("node_" + n.id))
-            .attr("fill", "red")
-            .attr("stroke", "black")
-            .attr("stroke-width", 3)
-            .attr("r", this.#nodeRadiusLarge + 5);
+            .attr("class", "nodes question-node")
+            // .attr("stroke", "black")
+            // .attr("stroke-width", 3)
+            // .attr("r", this.#nodeRadiusLarge + 5);
     }
 
     resetToDefault(){

@@ -172,7 +172,6 @@ def user_index_form():
 @app.route('/euclidean/test/next<id>_<q>_<a>')
 def next_question(id, q, a):
     user_answers[q] = a
-    print(user_answers)
     query = { "id" : id}
     update = {"$set": { "results": user_answers } }
     riemannCollection.update_one(query, update)
@@ -182,6 +181,19 @@ def next_question(id, q, a):
     else:
         next_q = question_queue[next_q_index]
         return redirect(url_for("euc_view", id=id, q=next_q))
+    
+@app.route('/spherical/test/next<id>_<q>_<a>')
+def sph_next_question(id, q, a):
+    user_answers[q] = a
+    query = { "id" : id}
+    update = {"$set": { "results": user_answers } }
+    riemannCollection.update_one(query, update)
+    next_q_index = question_queue.index(q) + 1
+    if next_q_index >= len(question_queue):
+        return redirect(url_for("get_feedback", id=id))
+    else:
+        next_q = question_queue[next_q_index]
+        return redirect(url_for("sph_view", id=id, q=next_q))
     
 @app.route('/get-feedback<id>')
 def get_feedback(id):

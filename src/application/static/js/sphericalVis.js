@@ -128,8 +128,8 @@ class SphericalVis {
             .data(this.linkRoutes, (d,i) => i)
             .join(
                 enter => enter.append("path")
-                    .attr("class", "links")
-                    .style("stroke-width", 1)
+                    .attr("class", "links default-link")
+                    // .style("stroke-width", 1)
                     .attr("d", this.geopath),
                 update => update 
                     .attr("d", this.geopath)
@@ -142,9 +142,9 @@ class SphericalVis {
             .data(this.nodePos.features, (d,i) => d.geometry.label)
             .join(
                 enter => enter.append('path')
-                    .attr("class", "sites")
+                    .attr("class", "sites default-node")
                     .attr('d', this.geopath)
-                    .attr('fill', this.#colors[0])
+                    // .attr('fill', this.#colors[0])
                     .attr('stroke', "black"),
                     // .attr('pointer-events', 'visibleStroke'),
                 update => update    
@@ -162,25 +162,25 @@ class SphericalVis {
         })
     }
 
-    addHover(){
+    addHover(id_list){
         var tthis = this;
         this.svg.selectAll(".sites")
             .on("mouseenter", function(e,pnt) {
-                d3.select(this).attr("fill", tthis.#colors[2]); //function(){} syntax has a different "this" which is the svg element attached.
+                d3.select(this).filter(n => !id_list.includes("#sph_node_" + n.geometry.label)).attr("class", "sites hover-node"); //function(){} syntax has a different "this" which is the svg element attached.
                 
                 let d = tthis.nodes[tthis.idMap.get(pnt.geometry.label)];
-                tthis.svg.selectAll(".sites").filter(n => d.neighbors.has(n.geometry.label))
-                    .attr("fill", tthis.#colors[1]); //We added an adjacency list data structure in preprocessing to make this efficient. 
+                tthis.svg.selectAll(".sites").filter(n => d.neighbors.has(n.geometry.label)).filter(n => !id_list.includes("#sph_node_" + n.geometry.label))
+                    .attr("class", "sites hover-neighbor-node"); //We added an adjacency list data structure in preprocessing to make this efficient. 
 
                 tthis.svg.selectAll(".links").filter(e => e.source.id === d.id || e.target.id === d.id)
-                    .style("stroke-width", 4);
+                    .attr("class", "links hover-link");
             })
             .on("mouseleave", (e, d) => {
-                this.svg.selectAll(".sites")//.filter(n => !id_list.includes("node_" + n.id))
-                    .attr("fill", this.#colors[0]);
+                this.svg.selectAll(".sites").filter(n => !id_list.includes("#sph_node_" + n.geometry.label))
+                    .attr("class", "sites default-node");
                 
                 this.svg.selectAll(".links")
-                    .style("stroke-width", 1);
+                .attr("class", "links default-link");
             });
     }
 
@@ -208,7 +208,7 @@ class SphericalVis {
 
     highlight_question(id_list, color) {
         d3.selectAll(".sites").filter(n => id_list.includes("#sph_node_" + n.geometry.label))
-            .attr("fill", color)
+            .attr("class", "sites question-node")
     }
 
 }

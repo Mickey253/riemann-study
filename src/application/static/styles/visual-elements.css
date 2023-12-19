@@ -1,0 +1,25 @@
+.default-node {
+    fill: rgb(0, 152, 202);
+}
+
+.hover-node {
+    fill: rgb(1, 173, 1);
+}
+
+.hover-neighbor-node {
+    fill: rgb(255, 80, 80);
+}
+
+.question-node {
+    fill: rgb(255, 166, 0);
+}
+
+.default-link {
+    stroke: grey;
+    stroke-width: 1.5;
+}
+
+.hover-link {
+    stroke: rgb(77, 77, 77);
+    stroke-width: 3;
+}
