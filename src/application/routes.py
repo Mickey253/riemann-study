@@ -208,7 +208,7 @@ def store_feedback(id):
     feedback_answers["fq2"] = fq2
     feedback_answers["fq3"] = fq3
     query = { "id" : id}
-    update = {"$set": { "feedback": feedback_answers } }
+    update = {"$set": { "feedback": feedback_answers, "completed_test": False } }
     riemannCollection.update_one(query, update)
     return redirect(url_for("end"))
 

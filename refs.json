@@ -2753,11 +2753,11 @@
           "hyperbolic",
           "theory"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Succinct Greedy Graph Drawing in the Hyperbolic Plane",
       "url": "https://dblp.org/rec/journals/corr/abs-0806-0341",
-      "use_image": false
+      "use_image": true
   },
   {
       "author": [
@@ -2777,8 +2777,8 @@
           "spherical",
           "visualization"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Visualizing a Sphere Eversion.",
       "url": "https://dblp.org/rec/journals/tvcg/FrancisS04",
       "use_image": false
@@ -2801,11 +2801,11 @@
           "spherical",
           "application"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Visualization of randomly ordered numeric data sets using spherical self-organizing feature maps.",
       "url": "https://dblp.org/rec/journals/cg/SangoleK03",
-      "use_image": false
+      "use_image": true
   },
   {
       "author": [
@@ -2824,8 +2824,8 @@
       "sections": [
           "spherical"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "A Graph Drawing Algorithm for Spherical Pictures.",
       "url": "https://dblp.org/rec/conf/iv/DonafeeM03",
       "use_image": false
