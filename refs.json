@@ -2605,8 +2605,8 @@
           "spherical",
           "application"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Spherule diagrams with graph for social network visualization.",
       "url": "https://dblp.org/rec/conf/comsnets/Sathiyanarayanan16a",
       "use_image": false
@@ -2633,8 +2633,8 @@
           "theory",
           "torus"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Drawing a disconnected graph on the torus (Extended abstract).",
       "url": "https://dblp.org/rec/journals/endm/CabelloMS15",
       "use_image": false
@@ -2665,8 +2665,8 @@
           "spherical",
           "technique"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Spherical layout and rendering methods for immersive graph visualization.",
       "url": "https://dblp.org/rec/conf/apvis/KwonMLM15",
       "use_image": false
@@ -2697,11 +2697,11 @@
           "hyperbolic",
           "application"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "The visualization of hyperbolic patterns from invariant mapping method.",
       "url": "https://dblp.org/rec/journals/cg/OuyangCCZ12",
-      "use_image": false
+      "use_image": true
   },
   {
       "author": [
@@ -2729,8 +2729,8 @@
           "spherical",
           "application"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Graph embedding on spheres and its application to visualization of information diffusion data.",
       "url": "https://dblp.org/rec/conf/www/SaitoKOM12",
       "use_image": false
