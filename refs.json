@@ -2013,8 +2013,8 @@
           "spherical",
           "application"
       ],
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Visualizing multivariate network on the surface of a sphere",
       "type": "inproceedings",
       "use_image": false,
@@ -2053,8 +2053,8 @@
           "torus"
       ],
       "series": "Lecture Notes in Computer Science",
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Visibility Representations of Toroidal and Klein-bottle Graphs",
       "type": "inproceedings",
       "use_image": false,
@@ -2088,11 +2088,11 @@
       "sections": [
           "survey"
       ],
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "The State of the Art in Visualizing Multivariate Networks",
       "type": "article",
-      "use_image": false,
+      "use_image": true,
       "year": "2019"
   },
   {
@@ -2129,11 +2129,11 @@
       "sections": [
           "survey"
       ],
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Visual analysis of large graphs: state-of-the-art and future research challenges",
       "type": "inproceedings",
-      "use_image": false,
+      "use_image": true,
       "volume": "30",
       "year": "2011"
   },
@@ -2165,11 +2165,11 @@
           "hyperbolic",
           "user study"
       ],
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Innovation trajectories for information visualizations: Comparing treemaps, cone trees, and hyperbolic trees",
       "type": "article",
-      "use_image": false,
+      "use_image": true,
       "year": "2012"
   },
   {
@@ -2203,8 +2203,8 @@
       "sections": [
           "lens"
       ],
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Generalized fisheye views",
       "type": "inproceedings",
       "use_image": false,
@@ -2250,11 +2250,11 @@
       "sections": [
           "lens"
       ],
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Interactive Data Visualization Using Focusing and Linking",
       "type": "inproceedings",
-      "use_image": false,
+      "use_image": true,
       "year": "1991"
   },
   {
@@ -2281,11 +2281,11 @@
       "sections": [
           "GD"
       ],
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Visualizing Network Data",
       "type": "article",
-      "use_image": false,
+      "use_image": true,
       "year": "1995"
   },
   {
@@ -2322,8 +2322,8 @@
       "sections": [
           "survey"
       ],
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Exploring the Limits of Complexity: A Survey of Empirical Studies\non Graph Visualisation",
       "type": "article",
       "use_image": false,
@@ -2365,8 +2365,8 @@
           "hyperbolic",
           "non-visual"
       ],
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Hyperbolic Graph Neural Networks: A Review of Methods and Applications",
       "type": "article",
       "use_image": false,
@@ -2399,11 +2399,11 @@
       "sections": [
           "theory"
       ],
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Toward a Deeper Understanding of the Role of Interaction in Information\nVisualization",
       "type": "article",
-      "use_image": false,
+      "use_image": true,
       "year": "2007"
   },
   {
@@ -2423,11 +2423,11 @@
       "sections": [
           "taxonomy"
       ],
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "The Eyes Have It: A Task by Data Type Taxonomy for Information Visualizations",
       "type": "inproceedings",
-      "use_image": false,
+      "use_image": true,
       "year": "1996"
   },
   {
@@ -2451,11 +2451,11 @@
       "sections": [
           "spherical"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Fast Spherical Drawing of Triangulations: An Experimental Study of Graph Drawing Tools.",
       "url": "https://dblp.org/rec/conf/wea/AleardiDF18",
-      "use_image": false
+      "use_image": true
   },
 
   {
@@ -2497,11 +2497,11 @@
           "torus",
           "theory"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Reading Strategies for Graph Visualizations that Wrap Around in Torus Topology.",
       "url": "https://dblp.org/rec/journals/corr/abs-2303-17066",
-      "use_image": false
+      "use_image": true
   },
   {
       "author": [
@@ -2530,7 +2530,7 @@
           "visualization"
       ],        
       "summarized": false,
-      "summarizer": "unassigned",
+      "summarizer": "Dhruv",
       "title": "A Modified Double Gyre with Ground Truth Hyperbolic Trajectories for Flow Visualization.",
       "url": "https://dblp.org/rec/journals/cgf/WolligandtWRT21",
       "use_image": false
@@ -2554,7 +2554,7 @@
           "spherical"
       ],        
       "summarized": false,
-      "summarizer": "unassigned",
+      "summarizer": "Dhruv",
       "title": "Equilateral Spherical Drawings of Planar Cayley Graphs.",
       "url": "https://dblp.org/rec/journals/jgaa/KangL21",
       "use_image": false
@@ -2581,8 +2581,8 @@
           "theory",
           "spherical"
       ],        
-      "summarized": false,
-      "summarizer": "unassigned",
+      "summarized": true,
+      "summarizer": "Dhruv",
       "title": "Drawing Graphs on Few Circles and Few Spheres.",
       "url": "https://dblp.org/rec/journals/jgaa/KryvenRW19",
       "use_image": false
