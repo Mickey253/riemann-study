@@ -2050,7 +2050,8 @@
       },
       "sections": [
           "theory",
-          "torus"
+          "torus",
+          "proof"
       ],
       "series": "Lecture Notes in Computer Science",
       "summarized": true,
@@ -2127,7 +2128,8 @@
       "organization": "Wiley Online Library",
       "pages": "1719--1749",
       "sections": [
-          "survey"
+          "survey",
+          "large"
       ],
       "summarized": true,
       "summarizer": "Dhruv",
@@ -2163,7 +2165,8 @@
       },
       "sections": [
           "hyperbolic",
-          "user study"
+          "user study",
+          "survey"
       ],
       "summarized": true,
       "summarizer": "Dhruv",
@@ -2449,7 +2452,10 @@
       "doi": "10.4230/LIPICS.SEA.2018.24",
       "new_paper": true,
       "sections": [
-          "spherical"
+          "spherical",
+          "experiment",
+          "small",
+          "large"
       ],        
       "summarized": true,
       "summarizer": "Dhruv",
@@ -2495,7 +2501,8 @@
       "sections": [
           "technique",
           "torus",
-          "theory"
+          "theory",
+          "user study"
       ],        
       "summarized": true,
       "summarizer": "Dhruv",
@@ -2530,7 +2537,7 @@
           "visualization"
       ],        
       "summarized": false,
-      "summarizer": "Dhruv",
+      "summarizer": "unassigned",
       "title": "A Modified Double Gyre with Ground Truth Hyperbolic Trajectories for Flow Visualization.",
       "url": "https://dblp.org/rec/journals/cgf/WolligandtWRT21",
       "use_image": false
@@ -2554,7 +2561,7 @@
           "spherical"
       ],        
       "summarized": false,
-      "summarizer": "Dhruv",
+      "summarizer": "unassigned",
       "title": "Equilateral Spherical Drawings of Planar Cayley Graphs.",
       "url": "https://dblp.org/rec/journals/jgaa/KangL21",
       "use_image": false
@@ -2579,7 +2586,9 @@
       "new_paper": true,
       "sections": [
           "theory",
-          "spherical"
+          "spherical",
+          "planar",
+          "proof"
       ],        
       "summarized": true,
       "summarizer": "Dhruv",
@@ -2602,8 +2611,10 @@
       "doi": "10.1109/COMSNETS.2016.7439961",
       "new_paper": true,
       "sections": [
-          "spherical",
-          "application"
+          "matrix-based visualization",
+          "application",
+          "user study",
+          "small"
       ],        
       "summarized": true,
       "summarizer": "Dhruv",
@@ -2631,7 +2642,8 @@
       "new_paper": true,
       "sections": [
           "theory",
-          "torus"
+          "torus",
+          "proof"
       ],        
       "summarized": true,
       "summarizer": "Dhruv",
@@ -2663,7 +2675,8 @@
       "new_paper": true,
       "sections": [
           "spherical",
-          "technique"
+          "technique",
+          "IVR"
       ],        
       "summarized": true,
       "summarizer": "Dhruv",
@@ -2695,7 +2708,8 @@
       "new_paper": true,
       "sections": [
           "hyperbolic",
-          "application"
+          "application",
+          "proof"
       ],        
       "summarized": true,
       "summarizer": "Dhruv",
@@ -2727,7 +2741,9 @@
       "new_paper": true,
       "sections": [
           "spherical",
-          "application"
+          "application",
+          "large",
+          "undirected"
       ],        
       "summarized": true,
       "summarizer": "Dhruv",
@@ -2751,7 +2767,8 @@
       "new_paper": true,
       "sections": [
           "hyperbolic",
-          "theory"
+          "theory",
+          "proof"
       ],        
       "summarized": true,
       "summarizer": "Dhruv",
@@ -2822,7 +2839,8 @@
       "doi": "10.1109/IV.2003.1217979",
       "new_paper": true,
       "sections": [
-          "spherical"
+          "spherical",
+          "planar"
       ],        
       "summarized": true,
       "summarizer": "Dhruv",
